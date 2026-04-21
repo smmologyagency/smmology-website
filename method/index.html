@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Martini Method — Smmology</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:  '#161B28',
+            slate: '#404C70',
+            mauve: '#907A9A',
+            pink:  '#EDA4BF',
+            blush: '#FFE2EA',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #161B28; color: #FFFFFF; }
+    em   { font-style: italic; color: #EDA4BF; font-family: 'Playfair Display', serif; }
+    .nav-link  { color: #907A9A; transition: color .2s; }
+    .nav-link:hover { color: #EDA4BF; }
+    .btn-primary { background: #EDA4BF; color: #161B28; font-weight: 600; transition: opacity .2s; }
+    .btn-primary:hover { opacity: .88; }
+    .btn-outline { border: 1px solid #EDA4BF; color: #EDA4BF; transition: background .2s; }
+    .btn-outline:hover { background: rgba(237,164,191,.12); }
+    .card         { background: #1e2338; border: 1px solid #2b3050; }
+    .card-popular { background: linear-gradient(145deg,#2b2040,#1e2338); border: 1px solid #EDA4BF; }
+    .divider      { border-color: #2b3050; }
+    .stage        { background: #1e2338; border-left: 3px solid #EDA4BF; }
+    .check        { color: #EDA4BF; font-weight: 700; }
+    .stat         { background: linear-gradient(135deg,#1e2338,#252b42); border: 1px solid #2b3050; }
+  </style>
+</head>
+<body class="font-sans antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-[#2b3050] bg-navy/90 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="font-serif text-lg tracking-wide text-white">Smmology</a>
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a href="/#services"  class="nav-link">Services</a>
+        <a href="#pricing"    class="nav-link">Pricing</a>
+        <a href="/#about"     class="nav-link">About Diana</a>
+        <a href="/#contact"   class="btn-primary px-5 py-2 rounded-full text-sm">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto">
+    <div class="inline-block border border-[#2b3050] rounded-full px-4 py-1.5 text-xs text-mauve mb-8 tracking-widest uppercase">Smmology · The Framework</div>
+    <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
+      Stop guessing. Start <em>pouring</em> with purpose.
+    </h1>
+    <p class="text-[#b0b8cc] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+      The Martini Method is the organic content funnel strategy that moves your audience from cold stranger to paying client — with an AI toolkit completely personalized to your business, your niche, and your schedule.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+      <a href="#pricing"   class="btn-primary px-8 py-3.5 rounded-full text-base inline-block">Get the Method →</a>
+      <a href="#framework" class="btn-outline px-8 py-3.5 rounded-full text-base inline-block">See how it works →</a>
+    </div>
+    <p class="text-mauve text-sm">100+ CEOs have used this method</p>
+  </section>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- PROBLEM -->
+  <section class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-pink text-sm tracking-widest uppercase mb-4">Sound familiar?</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">You're posting. But nothing is <em>converting.</em></h2>
+      <p class="text-[#b0b8cc] text-lg max-w-2xl mx-auto leading-relaxed">
+        You didn't start a business to become a content creator. Yet here you are — spending hours staring at a blank caption box, posting inconsistently, and wondering why your followers aren't turning into clients. The problem isn't your content. It's that you don't have a <em>strategy.</em>
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="stat rounded-2xl p-8 text-center">
+        <div class="font-serif text-5xl font-bold text-pink mb-3">87%</div>
+        <p class="text-[#b0b8cc] text-sm leading-relaxed">of business owners post without a clear content strategy</p>
+      </div>
+      <div class="stat rounded-2xl p-8 text-center">
+        <div class="font-serif text-5xl font-bold text-pink mb-3">3×</div>
+        <p class="text-[#b0b8cc] text-sm leading-relaxed">more leads generated with a structured content funnel</p>
+      </div>
+      <div class="stat rounded-2xl p-8 text-center">
+        <div class="font-serif text-5xl font-bold text-pink mb-3">0</div>
+        <p class="text-[#b0b8cc] text-sm leading-relaxed">paid ads needed — this is 100% organic content strategy</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- FRAMEWORK -->
+  <section id="framework" class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-pink text-sm tracking-widest uppercase mb-4">The framework</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">A content funnel as smooth as a <em>perfect martini.</em></h2>
+      <p class="text-[#b0b8cc] text-lg max-w-2xl mx-auto leading-relaxed">
+        Just like crafting the perfect martini, your content strategy needs the right ingredients measured precisely. The Martini Method walks your audience through every stage of the buyer journey — so you're always talking to the right person with the right message.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="stage rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-4"><span class="text-2xl">🧊</span><div><p class="text-xs text-pink tracking-widest uppercase">Cold Audience</p><h3 class="font-serif text-xl font-bold">Attract</h3></div></div>
+        <p class="font-medium text-white mb-2">Call out the pain</p>
+        <p class="text-[#b0b8cc] text-sm leading-relaxed">Hook strangers with content that speaks directly to the problem they're already feeling.</p>
+      </div>
+      <div class="stage rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-4"><span class="text-2xl">☀️</span><div><p class="text-xs text-pink tracking-widest uppercase">Warm Audience</p><h3 class="font-serif text-xl font-bold">Engage</h3></div></div>
+        <p class="font-medium text-white mb-2">Become their go-to</p>
+        <p class="text-[#b0b8cc] text-sm leading-relaxed">Educate, inspire, and build trust. Show them you understand their world.</p>
+      </div>
+      <div class="stage rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-4"><span class="text-2xl">🔥</span><div><p class="text-xs text-pink tracking-widest uppercase">Hot Audience</p><h3 class="font-serif text-xl font-bold">Convert</h3></div></div>
+        <p class="font-medium text-white mb-2">Make the offer</p>
+        <p class="text-[#b0b8cc] text-sm leading-relaxed">Give them the nudge — a lead magnet, free call, or limited offer that converts followers into clients.</p>
+      </div>
+      <div class="stage rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-4"><span class="text-2xl">⭐</span><div><p class="text-xs text-pink tracking-widest uppercase">Customers</p><h3 class="font-serif text-xl font-bold">Retain &amp; Upsell</h3></div></div>
+        <p class="font-medium text-white mb-2">Keep them coming back</p>
+        <p class="text-[#b0b8cc] text-sm leading-relaxed">Support your buyers, answer FAQs, and create the next natural step for them to take.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- WHAT'S INSIDE -->
+  <section class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-pink text-sm tracking-widest uppercase mb-4">What's inside</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Everything you need to <em>post with purpose.</em></h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card rounded-2xl p-7"><div class="text-2xl mb-4">📄</div><h3 class="font-semibold text-white mb-2">The Strategy PDF</h3><p class="text-[#b0b8cc] text-sm leading-relaxed">The complete Martini Method framework — audience temperature, funnel breakdown, content frequency guide, and the fill-in strategy table to map your own content pillars.</p></div>
+      <div class="card rounded-2xl p-7"><div class="text-2xl mb-4">📋</div><h3 class="font-semibold text-white mb-2">Interactive Strategy Workbook</h3><p class="text-[#b0b8cc] text-sm leading-relaxed">A fillable digital version of the strategy table. Input your niche, define your phases, and walk away with a complete content plan built for your specific business.</p></div>
+      <div class="card rounded-2xl p-7"><div class="text-2xl mb-4">🗓️</div><h3 class="font-semibold text-white mb-2">AI Content Calendar Tool</h3><p class="text-[#b0b8cc] text-sm leading-relaxed">A fully personalized content calendar — AI generates SEO-optimized captions, format-aware video scripts, shot lists, and hashtags built around your exact schedule.</p></div>
+      <div class="card rounded-2xl p-7"><div class="text-2xl mb-4">#️⃣</div><h3 class="font-semibold text-white mb-2">Hashtag Vault</h3><p class="text-[#b0b8cc] text-sm leading-relaxed">Pillar-organized hashtag library with one-click copy. AI generates 12 niche-specific hashtags on demand — mix of broad, mid-range, and niche tags.</p></div>
+      <div class="card rounded-2xl p-7"><div class="text-2xl mb-4">📊</div><h3 class="font-semibold text-white mb-2">Platform Demographics Data</h3><p class="text-[#b0b8cc] text-sm leading-relaxed">Know exactly where your audience lives. AI-refreshed stats on 7 platforms — age breakdowns, gender splits, MAU counts, and strategic insights.</p></div>
+      <div class="card rounded-2xl p-7"><div class="text-2xl mb-4">🎬</div><h3 class="font-semibold text-white mb-2">Video Walkthroughs</h3><p class="text-[#b0b8cc] text-sm leading-relaxed">5 short video modules walking through every section of the method — with real brand examples, live tool demos, and the exact workflow Diana uses with clients.</p></div>
+    </div>
+  </section>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- PRICING -->
+  <section id="pricing" class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-pink text-sm tracking-widest uppercase mb-4">Simple pricing</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Pick your <em>pour.</em></h2>
+      <p class="text-[#b0b8cc]">Done-for-you social media management — pick the level that fits your life.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      <div class="card rounded-2xl p-8 flex flex-col">
+        <div class="mb-8">
+          <p class="text-mauve text-sm uppercase tracking-widest mb-2">DIY</p>
+          <span class="font-serif text-5xl font-bold text-white">$597</span>
+          <p class="text-[#6b7494] text-sm mt-1">per month</p>
+          <p class="text-[#b0b8cc] text-sm mt-3 leading-relaxed">The strategy is yours. The execution is on you.</p>
+        </div>
+        <ul class="space-y-3 text-sm text-[#b0b8cc] mb-8 flex-1">
+          <li class="flex gap-2"><span class="check">✓</span>Monthly content strategy tailored to your brand</li>
+          <li class="flex gap-2"><span class="check">✓</span>Full 30-day content calendar planned for you</li>
+          <li class="flex gap-2"><span class="check">✓</span>Content pillars + posting framework</li>
+          <li class="flex gap-2"><span class="check">✓</span>Caption templates + hooks</li>
+          <li class="flex gap-2"><span class="check">✓</span>Hashtag strategy per pillar</li>
+          <li class="flex gap-2"><span class="check">✓</span>Monthly strategy check-in call</li>
+        </ul>
+        <a href="/#contact" class="btn-outline rounded-full py-3 text-center text-sm block">Get Started →</a>
+      </div>
+      <div class="card-popular rounded-2xl p-8 flex flex-col relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span class="bg-pink text-navy text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
+        </div>
+        <div class="mb-8">
+          <p class="text-pink text-sm uppercase tracking-widest mb-2">DIY + Editing</p>
+          <span class="font-serif text-5xl font-bold text-white">$1,497</span>
+          <p class="text-[#6b7494] text-sm mt-1">per 4-week cycle</p>
+          <p class="text-[#b0b8cc] text-sm mt-3 leading-relaxed">You provide the footage. Diana handles everything else.</p>
+        </div>
+        <ul class="space-y-3 text-sm text-[#b0b8cc] mb-8 flex-1">
+          <li class="flex gap-2"><span class="check">✓</span>Everything in DIY</li>
+          <li class="flex gap-2"><span class="check">✓</span>You send raw footage — Diana edits it</li>
+          <li class="flex gap-2"><span class="check">✓</span>Professional Reels + TikTok editing</li>
+          <li class="flex gap-2"><span class="check">✓</span>Captions written + scheduled for you</li>
+          <li class="flex gap-2"><span class="check">✓</span>Content shoot direction each cycle</li>
+          <li class="flex gap-2"><span class="check">✓</span>Analytics report every 4 weeks</li>
+        </ul>
+        <a href="/#contact" class="btn-primary rounded-full py-3 text-center text-sm block">Get Started →</a>
+      </div>
+      <div class="card rounded-2xl p-8 flex flex-col">
+        <div class="mb-8">
+          <p class="text-mauve text-sm uppercase tracking-widest mb-2">Full Service</p>
+          <span class="font-serif text-5xl font-bold text-white">$2,997</span>
+          <p class="text-[#6b7494] text-sm mt-1">per 4-week cycle</p>
+          <p class="text-[#b0b8cc] text-sm mt-3 leading-relaxed">You hand it off. Diana handles it all.</p>
+        </div>
+        <ul class="space-y-3 text-sm text-[#b0b8cc] mb-8 flex-1">
+          <li class="flex gap-2"><span class="check">✓</span>Everything in DIY + Editing</li>
+          <li class="flex gap-2"><span class="check">✓</span>Monthly on-location content shoot</li>
+          <li class="flex gap-2"><span class="check">✓</span>Full social media management</li>
+          <li class="flex gap-2"><span class="check">✓</span>Story strategy + daily execution</li>
+          <li class="flex gap-2"><span class="check">✓</span>Community management</li>
+          <li class="flex gap-2"><span class="check">✓</span>Bi-weekly calls + monthly report</li>
+        </ul>
+        <a href="/#contact" class="btn-outline rounded-full py-3 text-center text-sm block">Get Started →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- GUARANTEE -->
+  <section class="py-20 px-6 max-w-3xl mx-auto text-center">
+    <div class="text-4xl mb-6">🍸</div>
+    <h2 class="font-serif text-3xl font-bold mb-4">The Martini Guarantee</h2>
+    <p class="text-[#b0b8cc] text-lg leading-relaxed">If you go through the method, implement the strategy, and don't feel more confident about your content within 30 days, I'll personally walk through it with you.</p>
+  </section>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- TESTIMONIALS -->
+  <section class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-pink text-sm tracking-widest uppercase mb-4">Real results</p>
+      <h2 class="font-serif text-4xl font-bold">What people are <em>saying.</em></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card rounded-2xl p-8"><div class="text-pink mb-4 text-lg">★★★★★</div><p class="text-[#c8d0e0] text-sm leading-relaxed mb-6">"I went from posting randomly twice a week to having a full month planned in one afternoon. The AI calendar tool alone is worth 10x the price."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-slate flex items-center justify-center text-xs font-bold text-pink">SL</div><div><p class="text-sm font-medium">Sarah L.</p><p class="text-xs text-mauve">Brand Strategist, LA</p></div></div></div>
+      <div class="card rounded-2xl p-8"><div class="text-pink mb-4 text-lg">★★★★★</div><p class="text-[#c8d0e0] text-sm leading-relaxed mb-6">"Diana's method finally made social media feel like a system instead of a guessing game. I booked 3 new clients in the first month."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-slate flex items-center justify-center text-xs font-bold text-pink">MR</div><div><p class="text-sm font-medium">Maria R.</p><p class="text-xs text-mauve">Health Coach, Miami</p></div></div></div>
+      <div class="card rounded-2xl p-8"><div class="text-pink mb-4 text-lg">★★★★★</div><p class="text-[#c8d0e0] text-sm leading-relaxed mb-6">"The strategy call sealed it for me. Diana looked at my niche and told me exactly what to post, when, and why. My engagement doubled."</p><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-slate flex items-center justify-center text-xs font-bold text-pink">JK</div><div><p class="text-sm font-medium">Jasmine K.</p><p class="text-xs text-mauve">Interior Designer, NYC</p></div></div></div>
+    </div>
+  </section>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- ABOUT -->
+  <section class="py-24 px-6 max-w-3xl mx-auto text-center">
+    <p class="text-pink text-sm tracking-widest uppercase mb-6">About Diana</p>
+    <h2 class="font-serif text-4xl font-bold mb-4">Diana De La O</h2>
+    <p class="text-mauve text-base mb-6">Social Media Manager · Smmology · Sacramento, CA</p>
+    <p class="text-[#b0b8cc] text-lg leading-relaxed">Diana built The Martini Method after working with 100+ business owners who were exhausted by content creation with nothing to show for it. She believes every business deserves a strategy that actually converts — not just content that looks good.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-[#2b3050] py-10 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-mauve">
+      <a href="/" class="font-serif text-white text-base">Smmology</a>
+      <span>© 2026 Smmology · diana@smmology.us</span>
+      <a href="/" class="nav-link">← Back to smmology.us</a>
+    </div>
+  </footer>
+
+</body>
+</html>
