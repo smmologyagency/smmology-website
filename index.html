@@ -13,16 +13,17 @@
       --navy:   #161B28;
       --slate:  #404C70;
       --mauve:  #907A9A;
-      --pink:   #EDA4BF;
-      --blush:  #FFE2EA;
+      --pink:   #C98FAA;
+      --blush:  #F4EDEA;
+      --cream:  #FAF7F5;
       --white:  #FFFFFF;
-      --text:   #161B28;
-      --muted:  #6b7280;
-      --border: #f0d6df;
+      --text:   #2a1f2e;
+      --muted:  #7a6b72;
+      --border: #e8ddd8;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); line-height: 1.6; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
     h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
     em { font-style: italic; color: var(--pink); }
     a  { text-decoration: none; color: inherit; }
@@ -31,7 +32,7 @@
     /* ── NAV ─────────────────────────────── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+      background: rgba(250,247,245,.97); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       height: 68px; display: flex; align-items: center;
     }
@@ -57,6 +58,7 @@
     .section-navy em { color: var(--pink); }
     .section-slate { background: var(--slate); color: #fff; }
     .divider { border: none; border-top: 1px solid var(--border); margin: 0 32px; }
+    .section-cream { background: var(--cream); }
 
     .eyebrow {
       display: inline-block; font-size: .75rem; font-weight: 600;
@@ -71,21 +73,21 @@
     /* ── HERO ────────────────────────────── */
     .hero {
       padding-top: 140px; padding-bottom: 100px;
-      background: linear-gradient(160deg, #fff 55%, var(--blush) 100%);
+      background: linear-gradient(160deg, var(--cream) 40%, var(--blush) 100%);
       position: relative; overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute; top: -80px; right: -120px;
       width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(237,164,191,.25) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(201,143,170,.18) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero::after {
       content: '';
       position: absolute; bottom: -60px; left: -80px;
       width: 350px; height: 350px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(144,122,154,.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(144,122,154,.10) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-inner {
@@ -97,7 +99,7 @@
     .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: white; border: 1px solid var(--border);
+      background: rgba(255,255,255,.75); border: 1px solid var(--border);
       border-radius: 999px; padding: 6px 16px; font-size: .8rem;
       color: var(--muted); margin-bottom: 28px;
     }
@@ -152,7 +154,7 @@
       border: 1px solid var(--border);
       padding: 36px 32px;
       display: flex; flex-direction: column;
-      box-shadow: 0 4px 24px rgba(22,27,40,.06);
+      box-shadow: 0 4px 32px rgba(42,31,46,.07);
     }
     .card-popular {
       background: var(--navy); color: white;
@@ -182,41 +184,42 @@
     .check-list li::before { content: '✓'; color: var(--pink); font-weight: 700; flex-shrink: 0; }
 
     /* ── METHOD TEASER ───────────────────── */
-    .method-card {
-      background: var(--navy); border-radius: 28px;
-      padding: 72px 64px; text-align: center; color: white;
-      position: relative; overflow: hidden;
+    .method-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
     }
-    .method-card::before {
-      content: '';
-      position: absolute; top: -60px; right: -60px;
-      width: 300px; height: 300px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(237,164,191,.2) 0%, transparent 70%);
+    .method-image-wrap {
+      display: flex; justify-content: center; align-items: center;
     }
-    .method-card::after {
-      content: '';
-      position: absolute; bottom: -60px; left: -60px;
-      width: 250px; height: 250px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(144,122,154,.2) 0%, transparent 70%);
+    .method-image-wrap img {
+      max-width: 380px; width: 100%;
+      filter: drop-shadow(0 24px 48px rgba(42,31,46,.18));
     }
+    .method-content { }
     .method-stages {
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
-      margin: 48px 0; position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 12px; margin: 32px 0 40px;
     }
     .stage {
-      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 16px; padding: 24px 20px; text-align: center;
+      display: flex; align-items: center; gap: 16px;
+      background: white; border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 20px;
+      box-shadow: 0 2px 12px rgba(42,31,46,.05);
     }
-    .stage-icon { font-size: 2rem; margin-bottom: 12px; }
-    .stage-temp { font-size: .7rem; color: var(--pink); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
-    .stage-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+    .stage-dot {
+      width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0;
+    }
+    .stage-dot-attract  { background: #5B4B8A; }
+    .stage-dot-engage   { background: #8B6F8E; }
+    .stage-dot-convert  { background: #C98FAA; }
+    .stage-dot-buy      { background: #E8BECD; }
+    .stage-label { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); }
+    .stage-desc  { font-size: .82rem; color: var(--muted); margin-top: 2px; }
 
     /* ── RESULTS ─────────────────────────── */
     .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
     .result-card {
       background: white; border-radius: 24px; padding: 36px;
       border: 1px solid var(--border);
-      box-shadow: 0 4px 24px rgba(22,27,40,.05);
+      box-shadow: 0 4px 28px rgba(42,31,46,.07);
     }
     .result-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); margin-bottom: 8px; }
     .result-title { font-weight: 600; font-size: 1rem; margin-bottom: 10px; color: var(--navy); }
@@ -226,7 +229,7 @@
     .testimonial {
       background: white; border-radius: 20px; padding: 32px;
       border: 1px solid var(--border);
-      box-shadow: 0 2px 16px rgba(22,27,40,.04);
+      box-shadow: 0 2px 16px rgba(42,31,46,.06);
     }
     .stars { color: var(--pink); font-size: 1rem; margin-bottom: 16px; }
     .quote { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
@@ -288,12 +291,13 @@
 
     /* ── RESPONSIVE ──────────────────────── */
     @media (max-width: 768px) {
-      .hero-inner, .about-grid { grid-template-columns: 1fr; }
+      .hero-inner, .about-grid, .method-layout { grid-template-columns: 1fr; }
       .hero-visual { display: none; }
       .cards-grid, .results-grid, .testimonials-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr; }
       .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
-      .method-stages { grid-template-columns: repeat(2,1fr); }
+      .method-image-wrap { order: -1; }
+      .method-image-wrap img { max-width: 260px; }
       .nav-links { display: none; }
     }
   </style>
@@ -356,7 +360,7 @@
   </div>
 
   <!-- SERVICES -->
-  <section id="services">
+  <section id="services" style="background:var(--cream);">
     <div class="container">
       <div class="text-center">
         <span class="eyebrow">How we work together</span>
@@ -426,41 +430,59 @@
   <!-- MARTINI METHOD -->
   <section id="method" style="background: var(--blush); padding: 96px 0;">
     <div class="container">
-      <div class="method-card">
-        <div style="position:relative;z-index:1;">
-          <span class="eyebrow" style="color:var(--pink);">The Framework</span>
-          <h2 class="section-title" style="color:white;font-size:clamp(2rem,4vw,3rem);">The Martini Method 🍸</h2>
-          <p class="section-sub" style="color:#b0b8cc;margin:0 auto 16px;">A content funnel as smooth as a perfect martini — built to move your audience from cold stranger to paying client through every stage of the buyer journey.</p>
+      <div class="method-layout">
+
+        <!-- Image -->
+        <div class="method-image-wrap">
+          <img src="assets/martini-funnel.jpg" alt="The Martini Method — Attract, Engage, Convert, Buy" />
         </div>
-        <div class="method-stages">
-          <div class="stage">
-            <div class="stage-icon">🧊</div>
-            <div class="stage-temp">Cold Audience</div>
-            <div class="stage-name">Attract</div>
+
+        <!-- Text -->
+        <div class="method-content">
+          <span class="eyebrow">The Framework</span>
+          <h2 class="section-title">The Martini<br/>Method 🍸</h2>
+          <p style="color:var(--muted);line-height:1.8;margin-bottom:8px;font-size:1rem;">A content funnel as smooth as a perfect martini — built to move your audience from cold stranger to paying client at every stage of the buyer journey.</p>
+
+          <div class="method-stages">
+            <div class="stage">
+              <div class="stage-dot stage-dot-attract"></div>
+              <div>
+                <div class="stage-label">Attract</div>
+                <div class="stage-desc">Hook cold audiences with content that stops the scroll</div>
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-dot stage-dot-engage"></div>
+              <div>
+                <div class="stage-label">Engage</div>
+                <div class="stage-desc">Build trust with warm audiences who already know you</div>
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-dot stage-dot-convert"></div>
+              <div>
+                <div class="stage-label">Convert</div>
+                <div class="stage-desc">Turn hot followers into booked calls and inquiries</div>
+              </div>
+            </div>
+            <div class="stage">
+              <div class="stage-dot stage-dot-buy"></div>
+              <div>
+                <div class="stage-label">Buy</div>
+                <div class="stage-desc">Close clients with content that handles every objection</div>
+              </div>
+            </div>
           </div>
-          <div class="stage">
-            <div class="stage-icon">☀️</div>
-            <div class="stage-temp">Warm Audience</div>
-            <div class="stage-name">Engage</div>
-          </div>
-          <div class="stage">
-            <div class="stage-icon">🔥</div>
-            <div class="stage-temp">Hot Audience</div>
-            <div class="stage-name">Convert</div>
-          </div>
-          <div class="stage">
-            <div class="stage-icon">⭐</div>
-            <div class="stage-temp">Customers</div>
-            <div class="stage-name">Retain</div>
-          </div>
+
+          <a href="method/" class="btn btn-lg" style="background:var(--navy);color:white;display:inline-block;">Explore the Full Method →</a>
         </div>
-        <a href="method/" class="btn btn-pink btn-lg" style="position:relative;z-index:1;">Explore the Full Method →</a>
+
       </div>
     </div>
   </section>
 
   <!-- RESULTS -->
-  <section id="results">
+  <section id="results" style="background:var(--cream);">
     <div class="container">
       <div class="text-center">
         <span class="eyebrow">Real results</span>
@@ -537,7 +559,7 @@
   <hr class="divider" />
 
   <!-- ABOUT -->
-  <section id="about" style="background: var(--blush);">
+  <section id="about" style="background: var(--blush); margin-top: 0;">
     <div class="container">
       <div class="about-grid">
         <div>
