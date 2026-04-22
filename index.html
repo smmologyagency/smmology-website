@@ -4,363 +4,587 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smmology — Social Media Management by Diana De La O</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            navy:    '#161B28',
-            slate:   '#404C70',
-            mauve:   '#907A9A',
-            pink:    '#EDA4BF',
-            blush:   '#FFE2EA',
-          },
-          fontFamily: {
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            sans:  ['Inter', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { background-color: #161B28; color: #FFFFFF; }
-    em   { font-style: italic; color: #EDA4BF; font-family: 'Playfair Display', serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Nav */
-    .nav-link { color: #907A9A; transition: color .2s; }
-    .nav-link:hover { color: #EDA4BF; }
+    :root {
+      --navy:   #161B28;
+      --slate:  #404C70;
+      --mauve:  #907A9A;
+      --pink:   #EDA4BF;
+      --blush:  #FFE2EA;
+      --white:  #FFFFFF;
+      --text:   #161B28;
+      --muted:  #6b7280;
+      --border: #f0d6df;
+    }
 
-    /* Buttons */
-    .btn-primary  { background: #EDA4BF; color: #161B28; font-weight: 600; transition: opacity .2s; }
-    .btn-primary:hover { opacity: .88; }
-    .btn-outline  { border: 1px solid #EDA4BF; color: #EDA4BF; transition: background .2s; }
-    .btn-outline:hover { background: rgba(237,164,191,.12); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: var(--text); line-height: 1.6; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    em { font-style: italic; color: var(--pink); }
+    a  { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-    /* Cards */
-    .card         { background: #1e2338; border: 1px solid #2b3050; }
-    .card-slate   { background: #404C70; border: 1px solid #4f5e84; }
-    .card-popular { background: linear-gradient(145deg,#2b2040,#1e2338); border: 1px solid #EDA4BF; }
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 68px; display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); font-weight: 700; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: .875rem; color: var(--muted); font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--pink); }
+    .btn { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; cursor: pointer; transition: opacity .2s, transform .1s; }
+    .btn:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-pink  { background: var(--pink); color: var(--navy); }
+    .btn-outline { border: 2px solid var(--pink); color: var(--pink); background: transparent; }
+    .btn-lg { padding: 14px 36px; font-size: 1rem; }
 
-    /* Section dividers */
-    .divider { border-color: #2b3050; }
+    /* ── LAYOUT ──────────────────────────── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 96px 0; }
+    .section-blush { background: var(--blush); }
+    .section-navy  { background: var(--navy); color: #fff; }
+    .section-navy em { color: var(--pink); }
+    .section-slate { background: var(--slate); color: #fff; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0 32px; }
 
-    /* Blush light section */
-    .section-blush { background: #FFE2EA; color: #161B28; }
-    .section-blush em { color: #907A9A; }
-    .section-blush .nav-link { color: #404C70; }
+    .eyebrow {
+      display: inline-block; font-size: .75rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 16px;
+    }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+    .section-sub   { font-size: 1.1rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+    .text-center   { text-align: center; }
+    .text-center .section-sub { margin: 0 auto; }
 
-    /* Stage card */
-    .stage { background: #1e2338; border-left: 3px solid #EDA4BF; }
+    /* ── HERO ────────────────────────────── */
+    .hero {
+      padding-top: 140px; padding-bottom: 100px;
+      background: linear-gradient(160deg, #fff 55%, var(--blush) 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -120px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(237,164,191,.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -60px; left: -80px;
+      width: 350px; height: 350px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(144,122,154,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .hero h1 { font-size: clamp(2.4rem, 4.5vw, 3.6rem); line-height: 1.15; margin-bottom: 24px; }
+    .hero p   { font-size: 1.1rem; color: var(--muted); margin-bottom: 36px; line-height: 1.75; max-width: 480px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; border: 1px solid var(--border);
+      border-radius: 999px; padding: 6px 16px; font-size: .8rem;
+      color: var(--muted); margin-bottom: 28px;
+    }
+    .hero-badge span { width: 8px; height: 8px; border-radius: 50%; background: var(--pink); }
 
-    /* Check mark */
-    .check { color: #EDA4BF; font-weight: 700; }
+    /* Hero visual card */
+    .hero-visual {
+      background: var(--navy);
+      border-radius: 28px;
+      padding: 40px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(237,164,191,.3) 0%, transparent 70%);
+    }
+    .hero-visual-tag {
+      font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--pink); margin-bottom: 20px;
+    }
+    .hero-visual h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    .hero-visual p  { font-size: .9rem; color: #b0b8cc; margin-bottom: 28px; }
+    .stat-row { display: flex; gap: 24px; margin-top: 28px; }
+    .stat-item { flex: 1; }
+    .stat-num  { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--pink); }
+    .stat-lbl  { font-size: .75rem; color: #8899bb; margin-top: 2px; }
+    .pill-row  { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill {
+      background: rgba(237,164,191,.15); color: var(--pink);
+      border-radius: 999px; padding: 5px 14px; font-size: .78rem; font-weight: 500;
+    }
 
-    /* Stat */
-    .stat { background: linear-gradient(135deg,#1e2338,#252b42); border: 1px solid #2b3050; }
+    /* ── STATS BAND ──────────────────────── */
+    .stats-band { padding: 56px 0; background: var(--navy); }
+    .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
+    .stat-card  {
+      text-align: center; padding: 40px 24px;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .stat-card:last-child { border-right: none; }
+    .stat-big  { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); }
+    .stat-desc { font-size: .9rem; color: #8899bb; margin-top: 8px; line-height: 1.5; }
+
+    /* ── SERVICES ────────────────────────── */
+    .cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+    .card {
+      background: white; border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      display: flex; flex-direction: column;
+      box-shadow: 0 4px 24px rgba(22,27,40,.06);
+    }
+    .card-popular {
+      background: var(--navy); color: white;
+      border-color: transparent;
+      box-shadow: 0 12px 40px rgba(22,27,40,.22);
+      position: relative;
+    }
+    .popular-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--pink); color: var(--navy);
+      font-size: .75rem; font-weight: 700; padding: 5px 18px; border-radius: 999px;
+      white-space: nowrap;
+    }
+    .card-tier { font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mauve); margin-bottom: 12px; }
+    .card-popular .card-tier { color: var(--pink); }
+    .card-price { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--navy); }
+    .card-popular .card-price { color: white; }
+    .card-cycle { font-size: .85rem; color: var(--muted); margin-top: 2px; }
+    .card-popular .card-cycle { color: #8899bb; }
+    .card-desc { font-size: .9rem; color: var(--muted); margin: 14px 0 24px; line-height: 1.6; }
+    .card-popular .card-desc { color: #b0b8cc; }
+    .card-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 24px; }
+    .card-popular .card-divider { border-color: rgba(255,255,255,.1); }
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; margin-bottom: 32px; }
+    .check-list li { display: flex; gap: 10px; font-size: .875rem; align-items: flex-start; color: var(--text); }
+    .card-popular .check-list li { color: #c8d0e0; }
+    .check-list li::before { content: '✓'; color: var(--pink); font-weight: 700; flex-shrink: 0; }
+
+    /* ── METHOD TEASER ───────────────────── */
+    .method-card {
+      background: var(--navy); border-radius: 28px;
+      padding: 72px 64px; text-align: center; color: white;
+      position: relative; overflow: hidden;
+    }
+    .method-card::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(237,164,191,.2) 0%, transparent 70%);
+    }
+    .method-card::after {
+      content: '';
+      position: absolute; bottom: -60px; left: -60px;
+      width: 250px; height: 250px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(144,122,154,.2) 0%, transparent 70%);
+    }
+    .method-stages {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+      margin: 48px 0; position: relative; z-index: 1;
+    }
+    .stage {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px; padding: 24px 20px; text-align: center;
+    }
+    .stage-icon { font-size: 2rem; margin-bottom: 12px; }
+    .stage-temp { font-size: .7rem; color: var(--pink); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+    .stage-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; }
+
+    /* ── RESULTS ─────────────────────────── */
+    .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+    .result-card {
+      background: white; border-radius: 24px; padding: 36px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(22,27,40,.05);
+    }
+    .result-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); margin-bottom: 8px; }
+    .result-title { font-weight: 600; font-size: 1rem; margin-bottom: 10px; color: var(--navy); }
+    .result-desc { font-size: .875rem; color: var(--muted); line-height: 1.65; }
+
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 32px; }
+    .testimonial {
+      background: white; border-radius: 20px; padding: 32px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 16px rgba(22,27,40,.04);
+    }
+    .stars { color: var(--pink); font-size: 1rem; margin-bottom: 16px; }
+    .quote { font-size: .9rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+    .author { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--blush); color: var(--pink);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: .8rem;
+    }
+    .author-name { font-weight: 600; font-size: .875rem; }
+    .author-title { font-size: .78rem; color: var(--mauve); }
+
+    /* ── ABOUT ───────────────────────────── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-visual {
+      background: var(--navy); border-radius: 28px; padding: 48px;
+      color: white; text-align: center; position: relative; overflow: hidden;
+    }
+    .about-visual::before {
+      content: '';
+      position: absolute; top: -50px; right: -50px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(237,164,191,.25) 0%, transparent 70%);
+    }
+    .about-avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--mauve));
+      margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .about-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 6px; }
+    .about-role { color: var(--pink); font-size: .875rem; margin-bottom: 28px; }
+    .about-facts { display: flex; flex-direction: column; gap: 12px; text-align: left; }
+    .fact { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: #b0b8cc; }
+    .fact span { color: var(--pink); font-weight: 700; }
+
+    /* ── CTA ─────────────────────────────── */
+    .cta-section { background: linear-gradient(135deg, var(--navy) 0%, #2a1f3d 100%); color: white; text-align: center; }
+    .cta-section .section-sub { color: #b0b8cc; margin: 0 auto 40px; }
+
+    /* ── FOOTER ──────────────────────────── */
+    footer {
+      background: var(--navy); color: #8899bb;
+      padding: 40px 0; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; color: white; font-size: 1.1rem; }
+    .footer-links { display: flex; gap: 24px; font-size: .875rem; }
+    .footer-links a { color: #8899bb; transition: color .2s; }
+    .footer-links a:hover { color: var(--pink); }
+
+    /* ── RESPONSIVE ──────────────────────── */
+    @media (max-width: 768px) {
+      .hero-inner, .about-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .cards-grid, .results-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
+      .method-stages { grid-template-columns: repeat(2,1fr); }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
-<body class="font-sans antialiased">
+<body>
 
-  <!-- ── NAV ─────────────────────────────────────────────────────────────── -->
-  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-[#2b3050] bg-navy/90 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <span class="font-serif text-lg tracking-wide text-white">Smmology</span>
-      <div class="hidden md:flex items-center gap-8 text-sm">
-        <a href="#services" class="nav-link">Services</a>
-        <a href="/method"   class="nav-link">The Method</a>
-        <a href="#results"  class="nav-link">Results</a>
-        <a href="#about"    class="nav-link">About</a>
-        <a href="#contact"  class="btn-primary px-5 py-2 rounded-full text-sm">Book a Call</a>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/"><img src="assets/logo-pink.jpg" alt="Smmology" style="height:38px;width:38px;border-radius:8px;object-fit:cover;" /></a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#method">The Method</a>
+        <a href="#results">Results</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn-pink">Book a Free Call</a>
       </div>
     </div>
   </nav>
 
-  <!-- ── HERO ──────────────────────────────────────────────────────────────  -->
-  <section class="pt-36 pb-28 px-6 max-w-5xl mx-auto text-center">
-    <div class="inline-block border border-[#2b3050] rounded-full px-4 py-1.5 text-xs text-mauve mb-8 tracking-widest uppercase">
-      Social Media Management · Sacramento, CA
-    </div>
-    <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-8">
-      You didn't start your business<br/>
-      to become a <em>Content Creator.</em><br/>
-      But I did.
-    </h1>
-    <p class="text-[#b0b8cc] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-      Organic social media management that moves your audience from cold stranger to paying client — no paid ads, no guessing, no burnout.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#contact" class="btn-primary px-8 py-3.5 rounded-full text-base inline-block">Book a Free Call →</a>
-      <a href="#services" class="btn-outline px-8 py-3.5 rounded-full text-base inline-block">See Services →</a>
-    </div>
-  </section>
-
-  <hr class="divider border-t max-w-6xl mx-auto" />
-
-  <!-- ── PROBLEM ────────────────────────────────────────────────────────── -->
-  <section class="py-24 px-6 max-w-5xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">Sound familiar?</p>
-      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">
-        You're posting. But nothing is <em>converting.</em>
-      </h2>
-      <p class="text-[#b0b8cc] text-lg max-w-2xl mx-auto leading-relaxed">
-        You didn't build a business to spend your nights staring at a blank caption box. You need a strategy — and someone who lives and breathes this so you don't have to.
-      </p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="stat rounded-2xl p-8 text-center">
-        <div class="font-serif text-5xl font-bold text-pink mb-3">87%</div>
-        <p class="text-[#b0b8cc] text-sm leading-relaxed">of business owners post without a clear content strategy</p>
-      </div>
-      <div class="stat rounded-2xl p-8 text-center">
-        <div class="font-serif text-5xl font-bold text-pink mb-3">3×</div>
-        <p class="text-[#b0b8cc] text-sm leading-relaxed">more leads generated with a structured content funnel</p>
-      </div>
-      <div class="stat rounded-2xl p-8 text-center">
-        <div class="font-serif text-5xl font-bold text-pink mb-3">0</div>
-        <p class="text-[#b0b8cc] text-sm leading-relaxed">paid ads needed — this is 100% organic content strategy</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider border-t max-w-6xl mx-auto" />
-
-  <!-- ── SERVICES ───────────────────────────────────────────────────────── -->
-  <section id="services" class="py-24 px-6 max-w-5xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">How we work together</p>
-      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
-        Pick your <em>pour.</em>
-      </h2>
-      <p class="text-[#b0b8cc]">Done-for-you social media management — pick the level that fits your life.</p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6 items-start">
-
-      <!-- DIY -->
-      <div class="card rounded-2xl p-8 flex flex-col">
-        <div class="mb-8">
-          <p class="text-mauve text-sm uppercase tracking-widest mb-2">DIY</p>
-          <div class="flex items-end gap-1 mb-1">
-            <span class="font-serif text-5xl font-bold text-white">$597</span>
-          </div>
-          <p class="text-[#6b7494] text-sm">per month</p>
-          <p class="text-[#b0b8cc] text-sm mt-3 leading-relaxed">The strategy is yours. The execution is on you.</p>
-        </div>
-        <ul class="space-y-3 text-sm text-[#b0b8cc] mb-8 flex-1">
-          <li class="flex gap-2"><span class="check">✓</span>Monthly content strategy tailored to your brand</li>
-          <li class="flex gap-2"><span class="check">✓</span>Full 30-day content calendar planned for you</li>
-          <li class="flex gap-2"><span class="check">✓</span>Content pillars + posting framework</li>
-          <li class="flex gap-2"><span class="check">✓</span>Caption templates + hooks</li>
-          <li class="flex gap-2"><span class="check">✓</span>Hashtag strategy per pillar</li>
-          <li class="flex gap-2"><span class="check">✓</span>Monthly strategy check-in call</li>
-        </ul>
-        <a href="#contact" class="btn-outline rounded-full py-3 text-center text-sm block">Get Started →</a>
-      </div>
-
-      <!-- DIY + Editing (popular) -->
-      <div class="card-popular rounded-2xl p-8 flex flex-col relative">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-          <span class="bg-pink text-navy text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
-        </div>
-        <div class="mb-8">
-          <p class="text-pink text-sm uppercase tracking-widest mb-2">DIY + Editing</p>
-          <div class="flex items-end gap-1 mb-1">
-            <span class="font-serif text-5xl font-bold text-white">$1,497</span>
-          </div>
-          <p class="text-[#6b7494] text-sm">per 4-week cycle</p>
-          <p class="text-[#b0b8cc] text-sm mt-3 leading-relaxed">You provide the footage. Diana handles everything else.</p>
-        </div>
-        <ul class="space-y-3 text-sm text-[#b0b8cc] mb-8 flex-1">
-          <li class="flex gap-2"><span class="check">✓</span>Everything in DIY</li>
-          <li class="flex gap-2"><span class="check">✓</span>You send raw footage — Diana edits it</li>
-          <li class="flex gap-2"><span class="check">✓</span>Professional Reels + TikTok editing</li>
-          <li class="flex gap-2"><span class="check">✓</span>Captions written + scheduled for you</li>
-          <li class="flex gap-2"><span class="check">✓</span>Content shoot direction each cycle</li>
-          <li class="flex gap-2"><span class="check">✓</span>Analytics report every 4 weeks</li>
-        </ul>
-        <a href="#contact" class="btn-primary rounded-full py-3 text-center text-sm block">Get Started →</a>
-      </div>
-
-      <!-- Full Service -->
-      <div class="card rounded-2xl p-8 flex flex-col">
-        <div class="mb-8">
-          <p class="text-mauve text-sm uppercase tracking-widest mb-2">Full Service</p>
-          <div class="flex items-end gap-1 mb-1">
-            <span class="font-serif text-5xl font-bold text-white">$2,997</span>
-          </div>
-          <p class="text-[#6b7494] text-sm">per 4-week cycle</p>
-          <p class="text-[#b0b8cc] text-sm mt-3 leading-relaxed">You hand it off. Diana handles it all.</p>
-        </div>
-        <ul class="space-y-3 text-sm text-[#b0b8cc] mb-8 flex-1">
-          <li class="flex gap-2"><span class="check">✓</span>Everything in DIY + Editing</li>
-          <li class="flex gap-2"><span class="check">✓</span>Monthly on-location content shoot</li>
-          <li class="flex gap-2"><span class="check">✓</span>Full social media management</li>
-          <li class="flex gap-2"><span class="check">✓</span>Story strategy + daily execution</li>
-          <li class="flex gap-2"><span class="check">✓</span>Community management</li>
-          <li class="flex gap-2"><span class="check">✓</span>Bi-weekly strategy calls + monthly report</li>
-        </ul>
-        <a href="#contact" class="btn-outline rounded-full py-3 text-center text-sm block">Get Started →</a>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="divider border-t max-w-6xl mx-auto" />
-
-  <!-- ── MARTINI METHOD TEASER ───────────────────────────────────────────── -->
-  <section class="py-24 px-6 max-w-5xl mx-auto">
-    <div class="card-slate rounded-3xl p-12 md:p-16 text-center">
-      <div class="text-4xl mb-6">🍸</div>
-      <p class="text-blush text-sm tracking-widest uppercase mb-4">The Framework</p>
-      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
-        The Martini Method
-      </h2>
-      <p class="text-[#c8d0e0] text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-        A content funnel strategy that moves your audience from cold stranger to paying client — built around the exact stages of the buyer journey. Used by 100+ CEOs to turn followers into clients without spending a dollar on ads.
-      </p>
-      <a href="/method" class="btn-primary px-8 py-3.5 rounded-full text-base inline-block">Explore the Method →</a>
-    </div>
-  </section>
-
-  <hr class="divider border-t max-w-6xl mx-auto" />
-
-  <!-- ── RESULTS ─────────────────────────────────────────────────────────── -->
-  <section id="results" class="py-24 px-6 max-w-5xl mx-auto">
-    <div class="text-center mb-16">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">Real results</p>
-      <h2 class="font-serif text-4xl font-bold mb-4">
-        What happens when you have a <em>strategy.</em>
-      </h2>
-      <p class="text-[#b0b8cc]">Real clients. Real numbers. Real growth — all organic.</p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="card rounded-2xl p-8 text-center">
-        <div class="font-serif text-6xl font-bold text-pink mb-3">1K+</div>
-        <p class="text-white font-medium mb-2">Follower Growth</p>
-        <p class="text-[#b0b8cc] text-sm leading-relaxed">Client gained over 1,000 new followers after implementing a structured content strategy — zero paid promotion.</p>
-      </div>
-      <div class="card rounded-2xl p-8 text-center">
-        <div class="font-serif text-6xl font-bold text-pink mb-3">3×</div>
-        <p class="text-white font-medium mb-2">Engagement Increase</p>
-        <p class="text-[#b0b8cc] text-sm leading-relaxed">Profile redesign + consistent posting cadence tripled engagement rate within the first 30 days.</p>
-      </div>
-      <div class="card rounded-2xl p-8 text-center">
-        <div class="font-serif text-6xl font-bold text-pink mb-3">↑</div>
-        <p class="text-white font-medium mb-2">Profile Transformations</p>
-        <p class="text-[#b0b8cc] text-sm leading-relaxed">Complete before-and-after profile redesigns — from scattered and inconsistent to polished, on-brand, and converting.</p>
-      </div>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="grid md:grid-cols-3 gap-6 mt-6">
-      <div class="card rounded-2xl p-8">
-        <div class="text-pink mb-4 text-lg">★★★★★</div>
-        <p class="text-[#c8d0e0] text-sm leading-relaxed mb-6">"I went from posting randomly twice a week to having a full month planned in one afternoon. The AI calendar tool alone is worth 10x the price."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-slate flex items-center justify-center text-xs font-bold text-pink">SL</div>
-          <div>
-            <p class="text-sm font-medium text-white">Sarah L.</p>
-            <p class="text-xs text-mauve">Brand Strategist, LA</p>
-          </div>
-        </div>
-      </div>
-      <div class="card rounded-2xl p-8">
-        <div class="text-pink mb-4 text-lg">★★★★★</div>
-        <p class="text-[#c8d0e0] text-sm leading-relaxed mb-6">"Diana's method finally made social media feel like a system instead of a guessing game. I booked 3 new clients in the first month."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-slate flex items-center justify-center text-xs font-bold text-pink">MR</div>
-          <div>
-            <p class="text-sm font-medium text-white">Maria R.</p>
-            <p class="text-xs text-mauve">Health Coach, Miami</p>
-          </div>
-        </div>
-      </div>
-      <div class="card rounded-2xl p-8">
-        <div class="text-pink mb-4 text-lg">★★★★★</div>
-        <p class="text-[#c8d0e0] text-sm leading-relaxed mb-6">"The strategy call sealed it for me. Diana looked at my niche and told me exactly what to post, when, and why. My engagement doubled."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-slate flex items-center justify-center text-xs font-bold text-pink">JK</div>
-          <div>
-            <p class="text-sm font-medium text-white">Jasmine K.</p>
-            <p class="text-xs text-mauve">Interior Designer, NYC</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider border-t max-w-6xl mx-auto" />
-
-  <!-- ── ABOUT ───────────────────────────────────────────────────────────── -->
-  <section id="about" class="py-24 px-6 max-w-4xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-16 items-center">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
       <div>
-        <p class="text-pink text-sm tracking-widest uppercase mb-4">Who I am</p>
-        <h2 class="font-serif text-4xl font-bold mb-6">
-          Hi, I'm <em>Diana.</em>
-        </h2>
-        <p class="text-[#b0b8cc] leading-relaxed mb-4">
-          I'm a social media strategist based in Sacramento, CA — and I built Smmology because I watched talented business owners burn out trying to be their own content teams.
-        </p>
-        <p class="text-[#b0b8cc] leading-relaxed mb-4">
-          Every strategy I build is grounded in storytelling, neuromarketing principles, and organic content funnels designed for authenticity and impact. No paid ads. No fluff. Just content that actually converts.
-        </p>
-        <p class="text-[#b0b8cc] leading-relaxed mb-8">
-          Serving businesses in Folsom, Placerville, Eldorado Hills, Sacramento, and beyond.
-        </p>
-        <a href="#contact" class="btn-primary px-7 py-3 rounded-full text-sm inline-block">Work with me →</a>
+        <div class="hero-badge"><span></span> Sacramento, CA · Social Media Management</div>
+        <h1>You didn't start your business to become a <em>Content Creator.</em> But I did.</h1>
+        <p>Organic social media management that moves your audience from cold stranger to paying client — no paid ads, no guessing, no burnout.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-pink btn-lg">Book a Free Call →</a>
+          <a href="#services" class="btn btn-outline btn-lg">See Services</a>
+        </div>
       </div>
-      <div class="card-slate rounded-3xl p-10 text-center">
-        <div class="text-6xl mb-4">🍸</div>
-        <h3 class="font-serif text-2xl font-bold text-white mb-3">Diana De La O</h3>
-        <p class="text-[#c8d0e0] text-sm mb-6">Social Media Manager · Smmology</p>
-        <div class="space-y-3 text-left text-sm">
-          <div class="flex items-center gap-3 text-[#c8d0e0]">
-            <span class="text-pink">✓</span> Organic content strategy
+      <div class="hero-visual">
+        <div class="hero-visual-tag">Smmology · Active Strategy</div>
+        <h3>The Martini Method</h3>
+        <p>Your content, your funnel, your clients.</p>
+        <div class="pill-row">
+          <span class="pill">Organic Growth</span>
+          <span class="pill">No Paid Ads</span>
+          <span class="pill">Done For You</span>
+        </div>
+        <div class="stat-row">
+          <div class="stat-item"><div class="stat-num">100+</div><div class="stat-lbl">CEOs served</div></div>
+          <div class="stat-item"><div class="stat-num">3×</div><div class="stat-lbl">Avg. lead growth</div></div>
+          <div class="stat-item"><div class="stat-num">0</div><div class="stat-lbl">Paid ads needed</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAND -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-big">87%</div>
+          <div class="stat-desc">of businesses post without a content strategy</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">3×</div>
+          <div class="stat-desc">more leads with a structured content funnel</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-big">$0</div>
+          <div class="stat-desc">in paid ads — 100% organic strategy</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow">How we work together</span>
+        <h2 class="section-title">Pick your <em>pour.</em></h2>
+        <p class="section-sub">Done-for-you social media management — pick the level that fits your business and your life.</p>
+      </div>
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-tier">DIY</div>
+          <div class="card-price">$597</div>
+          <div class="card-cycle">per month</div>
+          <p class="card-desc">The strategy is yours. The execution is on you — but you'll always know exactly what to do.</p>
+          <hr class="card-divider"/>
+          <ul class="check-list">
+            <li>Monthly content strategy tailored to your brand</li>
+            <li>Full 30-day content calendar planned for you</li>
+            <li>Content pillars + posting framework</li>
+            <li>Caption templates + hooks</li>
+            <li>Hashtag strategy per pillar</li>
+            <li>Monthly strategy check-in call</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="text-align:center;">Get Started →</a>
+        </div>
+
+        <div class="card card-popular">
+          <div class="popular-badge">Most Popular</div>
+          <div class="card-tier">DIY + Editing</div>
+          <div class="card-price" style="color:white;">$1,497</div>
+          <div class="card-cycle">per 4-week cycle</div>
+          <p class="card-desc">You provide the footage. Diana handles everything else — editing, captions, scheduling.</p>
+          <hr class="card-divider"/>
+          <ul class="check-list">
+            <li>Everything in DIY</li>
+            <li>You send raw footage — Diana edits it</li>
+            <li>Professional Reels + TikTok editing</li>
+            <li>Captions written + scheduled for you</li>
+            <li>Content shoot direction each cycle</li>
+            <li>Analytics report every 4 weeks</li>
+          </ul>
+          <a href="#contact" class="btn btn-pink" style="text-align:center;">Get Started →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-tier">Full Service</div>
+          <div class="card-price">$2,997</div>
+          <div class="card-cycle">per 4-week cycle</div>
+          <p class="card-desc">You hand it off completely. Diana handles strategy, shooting, editing, posting — everything.</p>
+          <hr class="card-divider"/>
+          <ul class="check-list">
+            <li>Everything in DIY + Editing</li>
+            <li>Monthly on-location content shoot</li>
+            <li>Full social media management</li>
+            <li>Story strategy + daily execution</li>
+            <li>Community management</li>
+            <li>Bi-weekly calls + monthly report</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline" style="text-align:center;">Get Started →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- MARTINI METHOD -->
+  <section id="method" style="background: var(--blush); padding: 96px 0;">
+    <div class="container">
+      <div class="method-card">
+        <div style="position:relative;z-index:1;">
+          <span class="eyebrow" style="color:var(--pink);">The Framework</span>
+          <h2 class="section-title" style="color:white;font-size:clamp(2rem,4vw,3rem);">The Martini Method 🍸</h2>
+          <p class="section-sub" style="color:#b0b8cc;margin:0 auto 16px;">A content funnel as smooth as a perfect martini — built to move your audience from cold stranger to paying client through every stage of the buyer journey.</p>
+        </div>
+        <div class="method-stages">
+          <div class="stage">
+            <div class="stage-icon">🧊</div>
+            <div class="stage-temp">Cold Audience</div>
+            <div class="stage-name">Attract</div>
           </div>
-          <div class="flex items-center gap-3 text-[#c8d0e0]">
-            <span class="text-pink">✓</span> Neuromarketing principles
+          <div class="stage">
+            <div class="stage-icon">☀️</div>
+            <div class="stage-temp">Warm Audience</div>
+            <div class="stage-name">Engage</div>
           </div>
-          <div class="flex items-center gap-3 text-[#c8d0e0]">
-            <span class="text-pink">✓</span> 100+ businesses served
+          <div class="stage">
+            <div class="stage-icon">🔥</div>
+            <div class="stage-temp">Hot Audience</div>
+            <div class="stage-name">Convert</div>
           </div>
-          <div class="flex items-center gap-3 text-[#c8d0e0]">
-            <span class="text-pink">✓</span> Sacramento, CA based
+          <div class="stage">
+            <div class="stage-icon">⭐</div>
+            <div class="stage-temp">Customers</div>
+            <div class="stage-name">Retain</div>
+          </div>
+        </div>
+        <a href="method/" class="btn btn-pink btn-lg" style="position:relative;z-index:1;">Explore the Full Method →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="container">
+      <div class="text-center">
+        <span class="eyebrow">Real results</span>
+        <h2 class="section-title">What happens when you have a <em>strategy.</em></h2>
+        <p class="section-sub">Real clients. Real numbers. All organic — zero paid ads.</p>
+      </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-num">1K+</div>
+          <div class="result-title">Follower Growth</div>
+          <p class="result-desc">Client gained 1,000+ new followers after implementing a structured content strategy with zero paid promotion.</p>
+        </div>
+        <div class="result-card">
+          <div class="result-num">3×</div>
+          <div class="result-title">Engagement Increase</div>
+          <p class="result-desc">Profile redesign + consistent posting cadence tripled engagement rate within the first 30 days.</p>
+        </div>
+        <div class="result-card">
+          <div class="result-num">↑</div>
+          <div class="result-title">Profile Transformations</div>
+          <p class="result-desc">Complete before-and-after transformations — from scattered and inconsistent to polished, on-brand, and converting.</p>
+        </div>
+      </div>
+      <!-- Video testimonial -->
+      <div style="margin-top:48px;background:var(--navy);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;">
+        <div style="padding:0;">
+          <video controls style="width:100%;height:100%;min-height:320px;object-fit:cover;display:block;">
+            <source src="assets/ken-testimonial.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div style="padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="color:var(--pink);font-size:1.1rem;margin-bottom:16px;">★★★★★</div>
+          <blockquote style="font-family:'Playfair Display',serif;font-size:1.25rem;color:white;line-height:1.6;margin-bottom:24px;font-style:italic;">"Working with Diana completely changed how I show up on social media. Our business has never been more visible."</blockquote>
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:46px;height:46px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:.9rem;">KS</div>
+            <div>
+              <div style="color:white;font-weight:600;font-size:.95rem;">Ken Santoro</div>
+              <div style="color:#8899bb;font-size:.8rem;">Caffe Santoro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Written testimonials -->
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"I went from posting randomly twice a week to having a full month planned in one afternoon. The AI calendar tool alone is worth 10x the price."</p>
+          <div class="author">
+            <div class="avatar">SL</div>
+            <div><div class="author-name">Sarah L.</div><div class="author-title">Brand Strategist, LA</div></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Diana's method finally made social media feel like a system instead of a guessing game. I booked 3 new clients in the first month."</p>
+          <div class="author">
+            <div class="avatar">MR</div>
+            <div><div class="author-name">Maria R.</div><div class="author-title">Health Coach, Miami</div></div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p class="quote">"The strategy call sealed it for me. Diana looked at my niche and told me exactly what to post, when, and why. My engagement doubled."</p>
+          <div class="author">
+            <div class="avatar">JK</div>
+            <div><div class="author-name">Jasmine K.</div><div class="author-title">Interior Designer, NYC</div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <hr class="divider" />
 
-  <!-- ── CTA ────────────────────────────────────────────────────────────── -->
-  <section id="contact" class="py-24 px-6 max-w-3xl mx-auto text-center">
-    <p class="text-pink text-sm tracking-widest uppercase mb-4">Let's talk</p>
-    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">
-      Ready to stop guessing<br/>and start <em>converting?</em>
-    </h2>
-    <p class="text-[#b0b8cc] text-lg mb-10 leading-relaxed">
-      Book a free 45-minute discovery call. I'll look at your current presence, tell you exactly what's missing, and show you what working together would look like.
-    </p>
-    <a href="https://calendly.com" class="btn-primary px-10 py-4 rounded-full text-base inline-block">Book Your Free Call →</a>
-    <p class="text-mauve text-sm mt-5">No commitment. No pitch. Just strategy.</p>
+  <!-- ABOUT -->
+  <section id="about" style="background: var(--blush);">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <span class="eyebrow">Who I am</span>
+          <h2 class="section-title">Hi, I'm <em>Diana.</em></h2>
+          <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;font-size:1.05rem;">I'm a social media strategist based in Sacramento, CA — and I built Smmology because I watched talented business owners burn out trying to be their own content teams.</p>
+          <p style="color:var(--muted);line-height:1.8;margin-bottom:16px;font-size:1.05rem;">Every strategy I build is grounded in storytelling, neuromarketing principles, and organic content funnels designed for authenticity and impact. No paid ads. No fluff. Just content that converts.</p>
+          <p style="color:var(--muted);line-height:1.8;margin-bottom:36px;font-size:1.05rem;">Serving businesses in Folsom, Placerville, Eldorado Hills, Sacramento, and beyond.</p>
+          <a href="#contact" class="btn btn-pink btn-lg">Work with me →</a>
+        </div>
+        <div class="about-visual" style="padding:0;overflow:hidden;">
+          <img src="assets/diana.png" alt="Diana De La O" style="width:100%;height:100%;min-height:480px;object-fit:cover;object-position:center top;display:block;border-radius:28px;" />
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
-  <footer class="border-t border-[#2b3050] py-10 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-mauve">
-      <span class="font-serif text-white text-base">Smmology</span>
-      <div class="flex gap-6">
-        <a href="#services" class="nav-link">Services</a>
-        <a href="/method"   class="nav-link">The Method</a>
-        <a href="#results"  class="nav-link">Results</a>
-        <a href="#contact"  class="nav-link">Book a Call</a>
+  <!-- CTA -->
+  <section id="contact" class="cta-section">
+    <div class="container text-center">
+      <span class="eyebrow">Let's talk</span>
+      <h2 class="section-title" style="color:white;">Ready to stop guessing<br/>and start <em>converting?</em></h2>
+      <p class="section-sub">Book a free 45-minute discovery call. I'll look at your current presence, tell you exactly what's missing, and show you what working together looks like.</p>
+      <a href="https://calendly.com" class="btn btn-pink btn-lg">Book Your Free Call →</a>
+      <p style="color:#6b7494;font-size:.875rem;margin-top:20px;">No commitment. No pitch. Just strategy.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Smmology</span>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="method/">The Method</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Book a Call</a>
       </div>
-      <span>© 2026 Smmology · diana@smmology.us</span>
+      <span style="font-size:.875rem;">© 2026 Smmology · diana@smmology.us</span>
     </div>
   </footer>
 
