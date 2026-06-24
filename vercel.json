@@ -1,4 +1,12 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "method.smmology.us" }],
+      "destination": "https://smmology.us/method",
+      "permanent": true
+    }
+  ]
 }
