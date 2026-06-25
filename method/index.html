@@ -71,9 +71,44 @@
     .dark-section .callout-box { background: rgba(237,164,191,.08) !important; border-color: rgba(237,164,191,.25) !important; }
     .dark-section .callout-head { color: #FAF7F5; }
     .dark-section .callout-body { color: #8aaabb; }
+
+    /* Gradient text */
+    .gradient-text { background: linear-gradient(135deg, #C98FAA 0%, #EDA4BF 55%, #907A9A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-style: italic; }
+
+    /* Scroll progress bar */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, #C98FAA, #EDA4BF, #907A9A); transition: width .08s linear; pointer-events: none; }
+
+    /* Hero particles */
+    .hero-wrap { position: relative; overflow: visible; }
+    @keyframes drift { 0%,100%{transform:translateY(0) rotate(0deg); opacity:.5;} 50%{transform:translateY(-22px) rotate(180deg); opacity:1;} }
+    .particle { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .hero-wrap > :not(.particle) { position: relative; z-index: 1; }
+    .p1{width:14px;height:14px;background:rgba(237,164,191,.45);top:22%;left:8%;animation:drift 7s ease-in-out infinite;}
+    .p2{width:9px;height:9px;background:rgba(201,143,170,.55);top:65%;right:7%;animation:drift 9s ease-in-out infinite 1.2s;}
+    .p3{width:18px;height:18px;background:rgba(144,122,154,.22);top:38%;right:12%;animation:drift 8s ease-in-out infinite 2.5s;}
+    .p4{width:7px;height:7px;background:rgba(237,164,191,.65);top:80%;left:18%;animation:drift 6s ease-in-out infinite .7s;}
+    .p5{width:24px;height:24px;background:rgba(237,164,191,.1);top:12%;right:22%;animation:drift 10s ease-in-out infinite 3.5s;}
+    .p6{width:11px;height:11px;background:rgba(201,143,170,.4);top:50%;left:4%;animation:drift 8.5s ease-in-out infinite 1.8s;}
+
+    /* Martini divider */
+    .martini-divider { display:flex; align-items:center; gap:1.25rem; max-width:72rem; margin:0 auto; padding:0 1.5rem; }
+    .martini-divider::before,.martini-divider::after { content:''; flex:1; height:1px; background:#e8ddd8; }
+
+    /* Eyebrow pill labels */
+    .eyebrow-pill { display:inline-block; border-radius:9999px; padding:4px 16px; font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:linear-gradient(135deg,rgba(237,164,191,.18),rgba(144,122,154,.12)); border:1px solid rgba(237,164,191,.35); color:#C98FAA; }
+
+    /* Big stats */
+    .big-stat-num { font-family:'Playfair Display',serif; font-size:clamp(4.5rem,10vw,8rem); font-weight:700; color:#EDA4BF; line-height:1; display:block; }
+
+    /* Animated glowing card border */
+    .glow-card-wrap { position:relative; border-radius:1.25rem; padding:2px; }
+    @keyframes border-rotate { 0%{background-position:0% 50%;} 100%{background-position:200% 50%;} }
+    .glow-card-wrap::before { content:''; position:absolute; inset:0; border-radius:1.25rem; background:linear-gradient(90deg,#C98FAA,#EDA4BF,#907A9A,#C98FAA); background-size:200%; animation:border-rotate 3.5s linear infinite; z-index:0; }
+    .glow-card-wrap .card { position:relative; z-index:1; margin:0; border:none !important; border-radius:1.1rem; }
   </style>
 </head>
 <body class="font-sans antialiased">
+  <div id="progress-bar"></div>
 
   <!-- NAV -->
   <nav class="fixed top-0 left-0 right-0 z-50 border-b border-[#e8ddd8] bg-[#FAF7F5]/97 backdrop-blur-md">
@@ -90,10 +125,12 @@
   </nav>
 
   <!-- HERO -->
-  <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto hero-gradient">
-    <div class="inline-block border border-[#e8ddd8] rounded-full px-4 py-1.5 text-xs text-mauve mb-8 tracking-widest uppercase">Smmology · The Framework</div>
+  <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto hero-gradient hero-wrap">
+    <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div>
+    <div class="particle p4"></div><div class="particle p5"></div><div class="particle p6"></div>
+    <div class="eyebrow-pill mb-8">Smmology · The Framework</div>
     <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
-      Content strategy, <em>built around you.</em>
+      Content strategy, <em class="gradient-text">built around you.</em>
     </h1>
     <p class="text-[#7a6b72] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
       You tell it your niche, your voice, your goals, and how often you can post. It gives you:
@@ -162,7 +199,7 @@
   <div class="dark-section" style="background:#161B28;">
   <section class="py-24 px-6 max-w-5xl mx-auto">
     <div class="text-center mb-16">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">How it works</p>
+      <p class="eyebrow-pill mb-5">How it works</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">It doesn't give you generic content.<br/>It learns <em>your</em> brand.</h2>
       <p class="section-intro text-lg max-w-2xl mx-auto leading-relaxed">Most content tools give everyone the same output. This one starts with who you are and builds everything from there.</p>
     </div>
@@ -190,39 +227,39 @@
   </section>
   </div>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- PROBLEM -->
   <section class="py-24 px-6 max-w-5xl mx-auto">
     <div class="text-center mb-16">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">Sound familiar?</p>
+      <p class="eyebrow-pill mb-5">Sound familiar?</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">You're posting. But nothing is <em>converting.</em></h2>
       <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto leading-relaxed">
         You didn't build your expertise to become a content creator. Yet here you are, spending hours staring at a blank caption box, posting inconsistently, and wondering why your followers aren't turning into clients. The problem isn't your content. It's that you don't have a <em>strategy.</em>
       </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="stat rounded-2xl p-8 text-center">
-        <div class="font-serif text-5xl font-bold text-pink mb-3">87%</div>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">of service-based entrepreneurs post without a clear content strategy</p>
+    <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#e8ddd8]">
+      <div class="text-center px-8 py-10">
+        <span class="big-stat-num" id="stat-87">87%</span>
+        <p class="text-[#7a6b72] text-sm leading-relaxed mt-4 max-w-xs mx-auto">of service-based entrepreneurs post without a clear content strategy</p>
       </div>
-      <div class="stat rounded-2xl p-8 text-center">
-        <div class="font-serif text-5xl font-bold text-pink mb-3">3×</div>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">more leads generated with a structured content funnel</p>
+      <div class="text-center px-8 py-10">
+        <span class="big-stat-num" id="stat-3x">3×</span>
+        <p class="text-[#7a6b72] text-sm leading-relaxed mt-4 max-w-xs mx-auto">more leads generated with a structured content funnel</p>
       </div>
-      <div class="stat rounded-2xl p-8 text-center">
-        <div class="font-serif text-5xl font-bold text-pink mb-3">0</div>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">paid ads needed. This is 100% organic content strategy.</p>
+      <div class="text-center px-8 py-10">
+        <span class="big-stat-num">0</span>
+        <p class="text-[#7a6b72] text-sm leading-relaxed mt-4 max-w-xs mx-auto">paid ads needed. This is 100% organic content strategy.</p>
       </div>
     </div>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- FRAMEWORK -->
   <section id="framework" class="py-24 px-6 max-w-5xl mx-auto">
     <div class="text-center mb-16">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">The framework</p>
+      <p class="eyebrow-pill mb-5">The framework</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">A content funnel as smooth as a <em>perfect martini.</em></h2>
       <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto leading-relaxed">
         Just like crafting the perfect martini, your content strategy needs the right ingredients measured precisely. The Martini Method walks your audience through every stage of the buyer journey so you're always talking to the right person with the right message.
@@ -252,7 +289,7 @@
     </div>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- STORY FIRST -->
   <section class="py-24 px-6 max-w-5xl mx-auto">
@@ -260,7 +297,7 @@
 
       <!-- Left: Philosophy -->
       <div>
-        <p class="text-pink text-sm tracking-widest uppercase mb-4">The philosophy behind it all</p>
+        <p class="eyebrow-pill mb-5">The philosophy behind it all</p>
         <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">Every brand has a story.<br/>Most just don't know <em>how to tell it.</em></h2>
         <p class="text-[#7a6b72] text-lg leading-relaxed mb-6">
           Before any caption is written, before any content idea is generated, the Martini Method app starts with one thing: <strong class="text-navy">your story.</strong>
@@ -301,7 +338,7 @@
 
     <!-- Formula callout -->
     <div class="mt-16 rounded-3xl border border-[#e8ddd8] bg-white p-10 text-center" style="box-shadow: 0 4px 32px rgba(42,31,46,.07);">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">The story arc</p>
+      <p class="eyebrow-pill mb-5">The story arc</p>
       <div class="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
         The Before <span class="text-pink mx-3">→</span> The Turning Point <span class="text-pink mx-3">→</span> The After
       </div>
@@ -309,12 +346,12 @@
     </div>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- WHAT'S INSIDE -->
   <section class="py-24 px-6 max-w-5xl mx-auto">
     <div class="text-center mb-6">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">What's inside</p>
+      <p class="eyebrow-pill mb-5">What's inside</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">A tool for every moment <em>you've been stuck.</em></h2>
       <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto leading-relaxed">You don't have a content problem. You have a system problem. Here's what changes when you finally have one.</p>
     </div>
@@ -400,12 +437,12 @@
     </div>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- APP PREVIEWS -->
   <section class="py-24 px-6 max-w-6xl mx-auto">
     <div class="text-center mb-14">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">See it in action</p>
+      <p class="eyebrow-pill mb-5">See it in action</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Your entire content system, <em>in one place.</em></h2>
       <p class="text-[#7a6b72] text-lg max-w-xl mx-auto">Every tool lives inside a single app. No switching between platforms. No starting over every month.</p>
     </div>
@@ -440,12 +477,12 @@
     <p class="text-center text-mauve text-sm mt-8">Screenshots coming soon · <a href="https://app.smmology.us/signup" class="text-pink hover:underline">Get early access →</a></p>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- COST COMPARISON -->
   <section class="py-24 px-6 max-w-4xl mx-auto">
     <div class="text-center mb-14">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">The real cost of winging it</p>
+      <p class="eyebrow-pill mb-5">The real cost of winging it</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">What you'd pay to <em>hire this out.</em></h2>
       <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto">Every tool inside The Martini Method replaces a professional you'd otherwise have to hire. Here's what that would actually cost.</p>
     </div>
@@ -517,12 +554,12 @@
     </div>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- PRICING -->
   <section id="pricing" class="py-24 px-6 max-w-2xl mx-auto">
     <div class="text-center mb-10">
-      <p class="text-pink text-sm tracking-widest uppercase mb-4">Founding Member Pricing</p>
+      <p class="eyebrow-pill mb-5">Founding Member Pricing</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">20 spots. <em>Locked in forever.</em></h2>
       <p class="text-[#7a6b72]">Price goes to $597/mo after launch. Founding rate is yours for as long as you stay.</p>
     </div>
@@ -536,7 +573,8 @@
     </div>
 
     <!-- Main pricing card -->
-    <div class="card rounded-2xl p-10 relative mb-10">
+    <div class="glow-card-wrap mb-10">
+    <div class="card rounded-2xl p-10 relative">
       <div class="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
         <span class="glow-badge bg-[#C98FAA] text-white text-xs font-bold px-5 py-1.5 rounded-full">🍸 Founding Member · 20 spots only</span>
       </div>
@@ -563,6 +601,7 @@
         <li class="flex gap-2"><span class="check">✓</span>Mon–Fri access to Diana for support</li>
       </ul>
     </div>
+    </div><!-- /glow-card-wrap -->
 
     <!-- Quiet upsell -->
     <div class="border border-[#e8ddd8] rounded-xl px-8 py-6 text-center">
@@ -595,7 +634,7 @@
     }
   </script>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- GUARANTEE -->
   <section class="py-20 px-6 max-w-3xl mx-auto text-center">
@@ -604,10 +643,10 @@
     <p class="text-[#7a6b72] text-lg leading-relaxed">If you go through the method, implement the strategy, and don't feel more confident about your content within 30 days, I'll personally walk through it with you.</p>
   </section>
 
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- TESTIMONIALS -->
-  <hr class="divider border-t max-w-6xl mx-auto" />
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- ABOUT -->
   <section class="py-24 px-6 max-w-3xl mx-auto text-center">
@@ -692,7 +731,14 @@
       });
     }, { threshold: 0.6 });
 
-    document.querySelectorAll('.stat .font-serif').forEach(el => counterObserver.observe(el));
+    document.querySelectorAll('.stat .font-serif, .big-stat-num').forEach(el => counterObserver.observe(el));
+
+    // Scroll progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = Math.min(pct, 100) + '%';
+    }, { passive: true });
   </script>
 </body>
 </html>
