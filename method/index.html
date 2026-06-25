@@ -438,10 +438,18 @@
 
   <!-- PRICING -->
   <section id="pricing" class="py-24 px-6 max-w-2xl mx-auto">
-    <div class="text-center mb-16">
+    <div class="text-center mb-10">
       <p class="text-pink text-sm tracking-widest uppercase mb-4">Founding Member Pricing</p>
-      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">Start for <em>$97/mo.</em></h2>
-      <p class="text-[#7a6b72]">20 founding member spots. Locked in forever. Price goes to $597 after launch.</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">20 spots. <em>Locked in forever.</em></h2>
+      <p class="text-[#7a6b72]">Price goes to $597/mo after launch. Founding rate is yours for as long as you stay.</p>
+    </div>
+
+    <!-- Billing toggle -->
+    <div class="flex justify-center mb-10">
+      <div class="flex items-center gap-1 p-1 rounded-full border border-[#e8ddd8] bg-white">
+        <button id="btn-monthly" onclick="setPlan('monthly')" class="px-6 py-2 rounded-full text-sm font-semibold transition-all" style="background:#161B28;color:#fff;">Monthly</button>
+        <button id="btn-annual" onclick="setPlan('annual')" class="px-6 py-2 rounded-full text-sm font-semibold transition-all" style="background:transparent;color:#907A9A;">Annual <span class="text-pink text-xs ml-1">Save $194</span></button>
+      </div>
     </div>
 
     <!-- Main pricing card -->
@@ -453,12 +461,12 @@
         <div>
           <p class="text-mauve text-sm uppercase tracking-widest mb-2">The Strategist</p>
           <div class="flex items-baseline gap-3">
-            <span class="font-serif text-6xl font-bold text-navy">$97</span>
-            <span class="text-[#7a6b72] line-through text-2xl">$597</span>
+            <span id="price-amount" class="font-serif text-6xl font-bold text-navy">$97</span>
+            <span id="price-original" class="text-[#7a6b72] line-through text-2xl">$597</span>
           </div>
-          <p class="text-[#7a6b72] text-sm mt-1">per month · rate locked in forever</p>
+          <p id="price-sub" class="text-[#7a6b72] text-sm mt-1">per month · rate locked in forever</p>
         </div>
-        <a href="https://app.smmology.us/signup" class="btn-primary rounded-full px-8 py-3.5 text-sm whitespace-nowrap">Claim Your Spot →</a>
+        <a id="price-cta" href="https://app.smmology.us/signup?plan=monthly" class="btn-primary rounded-full px-8 py-3.5 text-sm whitespace-nowrap">Claim Your Spot →</a>
       </div>
       <ul class="grid sm:grid-cols-2 gap-3 text-sm text-[#7a6b72]">
         <li class="flex gap-2"><span class="check">✓</span>Full AI content strategy every month</li>
@@ -478,6 +486,30 @@
       <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="text-pink text-sm font-semibold hover:underline">Book a call to learn more →</a>
     </div>
   </section>
+
+  <script>
+    function setPlan(plan) {
+      const isAnnual = plan === 'annual';
+      document.getElementById('price-amount').textContent = isAnnual ? '$970' : '$97';
+      document.getElementById('price-original').textContent = isAnnual ? '$7,164' : '$597';
+      document.getElementById('price-sub').textContent = isAnnual
+        ? 'per year · ~$80/mo · 2 months free · rate locked in forever'
+        : 'per month · rate locked in forever';
+      document.getElementById('price-cta').href = isAnnual
+        ? 'https://app.smmology.us/signup?plan=annual'
+        : 'https://app.smmology.us/signup?plan=monthly';
+
+      const btnMonthly = document.getElementById('btn-monthly');
+      const btnAnnual  = document.getElementById('btn-annual');
+      if (isAnnual) {
+        btnAnnual.style.background  = '#161B28'; btnAnnual.style.color  = '#fff';
+        btnMonthly.style.background = 'transparent'; btnMonthly.style.color = '#907A9A';
+      } else {
+        btnMonthly.style.background = '#161B28'; btnMonthly.style.color = '#fff';
+        btnAnnual.style.background  = 'transparent'; btnAnnual.style.color  = '#907A9A';
+      }
+    }
+  </script>
 
   <hr class="divider border-t max-w-6xl mx-auto" />
 
