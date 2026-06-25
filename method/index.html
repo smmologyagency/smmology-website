@@ -79,16 +79,16 @@
     #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, #C98FAA, #EDA4BF, #907A9A); transition: width .08s linear; pointer-events: none; }
 
     /* Hero particles */
-    .hero-wrap { position: relative; overflow: visible; }
-    @keyframes drift { 0%,100%{transform:translateY(0) rotate(0deg); opacity:.5;} 50%{transform:translateY(-22px) rotate(180deg); opacity:1;} }
+    .hero-outer { position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 85% 0%, rgba(237,164,191,.22) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 5% 100%, rgba(144,122,154,.14) 0%, transparent 55%), #FAF7F5; }
+    @keyframes drift { 0%,100%{transform:translateY(0) scale(1); opacity:.6;} 50%{transform:translateY(-52px) scale(1.08); opacity:1;} }
+    @keyframes drift2 { 0%,100%{transform:translateY(0) translateX(0); opacity:.4;} 33%{transform:translateY(-38px) translateX(18px); opacity:.9;} 66%{transform:translateY(-20px) translateX(-12px); opacity:.7;} }
     .particle { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .hero-wrap > :not(.particle) { position: relative; z-index: 1; }
-    .p1{width:14px;height:14px;background:rgba(237,164,191,.45);top:22%;left:8%;animation:drift 7s ease-in-out infinite;}
-    .p2{width:9px;height:9px;background:rgba(201,143,170,.55);top:65%;right:7%;animation:drift 9s ease-in-out infinite 1.2s;}
-    .p3{width:18px;height:18px;background:rgba(144,122,154,.22);top:38%;right:12%;animation:drift 8s ease-in-out infinite 2.5s;}
-    .p4{width:7px;height:7px;background:rgba(237,164,191,.65);top:80%;left:18%;animation:drift 6s ease-in-out infinite .7s;}
-    .p5{width:24px;height:24px;background:rgba(237,164,191,.1);top:12%;right:22%;animation:drift 10s ease-in-out infinite 3.5s;}
-    .p6{width:11px;height:11px;background:rgba(201,143,170,.4);top:50%;left:4%;animation:drift 8.5s ease-in-out infinite 1.8s;}
+    .p1{width:90px;height:90px;background:rgba(237,164,191,.18);filter:blur(10px);top:18%;left:3%;animation:drift 6s ease-in-out infinite;}
+    .p2{width:55px;height:55px;background:rgba(201,143,170,.28);filter:blur(5px);top:62%;right:4%;animation:drift2 7s ease-in-out infinite 1s;}
+    .p3{width:120px;height:120px;background:rgba(144,122,154,.1);filter:blur(16px);top:30%;right:6%;animation:drift 9s ease-in-out infinite 2s;}
+    .p4{width:22px;height:22px;background:rgba(237,164,191,.55);top:75%;left:14%;animation:drift2 4.5s ease-in-out infinite .5s;}
+    .p5{width:16px;height:16px;background:rgba(201,143,170,.5);top:20%;right:18%;animation:drift 5s ease-in-out infinite 3s;}
+    .p6{width:70px;height:70px;background:rgba(237,164,191,.12);filter:blur(8px);top:55%;left:1%;animation:drift2 8s ease-in-out infinite 1.5s;}
 
     /* Martini divider */
     .martini-divider { display:flex; align-items:center; gap:1.25rem; max-width:72rem; margin:0 auto; padding:0 1.5rem; }
@@ -125,35 +125,36 @@
   </nav>
 
   <!-- HERO -->
-  <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto hero-gradient hero-wrap">
+  <div class="hero-outer">
     <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div>
     <div class="particle p4"></div><div class="particle p5"></div><div class="particle p6"></div>
-    <div class="eyebrow-pill mb-8">Smmology · The Framework</div>
-    <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
-      Content strategy, <em class="gradient-text">built around you.</em>
-    </h1>
-    <p class="text-[#7a6b72] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
-      You tell it your niche, your voice, your goals, and how often you can post. It gives you:
-    </p>
-    <p class="font-serif text-2xl md:text-3xl font-bold text-navy mb-10 min-h-[2.5rem]">
-      <span id="typed-hero"></span>
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-      <a href="#pricing"   class="btn-primary px-8 py-3.5 rounded-full text-base inline-block">Get the Method →</a>
-      <a href="#framework" class="btn-outline px-8 py-3.5 rounded-full text-base inline-block">See how it works →</a>
-    </div>
-    <p class="text-mauve text-sm">Built for service-based entrepreneurs who are done guessing</p>
-
-    <!-- VIDEO EMBED — paste your Loom/YouTube/Vimeo embed code below -->
-    <div class="mt-14 rounded-3xl overflow-hidden border border-[#e8ddd8] shadow-lg max-w-3xl mx-auto" style="aspect-ratio:16/9; background:#161B28; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;">
-      <div style="width:64px;height:64px;border-radius:50%;background:rgba(237,164,191,0.15);border:2px solid #EDA4BF;display:flex;align-items:center;justify-content:center;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="#EDA4BF"><polygon points="5,3 19,12 5,21"/></svg>
+    <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto" style="position:relative;z-index:1;">
+      <div class="eyebrow-pill mb-8">Smmology · The Framework</div>
+      <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
+        Content strategy, <em class="gradient-text">built around you.</em>
+      </h1>
+      <p class="text-[#7a6b72] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
+        You tell it your niche, your voice, your goals, and how often you can post. It gives you:
+      </p>
+      <p class="font-serif text-2xl md:text-3xl font-bold text-navy mb-10 min-h-[2.5rem]">
+        <span id="typed-hero"></span>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a href="#pricing"   class="btn-primary px-8 py-3.5 rounded-full text-base inline-block">Get the Method →</a>
+        <a href="#framework" class="btn-outline px-8 py-3.5 rounded-full text-base inline-block">See how it works →</a>
       </div>
-      <p style="color:#8899bb;font-size:0.85rem;letter-spacing:0.08em;">APP WALKTHROUGH · COMING SOON</p>
-    </div>
-    <!-- END VIDEO EMBED -->
+      <p class="text-mauve text-sm">Built for service-based entrepreneurs who are done guessing</p>
 
-  </section>
+      <!-- VIDEO EMBED — paste your Loom/YouTube/Vimeo embed code below -->
+      <div class="mt-14 rounded-3xl overflow-hidden border border-[#e8ddd8] shadow-lg max-w-3xl mx-auto" style="aspect-ratio:16/9; background:#161B28; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(237,164,191,0.15);border:2px solid #EDA4BF;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#EDA4BF"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+        <p style="color:#8899bb;font-size:0.85rem;letter-spacing:0.08em;">APP WALKTHROUGH · COMING SOON</p>
+      </div>
+      <!-- END VIDEO EMBED -->
+    </section>
+  </div>
 
   <script>
     new Typed('#typed-hero', {
