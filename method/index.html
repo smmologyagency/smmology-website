@@ -64,10 +64,10 @@
   <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto">
     <div class="inline-block border border-[#e8ddd8] rounded-full px-4 py-1.5 text-xs text-mauve mb-8 tracking-widest uppercase">Smmology · The Framework</div>
     <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
-      The app that plans your content, writes your scripts, and fills your calendar every month.
+      Content strategy, <em>built around you.</em>
     </h1>
     <p class="text-[#7a6b72] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
-      You tell it your niche, your voice, and how often you post. It gives you:
+      You tell it your niche, your voice, your goals, and how often you can post. It gives you:
     </p>
     <p class="font-serif text-2xl md:text-3xl font-bold text-navy mb-10 min-h-[2.5rem]">
       <span id="typed-hero"></span>
@@ -106,6 +106,38 @@
       cursorChar: '|',
     });
   </script>
+
+  <hr class="divider border-t max-w-6xl mx-auto" />
+
+  <!-- PERSONALIZATION -->
+  <section class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="text-pink text-sm tracking-widest uppercase mb-4">How it works</p>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">It doesn't give you generic content.<br/>It learns <em>your</em> brand.</h2>
+      <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto leading-relaxed">Most content tools give everyone the same output. This one starts with who you are and builds everything from there.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="stage rounded-2xl p-8">
+        <div class="font-serif text-4xl font-bold text-pink mb-4">01</div>
+        <h3 class="font-serif text-xl font-bold text-navy mb-3">You tell it who you are</h3>
+        <p class="text-[#7a6b72] text-sm leading-relaxed">Your niche. Your audience. The transformation you deliver. Your brand voice — whether that's polished, conversational, bold, or warm. The app locks this in once and never forgets it.</p>
+      </div>
+      <div class="stage rounded-2xl p-8">
+        <div class="font-serif text-4xl font-bold text-pink mb-4">02</div>
+        <h3 class="font-serif text-xl font-bold text-navy mb-3">You set your goals and availability</h3>
+        <p class="text-[#7a6b72] text-sm leading-relaxed">How often can you post? Are you growing an audience, launching an offer, or booking clients? Your strategy is built around your actual life — not some ideal content schedule you'll never keep.</p>
+      </div>
+      <div class="stage rounded-2xl p-8">
+        <div class="font-serif text-4xl font-bold text-pink mb-4">03</div>
+        <h3 class="font-serif text-xl font-bold text-navy mb-3">It builds your system</h3>
+        <p class="text-[#7a6b72] text-sm leading-relaxed">Strategy, scripts, ideas, hashtags, and a full calendar — all generated specifically for you. Every month. Every piece of content sounds like you because it starts with you.</p>
+      </div>
+    </div>
+    <div class="mt-10 rounded-2xl px-10 py-8 text-center border border-[#EDA4BF]" style="background:rgba(237,164,191,0.07);">
+      <p class="font-serif text-xl md:text-2xl text-navy font-bold mb-2">The output is only as personalized as the input.</p>
+      <p class="text-[#7a6b72] leading-relaxed max-w-2xl mx-auto">That's why the app starts by learning your story, your voice, and your goals before it ever generates a single post. What comes out the other side isn't generic AI content. It's yours.</p>
+    </div>
+  </section>
 
   <hr class="divider border-t max-w-6xl mx-auto" />
 
@@ -448,7 +480,7 @@
     <div class="flex justify-center mb-10">
       <div class="flex items-center gap-1 p-1 rounded-full border border-[#e8ddd8] bg-white">
         <button id="btn-monthly" onclick="setPlan('monthly')" class="px-6 py-2 rounded-full text-sm font-semibold transition-all" style="background:#161B28;color:#fff;">Monthly</button>
-        <button id="btn-annual" onclick="setPlan('annual')" class="px-6 py-2 rounded-full text-sm font-semibold transition-all" style="background:transparent;color:#907A9A;">Annual <span class="text-pink text-xs ml-1">Save $194</span></button>
+        <button id="btn-annual" onclick="setPlan('annual')" class="px-6 py-2 rounded-full text-sm font-semibold transition-all" style="background:transparent;color:#907A9A;">Annual <span class="text-pink text-xs ml-1">Save $291</span></button>
       </div>
     </div>
 
@@ -490,10 +522,10 @@
   <script>
     function setPlan(plan) {
       const isAnnual = plan === 'annual';
-      document.getElementById('price-amount').textContent = isAnnual ? '$970' : '$97';
+      document.getElementById('price-amount').textContent = isAnnual ? '$873' : '$97';
       document.getElementById('price-original').textContent = isAnnual ? '$7,164' : '$597';
       document.getElementById('price-sub').textContent = isAnnual
-        ? 'per year · ~$80/mo · 2 months free · rate locked in forever'
+        ? 'per year · ~$72/mo · 3 months free · rate locked in forever'
         : 'per month · rate locked in forever';
       document.getElementById('price-cta').href = isAnnual
         ? 'https://app.smmology.us/signup?plan=annual'
