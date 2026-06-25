@@ -80,15 +80,15 @@
 
     /* Hero particles */
     .hero-outer { position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 85% 0%, rgba(237,164,191,.22) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 5% 100%, rgba(144,122,154,.14) 0%, transparent 55%), #FAF7F5; }
-    @keyframes drift { 0%,100%{transform:translateY(0) scale(1); opacity:.6;} 50%{transform:translateY(-52px) scale(1.08); opacity:1;} }
-    @keyframes drift2 { 0%,100%{transform:translateY(0) translateX(0); opacity:.4;} 33%{transform:translateY(-38px) translateX(18px); opacity:.9;} 66%{transform:translateY(-20px) translateX(-12px); opacity:.7;} }
-    .particle { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
-    .p1{width:90px;height:90px;background:rgba(237,164,191,.18);filter:blur(10px);top:18%;left:3%;animation:drift 6s ease-in-out infinite;}
-    .p2{width:55px;height:55px;background:rgba(201,143,170,.28);filter:blur(5px);top:62%;right:4%;animation:drift2 7s ease-in-out infinite 1s;}
-    .p3{width:120px;height:120px;background:rgba(144,122,154,.1);filter:blur(16px);top:30%;right:6%;animation:drift 9s ease-in-out infinite 2s;}
-    .p4{width:22px;height:22px;background:rgba(237,164,191,.55);top:75%;left:14%;animation:drift2 4.5s ease-in-out infinite .5s;}
-    .p5{width:16px;height:16px;background:rgba(201,143,170,.5);top:20%;right:18%;animation:drift 5s ease-in-out infinite 3s;}
-    .p6{width:70px;height:70px;background:rgba(237,164,191,.12);filter:blur(8px);top:55%;left:1%;animation:drift2 8s ease-in-out infinite 1.5s;}
+    @keyframes drift  { 0%,100%{transform:translateY(0) rotate(-6deg); opacity:.7;} 50%{transform:translateY(-50px) rotate(6deg); opacity:1;} }
+    @keyframes drift2 { 0%,100%{transform:translateY(0) translateX(0) rotate(4deg); opacity:.5;} 33%{transform:translateY(-36px) translateX(16px) rotate(-10deg); opacity:.9;} 66%{transform:translateY(-18px) translateX(-10px) rotate(7deg); opacity:.7;} }
+    .particle { position: absolute; pointer-events: none; z-index: 0; line-height:1; user-select:none; }
+    .p1{font-size:3rem;  opacity:.13; top:18%; left:3%;   animation:drift  6s ease-in-out infinite;}
+    .p2{font-size:1.8rem;opacity:.2;  top:62%; right:4%;  animation:drift2 7s ease-in-out infinite 1s;}
+    .p3{font-size:4.5rem;opacity:.07; top:28%; right:5%;  animation:drift  9s ease-in-out infinite 2s;}
+    .p4{font-size:1.1rem;opacity:.28; top:74%; left:14%;  animation:drift2 4.5s ease-in-out infinite .5s;}
+    .p5{font-size:1rem;  opacity:.22; top:18%; right:16%; animation:drift  5s ease-in-out infinite 3s;}
+    .p6{font-size:2.5rem;opacity:.1;  top:54%; left:1%;   animation:drift2 8s ease-in-out infinite 1.5s;}
 
     /* Martini divider */
     .martini-divider { display:flex; align-items:center; gap:1.25rem; max-width:72rem; margin:0 auto; padding:0 1.5rem; }
@@ -126,8 +126,8 @@
 
   <!-- HERO -->
   <div class="hero-outer">
-    <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div>
-    <div class="particle p4"></div><div class="particle p5"></div><div class="particle p6"></div>
+    <div class="particle p1">🍸</div><div class="particle p2">🍸</div><div class="particle p3">🍸</div>
+    <div class="particle p4">🍸</div><div class="particle p5">🍸</div><div class="particle p6">🍸</div>
     <section class="pt-32 pb-24 px-6 text-center max-w-4xl mx-auto" style="position:relative;z-index:1;">
       <div class="eyebrow-pill mb-8">Smmology · The Framework</div>
       <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
