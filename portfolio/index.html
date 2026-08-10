@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Diana De La O · Smmology</title>
+  <link rel="icon" type="image/jpeg" href="../assets/logo-navy.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1700968041171903');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1700968041171903&ev=PageView&noscript=1"
+  /></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:  #161B28;
+      --slate: #404C70;
+      --mauve: #907A9A;
+      --pink:  #EDA4BF;
+      --blush: #FFE2EA;
+      --cream: #FAF7F5;
+      --text:  #2a1f2e;
+      --muted: #7a6b72;
+      --border:#e8ddd8;
+    }
+
+    body { background: var(--cream); color: var(--text); font-family: 'Inter', system-ui, sans-serif; }
+    em   { font-style: italic; color: #C98FAA; font-family: 'Playfair Display', serif; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: 64px;
+      background: rgba(250,247,245,.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: 72rem; width: 100%; margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--navy); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-link { font-size: .85rem; color: var(--mauve); text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: var(--pink); }
+    .nav-link.active { color: var(--navy); font-weight: 500; }
+    .nav-cta {
+      font-size: .8rem; font-weight: 600;
+      background: var(--navy); color: var(--cream);
+      padding: .5rem 1.2rem; border-radius: 99px;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .8; }
+
+    /* HERO */
+    .hero {
+      padding: 9rem 1.5rem 5rem;
+      max-width: 72rem; margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--pink);
+      background: linear-gradient(135deg, rgba(237,164,191,.15), rgba(144,122,154,.08));
+      border: 1px solid rgba(237,164,191,.3);
+      border-radius: 99px; padding: 4px 14px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      max-width: 700px;
+      text-wrap: balance;
+      margin-bottom: 1.25rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* SECTION LABELS */
+    .section-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--mauve);
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; color: var(--navy);
+      margin-bottom: .5rem;
+      text-wrap: balance;
+    }
+    .section-desc {
+      font-size: .9rem; color: var(--muted); line-height: 1.65;
+      max-width: 520px; margin-bottom: 3rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      display: flex; align-items: center; gap: 1rem;
+      max-width: 72rem; margin: 0 auto; padding: 0 1.5rem;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .divider span { color: var(--pink); font-size: 1rem; }
+
+    /* ── FEATURED CLIENTS ── */
+    .featured-section { padding: 5rem 1.5rem; max-width: 72rem; margin: 0 auto; }
+
+    .featured-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 24px rgba(42,31,46,.06);
+    }
+
+    .featured-card-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0;
+    }
+
+    /* Client info panel */
+    .client-info {
+      padding: 2.5rem;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: space-between;
+      background: #fdf8fa;
+    }
+    .client-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: white;
+      padding: 4px 12px; border-radius: 99px;
+      margin-bottom: 1.5rem;
+      width: fit-content;
+    }
+    .badge-active { background: #2d9f5b; }
+    .client-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--navy); line-height: 1.2;
+      margin-bottom: .3rem;
+    }
+    .client-handle {
+      font-size: .8rem; color: var(--pink);
+      text-decoration: none; margin-bottom: 1.5rem; display: block;
+    }
+    .client-handle:hover { text-decoration: underline; }
+    .client-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 2rem; }
+    .client-tag {
+      font-size: .65rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--mauve);
+      background: rgba(144,122,154,.1);
+      border: 1px solid rgba(144,122,154,.2);
+      padding: 3px 10px; border-radius: 99px;
+    }
+    .client-services { }
+    .client-services p {
+      font-size: .75rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--mauve); margin-bottom: .5rem;
+    }
+    .client-services ul {
+      list-style: none;
+      display: flex; flex-direction: column; gap: .3rem;
+    }
+    .client-services li {
+      font-size: .85rem; color: var(--muted);
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .client-services li::before {
+      content: ''; width: 5px; height: 5px;
+      border-radius: 50%; background: var(--pink); flex-shrink: 0;
+    }
+
+    /* Media grid */
+    .client-media { padding: 1.5rem; }
+    .media-grid {
+      display: grid;
+      gap: .75rem;
+    }
+    .media-grid-featured {
+      grid-template-columns: 1fr 1fr 0.6fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    /* Placeholder slots */
+    .slot {
+      border-radius: .75rem;
+      background: linear-gradient(135deg, #f0eae8 0%, #e8ddd8 100%);
+      border: 1.5px dashed #d5c8c4;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: .4rem;
+      cursor: default;
+      transition: border-color .2s, background .2s;
+      min-height: 130px;
+      position: relative;
+      overflow: hidden;
+    }
+    .slot:hover { border-color: var(--pink); background: linear-gradient(135deg, #f7f0f3, #f0e4ea); }
+    .slot-icon { font-size: 1.3rem; opacity: .5; }
+    .slot-label {
+      font-size: .6rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--mauve); opacity: .7;
+    }
+    .slot-sub {
+      font-size: .55rem; color: var(--mauve); opacity: .5;
+      letter-spacing: .05em;
+    }
+    .slot.reel {
+      background: linear-gradient(135deg, #1e2338 0%, #2b2040 100%);
+      border-color: rgba(237,164,191,.2);
+    }
+    .slot.reel .slot-icon { opacity: .6; }
+    .slot.reel .slot-label { color: rgba(237,164,191,.8); opacity: 1; }
+    .slot.reel .slot-sub { color: rgba(237,164,191,.45); opacity: 1; }
+    .slot.span-col { grid-column: span 1; grid-row: span 2; }
+
+    /* To replace a slot: change .slot div to <img src="..." class="slot-img"> */
+    .slot-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: .75rem;
+      display: block;
+    }
+
+    /* ── SMM CLIENTS ── */
+    .smm-section {
+      padding: 0 1.5rem 5rem;
+      max-width: 72rem; margin: 0 auto;
+    }
+    .smm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .smm-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .smm-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 36px rgba(42,31,46,.1);
+    }
+    .smm-card-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .smm-avatar {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #f0eae8, #e8ddd8);
+      border: 1.5px dashed #d5c8c4;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .smm-active-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #2d9f5b;
+    }
+    .smm-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700; color: var(--navy);
+      margin-bottom: .2rem;
+    }
+    .smm-handle {
+      font-size: .75rem; color: var(--pink); text-decoration: none;
+      display: block; margin-bottom: .75rem;
+    }
+    .smm-handle:hover { text-decoration: underline; }
+    .smm-niche {
+      font-size: .65rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--mauve);
+      background: rgba(144,122,154,.08);
+      border: 1px solid rgba(144,122,154,.15);
+      padding: 3px 9px; border-radius: 99px;
+      display: inline-block;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--navy);
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    .cta-section .eyebrow { background: rgba(237,164,191,.1); border-color: rgba(237,164,191,.25); }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700; color: #FAF7F5;
+      margin-bottom: 1rem; text-wrap: balance;
+    }
+    .cta-section p { font-size: .95rem; color: #8aaabb; max-width: 440px; margin: 0 auto 2rem; line-height: 1.65; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--pink); color: var(--navy);
+      font-size: .9rem; font-weight: 700;
+      padding: .9rem 2.2rem; border-radius: 99px;
+      text-decoration: none; transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .88; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 72rem; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; font-size: .8rem; color: var(--mauve);
+      flex-wrap: wrap;
+    }
+    .footer-inner a { color: var(--mauve); text-decoration: none; transition: color .2s; }
+    .footer-inner a:hover { color: var(--pink); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .featured-card-inner { grid-template-columns: 1fr; }
+      .client-info { border-right: none; border-bottom: 1px solid var(--border); }
+      .nav-links { display: none; }
+      .media-grid-featured { grid-template-columns: 1fr 1fr; }
+      .slot.span-col { grid-row: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="https://smmology.us" class="nav-brand">Smmology</a>
+      <div class="nav-links">
+        <a href="https://smmology.us" class="nav-link">Home</a>
+        <a href="https://smmology.us/method" class="nav-link">The Method</a>
+        <a href="/portfolio" class="nav-link active">Portfolio</a>
+        <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="nav-cta">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">Content Creation · Video Editing · Social Media</div>
+    <h1>The work behind <em>the brands.</em></h1>
+    <p>
+      A look at the content I create for real businesses — from monthly shoots to video edits
+      to full social media management. Every brand, every niche, built from scratch.
+    </p>
+  </div>
+
+  <div class="divider" aria-hidden="true"><span>✦</span></div>
+
+  <!-- FEATURED: CONTENT SHOOTS + VIDEO EDITING -->
+  <section class="featured-section">
+    <p class="section-label">Featured · Active Clients</p>
+    <h2 class="section-title">Content shoots & <em>video editing</em></h2>
+    <p class="section-desc">Monthly on-location shoots, short-form video editing, and social-ready content for two of Folsom's most recognizable venues.</p>
+
+    <!-- WALLY'S PIZZA BAR -->
+    <div class="featured-card">
+      <div class="featured-card-inner">
+
+        <div class="client-info">
+          <div>
+            <span class="client-badge badge-active">✦ Active Client</span>
+            <p class="client-name">Wally's Pizza Bar</p>
+            <a href="https://instagram.com/wallyspizzabar" target="_blank" class="client-handle">@wallyspizzabar</a>
+            <div class="client-tags">
+              <span class="client-tag">Food & Drink</span>
+              <span class="client-tag">Restaurant</span>
+              <span class="client-tag">Folsom, CA</span>
+            </div>
+          </div>
+          <div class="client-services">
+            <p>Services</p>
+            <ul>
+              <li>Monthly content shoots</li>
+              <li>Short-form video editing</li>
+              <li>Reels & social-ready content</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="client-media">
+          <!-- MEDIA GRID: replace .slot divs with <img src="..." class="slot-img"> or <video> when ready -->
+          <div class="media-grid media-grid-featured" style="height:320px;">
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">1:1 · Feed</span>
+            </div>
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">1:1 · Feed</span>
+            </div>
+            <div class="slot reel span-col">
+              <span class="slot-icon">🎬</span>
+              <span class="slot-label">Reel</span>
+              <span class="slot-sub">9:16 · Video</span>
+            </div>
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">4:5 · Feed</span>
+            </div>
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">4:5 · Feed</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FLB ENTERTAINMENT CENTER -->
+    <div class="featured-card">
+      <div class="featured-card-inner">
+
+        <div class="client-info">
+          <div>
+            <span class="client-badge badge-active">✦ Active Client</span>
+            <p class="client-name">FLB Entertainment Center</p>
+            <a href="https://instagram.com/flbentertainmentcenter" target="_blank" class="client-handle">@flbentertainmentcenter</a>
+            <div class="client-tags">
+              <span class="client-tag">Entertainment</span>
+              <span class="client-tag">Sports Bar</span>
+              <span class="client-tag">Folsom, CA</span>
+            </div>
+          </div>
+          <div class="client-services">
+            <p>Services</p>
+            <ul>
+              <li>Monthly content shoots</li>
+              <li>Short-form video editing</li>
+              <li>Reels & social-ready content</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="client-media">
+          <div class="media-grid media-grid-featured" style="height:320px;">
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">1:1 · Feed</span>
+            </div>
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">1:1 · Feed</span>
+            </div>
+            <div class="slot reel span-col">
+              <span class="slot-icon">🎬</span>
+              <span class="slot-label">Reel</span>
+              <span class="slot-sub">9:16 · Video</span>
+            </div>
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">4:5 · Feed</span>
+            </div>
+            <div class="slot">
+              <span class="slot-icon">📸</span>
+              <span class="slot-label">Photo</span>
+              <span class="slot-sub">4:5 · Feed</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span>✦</span></div>
+
+  <!-- SMM CLIENTS -->
+  <section class="smm-section" style="padding-top:5rem;">
+    <p class="section-label">Social Media Management</p>
+    <h2 class="section-title">Brands I've <em>managed.</em></h2>
+    <p class="section-desc">Full social media management — strategy, content direction, posting, and community — across beauty, wellness, food, real estate, and home services.</p>
+
+    <div class="smm-grid">
+
+      <div class="smm-card">
+        <div class="smm-card-top">
+          <div class="smm-avatar">🍵</div>
+          <div class="smm-active-dot" title="Active"></div>
+        </div>
+        <p class="smm-name">Caffè Santoro</p>
+        <a href="https://instagram.com/caffesantoro" target="_blank" class="smm-handle">@caffesantoro</a>
+        <span class="smm-niche">Coffee · Café</span>
+      </div>
+
+      <div class="smm-card">
+        <div class="smm-card-top">
+          <div class="smm-avatar">✨</div>
+        </div>
+        <p class="smm-name">Skin Aesthetics Center</p>
+        <a href="https://instagram.com/skinaestheticscenter" target="_blank" class="smm-handle">@skinaestheticscenter</a>
+        <span class="smm-niche">Medical Spa</span>
+      </div>
+
+      <div class="smm-card">
+        <div class="smm-card-top">
+          <div class="smm-avatar">🌿</div>
+        </div>
+        <p class="smm-name">Voitelli Wellness</p>
+        <a href="https://instagram.com/voitelliwellness" target="_blank" class="smm-handle">@voitelliwellness</a>
+        <span class="smm-niche">Wellness</span>
+      </div>
+
+      <div class="smm-card">
+        <div class="smm-card-top">
+          <div class="smm-avatar">🏡</div>
+        </div>
+        <p class="smm-name">24 Propiedades</p>
+        <a href="https://instagram.com/24.propiedades" target="_blank" class="smm-handle">@24.propiedades</a>
+        <span class="smm-niche">Real Estate</span>
+      </div>
+
+      <div class="smm-card">
+        <div class="smm-card-top">
+          <div class="smm-avatar">💪</div>
+        </div>
+        <p class="smm-name">Wellness Rox</p>
+        <a href="https://instagram.com/wellnessrox" target="_blank" class="smm-handle">@wellnessrox</a>
+        <span class="smm-niche">Wellness · Fitness</span>
+      </div>
+
+      <div class="smm-card">
+        <div class="smm-card-top">
+          <div class="smm-avatar">💄</div>
+        </div>
+        <p class="smm-name">Oh Lala Salon</p>
+        <a href="https://instagram.com/ohlalasalonandmakeup" target="_blank" class="smm-handle">@ohlalasalonandmakeup</a>
+        <span class="smm-niche">Salon · Beauty</span>
+      </div>
+
+      <div class="smm-card">
+        <div class="smm-card-top">
+          <div class="smm-avatar">🔧</div>
+        </div>
+        <p class="smm-name">Rhinehart Heating & Air</p>
+        <a href="https://instagram.com/rhinehartheatingandair" target="_blank" class="smm-handle">@rhinehartheatingandair</a>
+        <span class="smm-niche">HVAC · Home Services</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"><span>✦</span></div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="eyebrow">Let's work together</div>
+    <h2>Ready to build content <em>that converts?</em></h2>
+    <p>Whether you need monthly content shoots, video editing, or full social media management — let's talk about what your brand needs.</p>
+    <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="cta-btn">Book a Free Call →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="https://smmology.us" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);">Smmology</a>
+      <span>© 2026 Smmology · Diana De La O</span>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="https://app.smmology.us/privacy">Privacy Policy</a>
+        <a href="https://smmology.us/method">The Method</a>
+        <a href="https://smmology.us">← Back to Home</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
