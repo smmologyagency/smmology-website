@@ -380,6 +380,45 @@
       text-transform: uppercase; color: rgba(255,255,255,.75);
     }
 
+    /* PLAY ICON OVERLAY */
+    .reel-tile { cursor: pointer; }
+    .reel-tile::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,0); transition: background .2s;
+      border-radius: .75rem; z-index: 1;
+    }
+    .reel-tile:hover::after { background: rgba(0,0,0,.28); }
+    .play-icon {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .2s; pointer-events: none;
+    }
+    .reel-tile:hover .play-icon { opacity: 1; }
+    .play-icon svg { width: 44px; height: 44px; filter: drop-shadow(0 2px 10px rgba(0,0,0,.6)); }
+
+    /* LIGHTBOX */
+    .lb-overlay {
+      display: none; position: fixed; inset: 0; z-index: 300;
+      background: rgba(0,0,0,.9);
+      align-items: center; justify-content: center;
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    }
+    .lb-overlay.open { display: flex; }
+    .lb-wrap { position: relative; width: min(360px, 85vw); aspect-ratio: 9/16; }
+    .lb-close {
+      position: absolute; top: -48px; right: 0;
+      background: rgba(255,255,255,.12); border: none;
+      color: white; font-size: 1rem; font-weight: 700;
+      width: 36px; height: 36px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.28); }
+    .lb-wrap video {
+      width: 100%; height: 100%; border-radius: 1.25rem;
+      object-fit: contain; background: #000; display: block;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .featured-card-inner { grid-template-columns: 1fr; }
@@ -449,34 +488,39 @@
 
         <div class="client-media">
           <div class="reels-row">
-            <div class="reel-tile">
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-cooking-pasta.mp4')">
               <video autoplay muted loop playsinline>
                 <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-cooking-pasta.mp4" type="video/mp4">
               </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
               <div class="reel-label">cooking pasta</div>
             </div>
-            <div class="reel-tile">
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-four-walls.mp4')">
               <video autoplay muted loop playsinline>
                 <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-four-walls.mp4" type="video/mp4">
               </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
               <div class="reel-label">four walls</div>
             </div>
-            <div class="reel-tile">
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-soccer-finals.mp4')">
               <video autoplay muted loop playsinline>
                 <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-soccer-finals.mp4" type="video/mp4">
               </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
               <div class="reel-label">soccer finals</div>
             </div>
-            <div class="reel-tile">
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-4th-of-july.mp4')">
               <video autoplay muted loop playsinline>
                 <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-4th-of-july.mp4" type="video/mp4">
               </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
               <div class="reel-label">4th of july</div>
             </div>
-            <div class="reel-tile">
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-on-tap.mp4')">
               <video autoplay muted loop playsinline>
                 <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/wallys/wallys-on-tap.mp4" type="video/mp4">
               </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
               <div class="reel-label">on tap</div>
             </div>
           </div>
@@ -641,6 +685,40 @@
       </div>
     </div>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lb-overlay" id="lb">
+    <div class="lb-wrap">
+      <button class="lb-close" onclick="closeLb()">✕</button>
+      <video id="lb-video" controls playsinline></video>
+    </div>
+  </div>
+
+  <script>
+    function openLb(src) {
+      var vid = document.getElementById('lb-video');
+      vid.src = src;
+      vid.play();
+      document.getElementById('lb').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb() {
+      var vid = document.getElementById('lb-video');
+      vid.pause();
+      vid.src = '';
+      document.getElementById('lb').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lb').addEventListener('click', function(e) {
+      if (e.target === this) closeLb();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLb();
+    });
+  </script>
 
 </body>
 </html>
