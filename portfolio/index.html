@@ -607,12 +607,6 @@
           <p class="photos-section-label">Photography</p>
           <div class="photo-carousel-wrap">
             <div class="photo-carousel-viewport">
-              <button class="carousel-btn carousel-btn-prev hidden" id="photo-prev" onclick="photoNav(-1)" aria-label="Previous">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <button class="carousel-btn carousel-btn-next" id="photo-next" onclick="photoNav(1)" aria-label="Next">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
               <div class="photo-grid" id="photo-grid">
             <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-chicken-sandwich-dark.jpg')">
               <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-chicken-sandwich-dark.jpg" alt="Crispy chicken sandwich" loading="lazy">
@@ -651,6 +645,12 @@
               <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-sports-bar-crowd.jpg" alt="Sports bar crowd" loading="lazy">
             </div>
           </div>
+              <button class="carousel-btn carousel-btn-prev hidden" id="photo-prev" onclick="photoNav(-1)" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="carousel-btn carousel-btn-next" id="photo-next" onclick="photoNav(1)" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
             </div><!-- /photo-carousel-viewport -->
             <div class="carousel-dots" id="photo-dots"></div>
           </div><!-- /photo-carousel-wrap -->
