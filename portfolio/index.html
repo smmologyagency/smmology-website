@@ -431,6 +431,7 @@
     .photo-carousel-viewport {
       overflow: hidden;
       border-radius: .65rem;
+      position: relative;
     }
     .photo-grid {
       display: flex;
@@ -474,8 +475,8 @@
     }
     .carousel-btn:hover { background: white; }
     .carousel-btn.hidden { opacity: 0; pointer-events: none; }
-    .carousel-btn-prev { left: -16px; }
-    .carousel-btn-next { right: -16px; }
+    .carousel-btn-prev { left: 6px; }
+    .carousel-btn-next { right: 6px; }
     .carousel-btn svg { width: 14px; height: 14px; }
     .carousel-dots {
       display: flex; gap: .35rem; justify-content: center; margin-top: .6rem;
@@ -605,13 +606,13 @@
           <!-- PHOTOGRAPHY -->
           <p class="photos-section-label">Photography</p>
           <div class="photo-carousel-wrap">
-            <button class="carousel-btn carousel-btn-prev hidden" id="photo-prev" onclick="photoNav(-1)" aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button class="carousel-btn carousel-btn-next" id="photo-next" onclick="photoNav(1)" aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
             <div class="photo-carousel-viewport">
+              <button class="carousel-btn carousel-btn-prev hidden" id="photo-prev" onclick="photoNav(-1)" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="carousel-btn carousel-btn-next" id="photo-next" onclick="photoNav(1)" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
               <div class="photo-grid" id="photo-grid">
             <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-chicken-sandwich-dark.jpg')">
               <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-chicken-sandwich-dark.jpg" alt="Crispy chicken sandwich" loading="lazy">
