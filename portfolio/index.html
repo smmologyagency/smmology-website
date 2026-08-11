@@ -419,16 +419,24 @@
       object-fit: contain; background: #000; display: block;
     }
 
-    /* PHOTO GRID */
+    /* PHOTO CAROUSEL */
     .photos-section-label {
       font-size: .65rem; font-weight: 700; letter-spacing: .12em;
       text-transform: uppercase; color: var(--mauve);
       margin: 1.25rem 0 .6rem;
     }
+    .photo-carousel-wrap {
+      position: relative;
+    }
+    .photo-carousel-viewport {
+      overflow: hidden;
+      border-radius: .65rem;
+    }
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: .4rem;
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
     }
     .photo-tile {
       aspect-ratio: 1/1;
@@ -451,6 +459,32 @@
       border-radius: .65rem;
     }
     .photo-tile:hover::after { background: rgba(0,0,0,.18); }
+
+    /* CAROUSEL ARROWS */
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 10;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,.92); border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s, opacity .2s;
+      color: var(--navy);
+    }
+    .carousel-btn:hover { background: white; }
+    .carousel-btn.hidden { opacity: 0; pointer-events: none; }
+    .carousel-btn-prev { left: -16px; }
+    .carousel-btn-next { right: -16px; }
+    .carousel-btn svg { width: 14px; height: 14px; }
+    .carousel-dots {
+      display: flex; gap: .35rem; justify-content: center; margin-top: .6rem;
+    }
+    .carousel-dot {
+      width: 6px; height: 6px; border-radius: 99px;
+      background: rgba(144,122,154,.25); transition: background .2s, width .2s;
+      cursor: pointer;
+    }
+    .carousel-dot.active { background: var(--mauve); width: 18px; }
 
     /* LIGHTBOX — shared for video + photo */
     .lb-wrap img#lb-img {
@@ -569,7 +603,15 @@
 
           <!-- PHOTOGRAPHY -->
           <p class="photos-section-label">Photography</p>
-          <div class="photo-grid">
+          <div class="photo-carousel-wrap">
+            <button class="carousel-btn carousel-btn-prev hidden" id="photo-prev" onclick="photoNav(-1)" aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel-btn carousel-btn-next" id="photo-next" onclick="photoNav(1)" aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="photo-carousel-viewport">
+              <div class="photo-grid" id="photo-grid">
             <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-chicken-sandwich-dark.jpg')">
               <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-chicken-sandwich-dark.jpg" alt="Crispy chicken sandwich" loading="lazy">
             </div>
@@ -607,6 +649,9 @@
               <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-sports-bar-crowd.jpg" alt="Sports bar crowd" loading="lazy">
             </div>
           </div>
+            </div><!-- /photo-carousel-viewport -->
+            <div class="carousel-dots" id="photo-dots"></div>
+          </div><!-- /photo-carousel-wrap -->
         </div>
 
       </div>
@@ -816,6 +861,54 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLb();
     });
+
+    // PHOTO CAROUSEL
+    (function() {
+      var grid = document.getElementById('photo-grid');
+      var viewport = grid.parentElement;
+      var dotsEl = document.getElementById('photo-dots');
+      var prevBtn = document.getElementById('photo-prev');
+      var nextBtn = document.getElementById('photo-next');
+      var cols = 4;
+      var tiles = grid.querySelectorAll('.photo-tile');
+      var pages = Math.ceil(tiles.length / cols);
+      var cur = 0;
+
+      for (var i = 0; i < pages; i++) {
+        var d = document.createElement('div');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.dataset.page = i;
+        d.addEventListener('click', function() { goTo(+this.dataset.page); });
+        dotsEl.appendChild(d);
+      }
+
+      function rowStep() {
+        // distance from top of row 0 to top of row 1 (includes gap)
+        if (tiles.length < cols + 1) return tiles[0].offsetHeight;
+        return tiles[cols].getBoundingClientRect().top - tiles[0].getBoundingClientRect().top;
+      }
+
+      function goTo(page) {
+        cur = page;
+        var step = rowStep();
+        viewport.style.height = tiles[0].offsetHeight + 'px';
+        grid.style.transform = 'translateY(-' + (step * cur) + 'px)';
+        prevBtn.classList.toggle('hidden', cur === 0);
+        nextBtn.classList.toggle('hidden', cur === pages - 1);
+        dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === cur);
+        });
+      }
+
+      function init() {
+        viewport.style.height = tiles[0].offsetHeight + 'px';
+        goTo(0);
+      }
+
+      setTimeout(init, 200);
+      window.addEventListener('resize', function() { goTo(cur); });
+      window.photoNav = function(dir) { goTo(Math.max(0, Math.min(pages - 1, cur + dir))); };
+    })();
   </script>
 
 </body>
