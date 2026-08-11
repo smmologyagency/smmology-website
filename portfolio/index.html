@@ -419,6 +419,48 @@
       object-fit: contain; background: #000; display: block;
     }
 
+    /* PHOTO GRID */
+    .photos-section-label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--mauve);
+      margin: 1.25rem 0 .6rem;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .5rem;
+    }
+    .photo-tile {
+      aspect-ratio: 1/1;
+      border-radius: .65rem;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: #1e2338;
+      border: 1.5px solid rgba(237,164,191,.15);
+    }
+    .photo-tile img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .35s ease;
+    }
+    .photo-tile:hover img { transform: scale(1.05); }
+    .photo-tile::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,0); transition: background .2s;
+      border-radius: .65rem;
+    }
+    .photo-tile:hover::after { background: rgba(0,0,0,.18); }
+
+    /* LIGHTBOX — shared for video + photo */
+    .lb-wrap img#lb-img {
+      max-width: min(90vw, 820px);
+      max-height: 88vh;
+      width: auto; height: auto;
+      border-radius: 1.25rem;
+      object-fit: contain; background: #000; display: block;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .featured-card-inner { grid-template-columns: 1fr; }
@@ -522,6 +564,29 @@
               </video>
               <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
               <div class="reel-label">on tap</div>
+            </div>
+          </div>
+
+          <!-- PHOTOGRAPHY -->
+          <p class="photos-section-label">Photography</p>
+          <div class="photo-grid">
+            <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-old-fashioned-coaster.jpg')">
+              <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-old-fashioned-coaster.jpg" alt="Old fashioned cocktail on Wally's coaster" loading="lazy">
+            </div>
+            <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-espresso-martini.jpg')">
+              <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-espresso-martini.jpg" alt="Espresso martini overhead" loading="lazy">
+            </div>
+            <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-old-fashioned-overhead.jpg')">
+              <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-old-fashioned-overhead.jpg" alt="Old fashioned overhead" loading="lazy">
+            </div>
+            <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-pour.jpg')">
+              <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-pour.jpg" alt="Liquor pour" loading="lazy">
+            </div>
+            <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-cocktails-bar.jpg')">
+              <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-cocktails-bar.jpg" alt="Cocktails on the bar" loading="lazy">
+            </div>
+            <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-server-hoodie.jpg')">
+              <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/wallys/wallys-server-hoodie.jpg" alt="Server in Wally's hoodie" loading="lazy">
             </div>
           </div>
         </div>
@@ -688,25 +753,40 @@
 
   <!-- LIGHTBOX -->
   <div class="lb-overlay" id="lb">
-    <div class="lb-wrap">
+    <div class="lb-wrap" id="lb-wrap">
       <button class="lb-close" onclick="closeLb()">✕</button>
-      <video id="lb-video" controls playsinline></video>
+      <video id="lb-video" controls playsinline style="display:none"></video>
+      <img id="lb-img" alt="" style="display:none">
     </div>
   </div>
 
   <script>
     function openLb(src) {
       var vid = document.getElementById('lb-video');
-      vid.src = src;
-      vid.play();
+      var img = document.getElementById('lb-img');
+      document.getElementById('lb-wrap').style.aspectRatio = '9/16';
+      vid.style.display = 'block'; img.style.display = 'none';
+      img.src = '';
+      vid.src = src; vid.play();
+      document.getElementById('lb').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openLbPhoto(src) {
+      var vid = document.getElementById('lb-video');
+      var img = document.getElementById('lb-img');
+      document.getElementById('lb-wrap').style.aspectRatio = 'auto';
+      vid.pause(); vid.src = ''; vid.style.display = 'none';
+      img.src = src; img.style.display = 'block';
       document.getElementById('lb').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
 
     function closeLb() {
       var vid = document.getElementById('lb-video');
-      vid.pause();
-      vid.src = '';
+      var img = document.getElementById('lb-img');
+      vid.pause(); vid.src = ''; vid.style.display = 'none';
+      img.src = ''; img.style.display = 'none';
       document.getElementById('lb').classList.remove('open');
       document.body.style.overflow = '';
     }
