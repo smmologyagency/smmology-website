@@ -433,6 +433,7 @@
       border-radius: .65rem;
       position: relative;
       width: 100%;
+      container-type: inline-size;
     }
     .photo-grid {
       display: flex;
@@ -442,6 +443,7 @@
       will-change: transform;
     }
     .photo-tile {
+      flex: 0 0 calc(25cqi - 0.3rem);
       aspect-ratio: 1/1;
       border-radius: .65rem;
       overflow: hidden;
@@ -887,11 +889,9 @@
 
       function setup() {
         var gapPx = 0.4 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-        var vpW = viewport.clientWidth;
-        var tileW = (vpW - (COLS - 1) * gapPx) / COLS;
-        tiles.forEach(function(t) { t.style.width = tileW + 'px'; });
+        var tileW = tiles[0].getBoundingClientRect().width;
         viewport.style.height = tileW + 'px';
-        return vpW + gapPx; // page step = 4 tiles + 4 gaps
+        return COLS * (tileW + gapPx); // page step = 4 tiles + 4 gaps
       }
 
       function goTo(page) {
