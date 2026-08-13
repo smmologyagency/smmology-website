@@ -312,18 +312,22 @@
       0%,100% { opacity:0; transform:translate(-50%,-50%) scale(0); }
       45% { opacity:1; transform:translate(-50%,-50%) scale(1.2); }
     }
+    .smm-brand-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+    }
+    @media (max-width: 768px) { .smm-brand-grid { grid-template-columns: 1fr; } }
     .smm-brand-card {
       background: #12142a; border-radius: 18px; overflow: hidden;
-      border: 0.5px solid rgba(255,255,255,.07); margin-bottom: 1.5rem;
+      border: 0.5px solid rgba(255,255,255,.07);
     }
     .smm-brand-header {
-      padding: 1.25rem 1.5rem; display: flex;
+      padding: .9rem 1.1rem; display: flex;
       align-items: center; justify-content: space-between;
     }
     .smm-brand-icon {
-      width: 48px; height: 48px; border-radius: 13px; border: 1.5px solid;
+      width: 40px; height: 40px; border-radius: 11px; border: 1.5px solid;
       display: flex; align-items: center; justify-content: center;
-      font-size: 22px; flex-shrink: 0;
+      font-size: 18px; flex-shrink: 0;
     }
     .smm-brand-name {
       margin: 0 0 2px; color: #fff; font-size: 1.05rem;
@@ -339,11 +343,11 @@
       text-transform: uppercase; padding: 5px 13px; border-radius: 20px;
       border: 1px solid; white-space: nowrap; flex-shrink: 0;
     }
-    .smm-card-divider { height: 0.5px; background: rgba(255,255,255,.06); margin: 0 1.5rem; }
-    .smm-brand-body { padding: 1.5rem; }
-    .smm-glow-label { margin: 0 0 1rem; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75); }
-    .smm-phones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem; }
-    .smm-phone-col { text-align: center; }
+    .smm-card-divider { height: 0.5px; background: rgba(255,255,255,.06); margin: 0 1.1rem; }
+    .smm-brand-body { padding: 1.1rem; }
+    .smm-glow-label { margin: 0 0 .75rem; font-size: 12px; font-weight: 500; color: rgba(255,255,255,.75); }
+    .smm-phones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1rem; }
+    .smm-phone-col { text-align: center; position: relative; }
     .smm-bphone, .smm-aphone {
       border-radius: 24px; border: 2px solid; background: #0b0d1e; padding: 10px 8px;
     }
@@ -360,13 +364,27 @@
     .smm-phone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
     .smm-phone-bar { width: 38px; height: 3px; border-radius: 2px; margin: 8px auto 0; }
     .smm-phone-label { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; margin: 6px 0 0; }
-    .smm-rwrap { position: relative; text-align: center; margin-bottom: 1.5rem; }
+    .smm-reveal-tags { position: absolute; inset: 0; bottom: 22px; pointer-events: none; z-index: 2; }
+    .smm-rtag {
+      position: absolute; right: 4px;
+      background: rgba(10,12,30,.88); border: 1px solid; border-radius: 10px;
+      font-size: 9px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+      padding: 3px 8px; white-space: nowrap;
+      opacity: 0; transform: translateX(6px);
+      transition: opacity .35s, transform .35s;
+    }
+    .smm-revealed .smm-rtag { opacity: 1; transform: translateX(0); }
+    .smm-rtag:nth-child(1) { top: 13%; transition-delay: .15s; }
+    .smm-rtag:nth-child(2) { top: 36%; transition-delay: .28s; }
+    .smm-rtag:nth-child(3) { top: 55%; transition-delay: .41s; }
+    .smm-rtag:nth-child(4) { top: 72%; transition-delay: .54s; }
+    .smm-rwrap { position: relative; text-align: center; margin-bottom: 1rem; }
     .smm-rbtn {
-      border: 1.5px solid; border-radius: 22px; padding: 11px 30px;
-      font-size: 13px; font-weight: 500; cursor: pointer;
+      border: 1.5px solid; border-radius: 22px; padding: 9px 24px;
+      font-size: 12px; font-weight: 500; cursor: pointer;
       letter-spacing: .03em; transition: all .25s; font-family: inherit;
     }
-    .smm-tabs-wrap { padding: 0 1.5rem 1.5rem; }
+    .smm-tabs-wrap { padding: 0 1.1rem 1.1rem; }
     .smm-tabs-header {
       display: flex; border-bottom: 0.5px solid rgba(255,255,255,.07); margin-bottom: 1.25rem;
     }
@@ -864,6 +882,7 @@
     <h2 class="section-title">The <em>Martini Touch.</em></h2>
     <p class="section-desc">Full social media management — strategy, content direction, posting, and community — across beauty, wellness, food, real estate, and home services.</p>
 
+    <div class="smm-brand-grid">
     <!-- ── Caffè Santoro ── -->
     <div class="smm-brand-card" id="card-cs">
       <div class="smm-brand-header">
@@ -1468,6 +1487,7 @@
         </div></div>
       </div>
     </div>
+    </div><!-- /smm-brand-grid -->
   </section>
 
   <div class="divider" aria-hidden="true"><span>✦</span></div>
@@ -1649,9 +1669,21 @@
         var revealed = false;
         var ac = function(a) { return 'rgba('+r+','+g+','+b+','+a+')'; };
 
+        // inject reveal-tag labels into the after phone column
+        var aphoneCol = aphone.parentElement;
+        var tagDiv = document.createElement('div');
+        tagDiv.className = 'smm-reveal-tags';
+        tagDiv.innerHTML =
+          '<div class="smm-rtag" style="color:'+ac(.9)+';border-color:'+ac(.28)+';">✦ Name · SEO</div>' +
+          '<div class="smm-rtag" style="color:'+ac(.9)+';border-color:'+ac(.28)+';">✦ Bio</div>' +
+          '<div class="smm-rtag" style="color:'+ac(.9)+';border-color:'+ac(.28)+';">✦ Highlights</div>' +
+          '<div class="smm-rtag" style="color:'+ac(.9)+';border-color:'+ac(.28)+';">✦ Grid</div>';
+        aphoneCol.insertBefore(tagDiv, aphoneCol.querySelector('.smm-phone-label'));
+
         rbtn.addEventListener('click', function() {
           if (revealed) return;
           revealed = true;
+          card.classList.add('smm-revealed');
           bphone.style.opacity = '0.28';
           bphone.style.transform = 'scale(0.97)';
           aphone.style.opacity = '1';
