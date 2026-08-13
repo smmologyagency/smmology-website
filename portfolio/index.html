@@ -307,6 +307,81 @@
       display: inline-block;
     }
 
+    /* ── SMM Brand Cards ── */
+    @keyframes smmSpark {
+      0%,100% { opacity:0; transform:translate(-50%,-50%) scale(0); }
+      45% { opacity:1; transform:translate(-50%,-50%) scale(1.2); }
+    }
+    .smm-brand-card {
+      background: #12142a; border-radius: 18px; overflow: hidden;
+      border: 0.5px solid rgba(255,255,255,.07); margin-bottom: 1.5rem;
+    }
+    .smm-brand-header {
+      padding: 1.25rem 1.5rem; display: flex;
+      align-items: center; justify-content: space-between;
+    }
+    .smm-brand-icon {
+      width: 48px; height: 48px; border-radius: 13px; border: 1.5px solid;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .smm-brand-name {
+      margin: 0 0 2px; color: #fff; font-size: 1.05rem;
+      font-weight: 500; font-family: inherit; letter-spacing: -.01em;
+    }
+    .smm-brand-handle {
+      font-size: 11px; color: inherit; text-decoration: none;
+      opacity: .55; letter-spacing: .04em; display: block;
+    }
+    .smm-brand-handle:hover { opacity: 1; }
+    .smm-brand-badge {
+      font-size: 10px; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px; border-radius: 20px;
+      border: 1px solid; white-space: nowrap; flex-shrink: 0;
+    }
+    .smm-card-divider { height: 0.5px; background: rgba(255,255,255,.06); margin: 0 1.5rem; }
+    .smm-brand-body { padding: 1.5rem; }
+    .smm-glow-label { margin: 0 0 1rem; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75); }
+    .smm-phones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem; }
+    .smm-phone-col { text-align: center; }
+    .smm-bphone, .smm-aphone {
+      border-radius: 24px; border: 2px solid; background: #0b0d1e; padding: 10px 8px;
+    }
+    .smm-bphone { transition: opacity .6s, transform .6s; }
+    .smm-aphone { transition: opacity .6s, transform .6s, border-color .6s; }
+    .smm-phone-notch { width: 48px; height: 5px; border-radius: 3px; margin: 0 auto 10px; }
+    .smm-phone-header { padding: 0 4px 6px; display: flex; align-items: center; gap: 7px; border-bottom: 0.5px solid; }
+    .smm-phone-avatar { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; }
+    .smm-phone-info { flex: 1; min-width: 0; }
+    .smm-phone-name-bar { height: 6px; border-radius: 3px; margin-bottom: 3px; }
+    .smm-phone-follow { font-size: 9px; }
+    .smm-phone-bio { padding: 6px 4px 8px; display: flex; flex-direction: column; gap: 3px; }
+    .smm-bio-line { height: 4px; border-radius: 2px; }
+    .smm-phone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .smm-phone-bar { width: 38px; height: 3px; border-radius: 2px; margin: 8px auto 0; }
+    .smm-phone-label { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; margin: 6px 0 0; }
+    .smm-rwrap { position: relative; text-align: center; margin-bottom: 1.5rem; }
+    .smm-rbtn {
+      border: 1.5px solid; border-radius: 22px; padding: 11px 30px;
+      font-size: 13px; font-weight: 500; cursor: pointer;
+      letter-spacing: .03em; transition: all .25s; font-family: inherit;
+    }
+    .smm-tabs-wrap { padding: 0 1.5rem 1.5rem; }
+    .smm-tabs-header {
+      display: flex; border-bottom: 0.5px solid rgba(255,255,255,.07); margin-bottom: 1.25rem;
+    }
+    .smm-tab {
+      padding: 10px 18px; background: none; border: none;
+      border-bottom: 2px solid transparent; font-size: 13px;
+      cursor: pointer; margin-bottom: -1px; transition: all .2s; font-family: inherit;
+    }
+    .smm-reels-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .smm-rl {
+      aspect-ratio: 9/16; border-radius: 8px; border: 1px solid;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all .2s; font-size: 13px;
+    }
+
     /* ── CTA ── */
     .cta-section {
       background: var(--navy);
@@ -789,71 +864,641 @@
     <h2 class="section-title">The <em>Martini Touch.</em></h2>
     <p class="section-desc">Full social media management — strategy, content direction, posting, and community — across beauty, wellness, food, real estate, and home services.</p>
 
-    <div class="smm-grid">
-
-      <div class="smm-card">
-        <div class="smm-card-top">
-          <div class="smm-avatar">🍵</div>
+    <!-- ── Caffè Santoro ── -->
+    <div class="smm-brand-card" id="card-cs">
+      <div class="smm-brand-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="smm-brand-icon" style="background:rgba(230,180,100,.1);border-color:rgba(230,180,100,.22);">🍵</div>
+          <div>
+            <p class="smm-brand-name">Caffè Santoro</p>
+            <a href="https://instagram.com/caffesantoro" target="_blank" class="smm-brand-handle" style="color:rgba(230,180,100,.7);">@caffesantoro · Coffee · Café</a>
+          </div>
         </div>
-        <p class="smm-name">Caffè Santoro</p>
-        <a href="https://instagram.com/caffesantoro" target="_blank" class="smm-handle">@caffesantoro</a>
-        <span class="smm-niche">Coffee · Café</span>
+        <span class="smm-brand-badge" style="background:rgba(230,180,100,.1);color:rgba(230,180,100,.8);border-color:rgba(230,180,100,.18);">Full SMM</span>
       </div>
-
-      <div class="smm-card">
-        <div class="smm-card-top">
-          <div class="smm-avatar">✨</div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-brand-body">
+        <p class="smm-glow-label">✦ The Glow Up</p>
+        <div class="smm-phones">
+          <div class="smm-phone-col">
+            <div class="smm-bphone" style="border-color:rgba(255,255,255,.1);">
+              <div class="smm-phone-notch" style="background:rgba(255,255,255,.07);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(255,255,255,.04);">
+                <div class="smm-phone-avatar" style="background:rgba(255,255,255,.07);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(255,255,255,.1);width:60%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(255,255,255,.2);">180 followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:72%;background:rgba(255,255,255,.07);"></div>
+                <div class="smm-bio-line" style="width:44%;background:rgba(255,255,255,.04);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,160,100,.17);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,150,80,.14);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(80,120,180,.15);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(160,80,80,.12);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,180,80,.11);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,160,100,.09);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(255,255,255,.05);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(255,255,255,.28);">Before</p>
+          </div>
+          <div class="smm-phone-col">
+            <div class="smm-aphone" style="border-color:rgba(230,180,100,.15);opacity:.35;transform:scale(.96);">
+              <div class="smm-phone-notch" style="background:rgba(230,180,100,.12);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(230,180,100,.06);">
+                <div class="smm-phone-avatar" style="background:rgba(230,180,100,.2);border:1.5px solid rgba(230,180,100,.5);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(230,180,100,.38);width:55%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(230,180,100,.65);">2.3K followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:88%;background:rgba(255,255,255,.18);"></div>
+                <div class="smm-bio-line" style="width:54%;background:rgba(230,180,100,.28);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(230,180,100,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,155,85,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(230,180,100,.24);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(200,155,85,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(230,180,100,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,155,85,.21);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(230,180,100,.14);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(230,180,100,.45);">After</p>
+          </div>
         </div>
-        <p class="smm-name">Skin Aesthetics Center</p>
-        <a href="https://instagram.com/skinaestheticscenter" target="_blank" class="smm-handle">@skinaestheticscenter</a>
-        <span class="smm-niche">Medical Spa</span>
-      </div>
-
-      <div class="smm-card">
-        <div class="smm-card-top">
-          <div class="smm-avatar">🌿</div>
+        <div class="smm-rwrap">
+          <button class="smm-rbtn" style="background:rgba(230,180,100,.1);border-color:rgba(230,180,100,.3);color:rgba(230,180,100,.9);">✦ Reveal the glow up</button>
         </div>
-        <p class="smm-name">Voitelli Wellness</p>
-        <a href="https://instagram.com/voitelliwellness" target="_blank" class="smm-handle">@voitelliwellness</a>
-        <span class="smm-niche">Wellness</span>
       </div>
-
-      <div class="smm-card">
-        <div class="smm-card-top">
-          <div class="smm-avatar">🏡</div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-tabs-wrap">
+        <div class="smm-tabs-header">
+          <button class="smm-tab smm-tab-r" style="color:rgba(230,180,100,.9);border-bottom-color:rgba(230,180,100,.7);">Reels</button>
+          <button class="smm-tab smm-tab-p" style="color:rgba(255,255,255,.3);">Posts &amp; carousels</button>
         </div>
-        <p class="smm-name">24 Propiedades</p>
-        <a href="https://instagram.com/24.propiedades" target="_blank" class="smm-handle">@24.propiedades</a>
-        <span class="smm-niche">Real Estate</span>
-      </div>
-
-      <div class="smm-card">
-        <div class="smm-card-top">
-          <div class="smm-avatar">💪</div>
+        <div class="smm-cr"><div class="smm-reels-grid">
+          <div class="smm-rl" style="border-color:rgba(230,180,100,.1);background:rgba(230,180,100,.06);color:rgba(230,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(230,180,100,.1);background:rgba(230,180,100,.06);color:rgba(230,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(230,180,100,.1);background:rgba(230,180,100,.06);color:rgba(230,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(230,180,100,.1);background:rgba(230,180,100,.06);color:rgba(230,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(230,180,100,.1);background:rgba(230,180,100,.06);color:rgba(230,180,100,.4);">▶</div>
+        </div></div>
+        <div class="smm-cp" style="display:none;"><div style="position:relative;">
+          <div class="smm-mvp" style="overflow:hidden;border-radius:10px;width:100%;"><div class="smm-mgrid" style="display:flex;flex-wrap:nowrap;gap:8px;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+            <div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(230,180,100,.08);border-radius:8px;border:1px solid rgba(230,180,100,.13);"></div>
+          </div></div>
+          <button class="smm-mprev" aria-label="Previous" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(230,180,100,.28);color:rgba(230,180,100,.9);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:2;">‹</button>
+          <button class="smm-mnext" aria-label="Next" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(230,180,100,.28);color:rgba(230,180,100,.9);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;z-index:2;">›</button>
         </div>
-        <p class="smm-name">Wellness Rox</p>
-        <a href="https://instagram.com/wellnessrox" target="_blank" class="smm-handle">@wellnessrox</a>
-        <span class="smm-niche">Wellness · Fitness</span>
+        <div class="smm-mdots" style="display:flex;gap:5px;justify-content:center;margin-top:10px;">
+          <div style="height:4px;border-radius:2px;background:rgba(230,180,100,.7);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(230,180,100,.22);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(230,180,100,.22);transition:all .3s;"></div>
+        </div></div>
       </div>
+    </div>
 
-      <div class="smm-card">
-        <div class="smm-card-top">
-          <div class="smm-avatar">💄</div>
+    <!-- ── Skin Aesthetics Center ── -->
+    <div class="smm-brand-card" id="card-sac">
+      <div class="smm-brand-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="smm-brand-icon" style="background:rgba(237,164,191,.1);border-color:rgba(237,164,191,.22);">✨</div>
+          <div>
+            <p class="smm-brand-name">Skin Aesthetics Center</p>
+            <a href="https://instagram.com/skinaestheticscenter" target="_blank" class="smm-brand-handle" style="color:rgba(237,164,191,.7);">@skinaestheticscenter · Medical Spa</a>
+          </div>
         </div>
-        <p class="smm-name">Oh Lala Salon</p>
-        <a href="https://instagram.com/ohlalasalonandmakeup" target="_blank" class="smm-handle">@ohlalasalonandmakeup</a>
-        <span class="smm-niche">Salon · Beauty</span>
+        <span class="smm-brand-badge" style="background:rgba(237,164,191,.1);color:rgba(237,164,191,.8);border-color:rgba(237,164,191,.18);">Full SMM</span>
       </div>
-
-      <div class="smm-card">
-        <div class="smm-card-top">
-          <div class="smm-avatar">🔧</div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-brand-body">
+        <p class="smm-glow-label">✦ The Glow Up</p>
+        <div class="smm-phones">
+          <div class="smm-phone-col">
+            <div class="smm-bphone" style="border-color:rgba(255,255,255,.1);">
+              <div class="smm-phone-notch" style="background:rgba(255,255,255,.07);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(255,255,255,.04);">
+                <div class="smm-phone-avatar" style="background:rgba(255,255,255,.07);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(255,255,255,.1);width:60%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(255,255,255,.2);">180 followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:72%;background:rgba(255,255,255,.07);"></div>
+                <div class="smm-bio-line" style="width:44%;background:rgba(255,255,255,.04);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,160,100,.17);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,150,80,.14);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(80,120,180,.15);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(160,80,80,.12);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,180,80,.11);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,160,100,.09);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(255,255,255,.05);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(255,255,255,.28);">Before</p>
+          </div>
+          <div class="smm-phone-col">
+            <div class="smm-aphone" style="border-color:rgba(237,164,191,.15);opacity:.35;transform:scale(.96);">
+              <div class="smm-phone-notch" style="background:rgba(237,164,191,.12);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(237,164,191,.06);">
+                <div class="smm-phone-avatar" style="background:rgba(237,164,191,.2);border:1.5px solid rgba(237,164,191,.5);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(237,164,191,.38);width:55%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(237,164,191,.65);">2.3K followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:88%;background:rgba(255,255,255,.18);"></div>
+                <div class="smm-bio-line" style="width:54%;background:rgba(237,164,191,.28);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(237,164,191,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(210,140,170,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(237,164,191,.24);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(210,140,170,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(237,164,191,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(210,140,170,.21);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(237,164,191,.14);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(237,164,191,.45);">After</p>
+          </div>
         </div>
-        <p class="smm-name">Rhinehart Heating & Air</p>
-        <a href="https://instagram.com/rhinehartheatingandair" target="_blank" class="smm-handle">@rhinehartheatingandair</a>
-        <span class="smm-niche">HVAC · Home Services</span>
+        <div class="smm-rwrap">
+          <button class="smm-rbtn" style="background:rgba(237,164,191,.1);border-color:rgba(237,164,191,.3);color:rgba(237,164,191,.9);">✦ Reveal the glow up</button>
+        </div>
       </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-tabs-wrap">
+        <div class="smm-tabs-header">
+          <button class="smm-tab smm-tab-r" style="color:rgba(237,164,191,.9);border-bottom-color:rgba(237,164,191,.7);">Reels</button>
+          <button class="smm-tab smm-tab-p" style="color:rgba(255,255,255,.3);">Posts &amp; carousels</button>
+        </div>
+        <div class="smm-cr"><div class="smm-reels-grid">
+          <div class="smm-rl" style="border-color:rgba(237,164,191,.1);background:rgba(237,164,191,.06);color:rgba(237,164,191,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(237,164,191,.1);background:rgba(237,164,191,.06);color:rgba(237,164,191,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(237,164,191,.1);background:rgba(237,164,191,.06);color:rgba(237,164,191,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(237,164,191,.1);background:rgba(237,164,191,.06);color:rgba(237,164,191,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(237,164,191,.1);background:rgba(237,164,191,.06);color:rgba(237,164,191,.4);">▶</div>
+        </div></div>
+        <div class="smm-cp" style="display:none;"><div style="position:relative;">
+          <div class="smm-mvp" style="overflow:hidden;border-radius:10px;width:100%;"><div class="smm-mgrid" style="display:flex;flex-wrap:nowrap;gap:8px;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+            <div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(237,164,191,.08);border-radius:8px;border:1px solid rgba(237,164,191,.13);"></div>
+          </div></div>
+          <button class="smm-mprev" aria-label="Previous" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(237,164,191,.28);color:rgba(237,164,191,.9);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:2;">‹</button>
+          <button class="smm-mnext" aria-label="Next" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(237,164,191,.28);color:rgba(237,164,191,.9);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;z-index:2;">›</button>
+        </div>
+        <div class="smm-mdots" style="display:flex;gap:5px;justify-content:center;margin-top:10px;">
+          <div style="height:4px;border-radius:2px;background:rgba(237,164,191,.7);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(237,164,191,.22);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(237,164,191,.22);transition:all .3s;"></div>
+        </div></div>
+      </div>
+    </div>
 
+    <!-- ── Voitelli Wellness ── -->
+    <div class="smm-brand-card" id="card-vw">
+      <div class="smm-brand-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="smm-brand-icon" style="background:rgba(120,190,150,.1);border-color:rgba(120,190,150,.22);">🌿</div>
+          <div>
+            <p class="smm-brand-name">Voitelli Wellness</p>
+            <a href="https://instagram.com/voitelliwellness" target="_blank" class="smm-brand-handle" style="color:rgba(120,190,150,.7);">@voitelliwellness · Wellness</a>
+          </div>
+        </div>
+        <span class="smm-brand-badge" style="background:rgba(120,190,150,.1);color:rgba(120,190,150,.8);border-color:rgba(120,190,150,.18);">Full SMM</span>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-brand-body">
+        <p class="smm-glow-label">✦ The Glow Up</p>
+        <div class="smm-phones">
+          <div class="smm-phone-col">
+            <div class="smm-bphone" style="border-color:rgba(255,255,255,.1);">
+              <div class="smm-phone-notch" style="background:rgba(255,255,255,.07);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(255,255,255,.04);">
+                <div class="smm-phone-avatar" style="background:rgba(255,255,255,.07);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(255,255,255,.1);width:60%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(255,255,255,.2);">180 followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:72%;background:rgba(255,255,255,.07);"></div>
+                <div class="smm-bio-line" style="width:44%;background:rgba(255,255,255,.04);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,160,100,.17);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,150,80,.14);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(80,120,180,.15);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(160,80,80,.12);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,180,80,.11);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,160,100,.09);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(255,255,255,.05);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(255,255,255,.28);">Before</p>
+          </div>
+          <div class="smm-phone-col">
+            <div class="smm-aphone" style="border-color:rgba(120,190,150,.15);opacity:.35;transform:scale(.96);">
+              <div class="smm-phone-notch" style="background:rgba(120,190,150,.12);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(120,190,150,.06);">
+                <div class="smm-phone-avatar" style="background:rgba(120,190,150,.2);border:1.5px solid rgba(120,190,150,.5);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(120,190,150,.38);width:55%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(120,190,150,.65);">2.3K followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:88%;background:rgba(255,255,255,.18);"></div>
+                <div class="smm-bio-line" style="width:54%;background:rgba(120,190,150,.28);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(120,190,150,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(95,165,130,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(120,190,150,.24);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(95,165,130,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(120,190,150,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(95,165,130,.21);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(120,190,150,.14);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(120,190,150,.45);">After</p>
+          </div>
+        </div>
+        <div class="smm-rwrap">
+          <button class="smm-rbtn" style="background:rgba(120,190,150,.1);border-color:rgba(120,190,150,.3);color:rgba(120,190,150,.9);">✦ Reveal the glow up</button>
+        </div>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-tabs-wrap">
+        <div class="smm-tabs-header">
+          <button class="smm-tab smm-tab-r" style="color:rgba(120,190,150,.9);border-bottom-color:rgba(120,190,150,.7);">Reels</button>
+          <button class="smm-tab smm-tab-p" style="color:rgba(255,255,255,.3);">Posts &amp; carousels</button>
+        </div>
+        <div class="smm-cr"><div class="smm-reels-grid">
+          <div class="smm-rl" style="border-color:rgba(120,190,150,.1);background:rgba(120,190,150,.06);color:rgba(120,190,150,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(120,190,150,.1);background:rgba(120,190,150,.06);color:rgba(120,190,150,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(120,190,150,.1);background:rgba(120,190,150,.06);color:rgba(120,190,150,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(120,190,150,.1);background:rgba(120,190,150,.06);color:rgba(120,190,150,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(120,190,150,.1);background:rgba(120,190,150,.06);color:rgba(120,190,150,.4);">▶</div>
+        </div></div>
+        <div class="smm-cp" style="display:none;"><div style="position:relative;">
+          <div class="smm-mvp" style="overflow:hidden;border-radius:10px;width:100%;"><div class="smm-mgrid" style="display:flex;flex-wrap:nowrap;gap:8px;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+            <div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(120,190,150,.08);border-radius:8px;border:1px solid rgba(120,190,150,.13);"></div>
+          </div></div>
+          <button class="smm-mprev" aria-label="Previous" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(120,190,150,.28);color:rgba(120,190,150,.9);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:2;">‹</button>
+          <button class="smm-mnext" aria-label="Next" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(120,190,150,.28);color:rgba(120,190,150,.9);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;z-index:2;">›</button>
+        </div>
+        <div class="smm-mdots" style="display:flex;gap:5px;justify-content:center;margin-top:10px;">
+          <div style="height:4px;border-radius:2px;background:rgba(120,190,150,.7);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(120,190,150,.22);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(120,190,150,.22);transition:all .3s;"></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ── 24 Propiedades ── -->
+    <div class="smm-brand-card" id="card-p24">
+      <div class="smm-brand-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="smm-brand-icon" style="background:rgba(210,180,100,.1);border-color:rgba(210,180,100,.22);">🏡</div>
+          <div>
+            <p class="smm-brand-name">24 Propiedades</p>
+            <a href="https://instagram.com/24.propiedades" target="_blank" class="smm-brand-handle" style="color:rgba(210,180,100,.7);">@24.propiedades · Real Estate</a>
+          </div>
+        </div>
+        <span class="smm-brand-badge" style="background:rgba(210,180,100,.1);color:rgba(210,180,100,.8);border-color:rgba(210,180,100,.18);">Full SMM</span>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-brand-body">
+        <p class="smm-glow-label">✦ The Glow Up</p>
+        <div class="smm-phones">
+          <div class="smm-phone-col">
+            <div class="smm-bphone" style="border-color:rgba(255,255,255,.1);">
+              <div class="smm-phone-notch" style="background:rgba(255,255,255,.07);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(255,255,255,.04);">
+                <div class="smm-phone-avatar" style="background:rgba(255,255,255,.07);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(255,255,255,.1);width:60%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(255,255,255,.2);">180 followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:72%;background:rgba(255,255,255,.07);"></div>
+                <div class="smm-bio-line" style="width:44%;background:rgba(255,255,255,.04);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,160,100,.17);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,150,80,.14);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(80,120,180,.15);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(160,80,80,.12);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,180,80,.11);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,160,100,.09);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(255,255,255,.05);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(255,255,255,.28);">Before</p>
+          </div>
+          <div class="smm-phone-col">
+            <div class="smm-aphone" style="border-color:rgba(210,180,100,.15);opacity:.35;transform:scale(.96);">
+              <div class="smm-phone-notch" style="background:rgba(210,180,100,.12);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(210,180,100,.06);">
+                <div class="smm-phone-avatar" style="background:rgba(210,180,100,.2);border:1.5px solid rgba(210,180,100,.5);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(210,180,100,.38);width:55%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(210,180,100,.65);">2.3K followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:88%;background:rgba(255,255,255,.18);"></div>
+                <div class="smm-bio-line" style="width:54%;background:rgba(210,180,100,.28);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(210,180,100,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(180,152,82,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(210,180,100,.24);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(180,152,82,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(210,180,100,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(180,152,82,.21);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(210,180,100,.14);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(210,180,100,.45);">After</p>
+          </div>
+        </div>
+        <div class="smm-rwrap">
+          <button class="smm-rbtn" style="background:rgba(210,180,100,.1);border-color:rgba(210,180,100,.3);color:rgba(210,180,100,.9);">✦ Reveal the glow up</button>
+        </div>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-tabs-wrap">
+        <div class="smm-tabs-header">
+          <button class="smm-tab smm-tab-r" style="color:rgba(210,180,100,.9);border-bottom-color:rgba(210,180,100,.7);">Reels</button>
+          <button class="smm-tab smm-tab-p" style="color:rgba(255,255,255,.3);">Posts &amp; carousels</button>
+        </div>
+        <div class="smm-cr"><div class="smm-reels-grid">
+          <div class="smm-rl" style="border-color:rgba(210,180,100,.1);background:rgba(210,180,100,.06);color:rgba(210,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(210,180,100,.1);background:rgba(210,180,100,.06);color:rgba(210,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(210,180,100,.1);background:rgba(210,180,100,.06);color:rgba(210,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(210,180,100,.1);background:rgba(210,180,100,.06);color:rgba(210,180,100,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(210,180,100,.1);background:rgba(210,180,100,.06);color:rgba(210,180,100,.4);">▶</div>
+        </div></div>
+        <div class="smm-cp" style="display:none;"><div style="position:relative;">
+          <div class="smm-mvp" style="overflow:hidden;border-radius:10px;width:100%;"><div class="smm-mgrid" style="display:flex;flex-wrap:nowrap;gap:8px;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+            <div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(210,180,100,.08);border-radius:8px;border:1px solid rgba(210,180,100,.13);"></div>
+          </div></div>
+          <button class="smm-mprev" aria-label="Previous" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(210,180,100,.28);color:rgba(210,180,100,.9);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:2;">‹</button>
+          <button class="smm-mnext" aria-label="Next" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(210,180,100,.28);color:rgba(210,180,100,.9);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;z-index:2;">›</button>
+        </div>
+        <div class="smm-mdots" style="display:flex;gap:5px;justify-content:center;margin-top:10px;">
+          <div style="height:4px;border-radius:2px;background:rgba(210,180,100,.7);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(210,180,100,.22);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(210,180,100,.22);transition:all .3s;"></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ── Wellness Rox ── -->
+    <div class="smm-brand-card" id="card-wr">
+      <div class="smm-brand-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="smm-brand-icon" style="background:rgba(170,140,220,.1);border-color:rgba(170,140,220,.22);">💪</div>
+          <div>
+            <p class="smm-brand-name">Wellness Rox</p>
+            <a href="https://instagram.com/wellnessrox" target="_blank" class="smm-brand-handle" style="color:rgba(170,140,220,.7);">@wellnessrox · Wellness · Fitness</a>
+          </div>
+        </div>
+        <span class="smm-brand-badge" style="background:rgba(170,140,220,.1);color:rgba(170,140,220,.8);border-color:rgba(170,140,220,.18);">Full SMM</span>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-brand-body">
+        <p class="smm-glow-label">✦ The Glow Up</p>
+        <div class="smm-phones">
+          <div class="smm-phone-col">
+            <div class="smm-bphone" style="border-color:rgba(255,255,255,.1);">
+              <div class="smm-phone-notch" style="background:rgba(255,255,255,.07);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(255,255,255,.04);">
+                <div class="smm-phone-avatar" style="background:rgba(255,255,255,.07);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(255,255,255,.1);width:60%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(255,255,255,.2);">180 followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:72%;background:rgba(255,255,255,.07);"></div>
+                <div class="smm-bio-line" style="width:44%;background:rgba(255,255,255,.04);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,160,100,.17);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,150,80,.14);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(80,120,180,.15);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(160,80,80,.12);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,180,80,.11);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,160,100,.09);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(255,255,255,.05);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(255,255,255,.28);">Before</p>
+          </div>
+          <div class="smm-phone-col">
+            <div class="smm-aphone" style="border-color:rgba(170,140,220,.15);opacity:.35;transform:scale(.96);">
+              <div class="smm-phone-notch" style="background:rgba(170,140,220,.12);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(170,140,220,.06);">
+                <div class="smm-phone-avatar" style="background:rgba(170,140,220,.2);border:1.5px solid rgba(170,140,220,.5);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(170,140,220,.38);width:55%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(170,140,220,.65);">2.3K followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:88%;background:rgba(255,255,255,.18);"></div>
+                <div class="smm-bio-line" style="width:54%;background:rgba(170,140,220,.28);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(170,140,220,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(148,118,200,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(170,140,220,.24);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(148,118,200,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(170,140,220,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(148,118,200,.21);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(170,140,220,.14);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(170,140,220,.45);">After</p>
+          </div>
+        </div>
+        <div class="smm-rwrap">
+          <button class="smm-rbtn" style="background:rgba(170,140,220,.1);border-color:rgba(170,140,220,.3);color:rgba(170,140,220,.9);">✦ Reveal the glow up</button>
+        </div>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-tabs-wrap">
+        <div class="smm-tabs-header">
+          <button class="smm-tab smm-tab-r" style="color:rgba(170,140,220,.9);border-bottom-color:rgba(170,140,220,.7);">Reels</button>
+          <button class="smm-tab smm-tab-p" style="color:rgba(255,255,255,.3);">Posts &amp; carousels</button>
+        </div>
+        <div class="smm-cr"><div class="smm-reels-grid">
+          <div class="smm-rl" style="border-color:rgba(170,140,220,.1);background:rgba(170,140,220,.06);color:rgba(170,140,220,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(170,140,220,.1);background:rgba(170,140,220,.06);color:rgba(170,140,220,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(170,140,220,.1);background:rgba(170,140,220,.06);color:rgba(170,140,220,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(170,140,220,.1);background:rgba(170,140,220,.06);color:rgba(170,140,220,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(170,140,220,.1);background:rgba(170,140,220,.06);color:rgba(170,140,220,.4);">▶</div>
+        </div></div>
+        <div class="smm-cp" style="display:none;"><div style="position:relative;">
+          <div class="smm-mvp" style="overflow:hidden;border-radius:10px;width:100%;"><div class="smm-mgrid" style="display:flex;flex-wrap:nowrap;gap:8px;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+            <div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(170,140,220,.08);border-radius:8px;border:1px solid rgba(170,140,220,.13);"></div>
+          </div></div>
+          <button class="smm-mprev" aria-label="Previous" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(170,140,220,.28);color:rgba(170,140,220,.9);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:2;">‹</button>
+          <button class="smm-mnext" aria-label="Next" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(170,140,220,.28);color:rgba(170,140,220,.9);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;z-index:2;">›</button>
+        </div>
+        <div class="smm-mdots" style="display:flex;gap:5px;justify-content:center;margin-top:10px;">
+          <div style="height:4px;border-radius:2px;background:rgba(170,140,220,.7);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(170,140,220,.22);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(170,140,220,.22);transition:all .3s;"></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ── Oh Lala Salon ── -->
+    <div class="smm-brand-card" id="card-ol">
+      <div class="smm-brand-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="smm-brand-icon" style="background:rgba(240,190,200,.1);border-color:rgba(240,190,200,.22);">💄</div>
+          <div>
+            <p class="smm-brand-name">Oh Lala Salon</p>
+            <a href="https://instagram.com/ohlalasalonandmakeup" target="_blank" class="smm-brand-handle" style="color:rgba(240,190,200,.7);">@ohlalasalonandmakeup · Salon · Beauty</a>
+          </div>
+        </div>
+        <span class="smm-brand-badge" style="background:rgba(240,190,200,.1);color:rgba(240,190,200,.8);border-color:rgba(240,190,200,.18);">Full SMM</span>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-brand-body">
+        <p class="smm-glow-label">✦ The Glow Up</p>
+        <div class="smm-phones">
+          <div class="smm-phone-col">
+            <div class="smm-bphone" style="border-color:rgba(255,255,255,.1);">
+              <div class="smm-phone-notch" style="background:rgba(255,255,255,.07);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(255,255,255,.04);">
+                <div class="smm-phone-avatar" style="background:rgba(255,255,255,.07);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(255,255,255,.1);width:60%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(255,255,255,.2);">180 followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:72%;background:rgba(255,255,255,.07);"></div>
+                <div class="smm-bio-line" style="width:44%;background:rgba(255,255,255,.04);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,160,100,.17);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,150,80,.14);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(80,120,180,.15);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(160,80,80,.12);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,180,80,.11);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,160,100,.09);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(255,255,255,.05);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(255,255,255,.28);">Before</p>
+          </div>
+          <div class="smm-phone-col">
+            <div class="smm-aphone" style="border-color:rgba(240,190,200,.15);opacity:.35;transform:scale(.96);">
+              <div class="smm-phone-notch" style="background:rgba(240,190,200,.12);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(240,190,200,.06);">
+                <div class="smm-phone-avatar" style="background:rgba(240,190,200,.2);border:1.5px solid rgba(240,190,200,.5);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(240,190,200,.38);width:55%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(240,190,200,.65);">2.3K followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:88%;background:rgba(255,255,255,.18);"></div>
+                <div class="smm-bio-line" style="width:54%;background:rgba(240,190,200,.28);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(240,190,200,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(218,168,180,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(240,190,200,.24);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(218,168,180,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(240,190,200,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(218,168,180,.21);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(240,190,200,.14);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(240,190,200,.45);">After</p>
+          </div>
+        </div>
+        <div class="smm-rwrap">
+          <button class="smm-rbtn" style="background:rgba(240,190,200,.1);border-color:rgba(240,190,200,.3);color:rgba(240,190,200,.9);">✦ Reveal the glow up</button>
+        </div>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-tabs-wrap">
+        <div class="smm-tabs-header">
+          <button class="smm-tab smm-tab-r" style="color:rgba(240,190,200,.9);border-bottom-color:rgba(240,190,200,.7);">Reels</button>
+          <button class="smm-tab smm-tab-p" style="color:rgba(255,255,255,.3);">Posts &amp; carousels</button>
+        </div>
+        <div class="smm-cr"><div class="smm-reels-grid">
+          <div class="smm-rl" style="border-color:rgba(240,190,200,.1);background:rgba(240,190,200,.06);color:rgba(240,190,200,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(240,190,200,.1);background:rgba(240,190,200,.06);color:rgba(240,190,200,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(240,190,200,.1);background:rgba(240,190,200,.06);color:rgba(240,190,200,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(240,190,200,.1);background:rgba(240,190,200,.06);color:rgba(240,190,200,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(240,190,200,.1);background:rgba(240,190,200,.06);color:rgba(240,190,200,.4);">▶</div>
+        </div></div>
+        <div class="smm-cp" style="display:none;"><div style="position:relative;">
+          <div class="smm-mvp" style="overflow:hidden;border-radius:10px;width:100%;"><div class="smm-mgrid" style="display:flex;flex-wrap:nowrap;gap:8px;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+            <div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(240,190,200,.08);border-radius:8px;border:1px solid rgba(240,190,200,.13);"></div>
+          </div></div>
+          <button class="smm-mprev" aria-label="Previous" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(240,190,200,.28);color:rgba(240,190,200,.9);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:2;">‹</button>
+          <button class="smm-mnext" aria-label="Next" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(240,190,200,.28);color:rgba(240,190,200,.9);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;z-index:2;">›</button>
+        </div>
+        <div class="smm-mdots" style="display:flex;gap:5px;justify-content:center;margin-top:10px;">
+          <div style="height:4px;border-radius:2px;background:rgba(240,190,200,.7);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(240,190,200,.22);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(240,190,200,.22);transition:all .3s;"></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- ── Rhinehart Heating & Air ── -->
+    <div class="smm-brand-card" id="card-rha">
+      <div class="smm-brand-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="smm-brand-icon" style="background:rgba(100,170,215,.1);border-color:rgba(100,170,215,.22);">🔧</div>
+          <div>
+            <p class="smm-brand-name">Rhinehart Heating &amp; Air</p>
+            <a href="https://instagram.com/rhinehartheatingandair" target="_blank" class="smm-brand-handle" style="color:rgba(100,170,215,.7);">@rhinehartheatingandair · HVAC · Home Services</a>
+          </div>
+        </div>
+        <span class="smm-brand-badge" style="background:rgba(100,170,215,.1);color:rgba(100,170,215,.8);border-color:rgba(100,170,215,.18);">Full SMM</span>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-brand-body">
+        <p class="smm-glow-label">✦ The Glow Up</p>
+        <div class="smm-phones">
+          <div class="smm-phone-col">
+            <div class="smm-bphone" style="border-color:rgba(255,255,255,.1);">
+              <div class="smm-phone-notch" style="background:rgba(255,255,255,.07);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(255,255,255,.04);">
+                <div class="smm-phone-avatar" style="background:rgba(255,255,255,.07);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(255,255,255,.1);width:60%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(255,255,255,.2);">180 followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:72%;background:rgba(255,255,255,.07);"></div>
+                <div class="smm-bio-line" style="width:44%;background:rgba(255,255,255,.04);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,160,100,.17);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,150,80,.14);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(80,120,180,.15);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(160,80,80,.12);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(200,180,80,.11);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,160,100,.09);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(255,255,255,.05);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(255,255,255,.28);">Before</p>
+          </div>
+          <div class="smm-phone-col">
+            <div class="smm-aphone" style="border-color:rgba(100,170,215,.15);opacity:.35;transform:scale(.96);">
+              <div class="smm-phone-notch" style="background:rgba(100,170,215,.12);"></div>
+              <div class="smm-phone-header" style="border-bottom-color:rgba(100,170,215,.06);">
+                <div class="smm-phone-avatar" style="background:rgba(100,170,215,.2);border:1.5px solid rgba(100,170,215,.5);"></div>
+                <div class="smm-phone-info">
+                  <div class="smm-phone-name-bar" style="background:rgba(100,170,215,.38);width:55%;"></div>
+                  <div class="smm-phone-follow" style="color:rgba(100,170,215,.65);">2.3K followers</div>
+                </div>
+              </div>
+              <div class="smm-phone-bio">
+                <div class="smm-bio-line" style="width:88%;background:rgba(255,255,255,.18);"></div>
+                <div class="smm-bio-line" style="width:54%;background:rgba(100,170,215,.28);"></div>
+              </div>
+              <div class="smm-phone-grid">
+                <div style="aspect-ratio:1;background:rgba(100,170,215,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(78,148,195,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,170,215,.24);border-radius:2px;"></div>
+                <div style="aspect-ratio:1;background:rgba(78,148,195,.21);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(100,170,215,.24);border-radius:2px;"></div><div style="aspect-ratio:1;background:rgba(78,148,195,.21);border-radius:2px;"></div>
+              </div>
+              <div class="smm-phone-bar" style="background:rgba(100,170,215,.14);"></div>
+            </div>
+            <p class="smm-phone-label" style="color:rgba(100,170,215,.45);">After</p>
+          </div>
+        </div>
+        <div class="smm-rwrap">
+          <button class="smm-rbtn" style="background:rgba(100,170,215,.1);border-color:rgba(100,170,215,.3);color:rgba(100,170,215,.9);">✦ Reveal the glow up</button>
+        </div>
+      </div>
+      <div class="smm-card-divider"></div>
+      <div class="smm-tabs-wrap">
+        <div class="smm-tabs-header">
+          <button class="smm-tab smm-tab-r" style="color:rgba(100,170,215,.9);border-bottom-color:rgba(100,170,215,.7);">Reels</button>
+          <button class="smm-tab smm-tab-p" style="color:rgba(255,255,255,.3);">Posts &amp; carousels</button>
+        </div>
+        <div class="smm-cr"><div class="smm-reels-grid">
+          <div class="smm-rl" style="border-color:rgba(100,170,215,.1);background:rgba(100,170,215,.06);color:rgba(100,170,215,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(100,170,215,.1);background:rgba(100,170,215,.06);color:rgba(100,170,215,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(100,170,215,.1);background:rgba(100,170,215,.06);color:rgba(100,170,215,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(100,170,215,.1);background:rgba(100,170,215,.06);color:rgba(100,170,215,.4);">▶</div>
+          <div class="smm-rl" style="border-color:rgba(100,170,215,.1);background:rgba(100,170,215,.06);color:rgba(100,170,215,.4);">▶</div>
+        </div></div>
+        <div class="smm-cp" style="display:none;"><div style="position:relative;">
+          <div class="smm-mvp" style="overflow:hidden;border-radius:10px;width:100%;"><div class="smm-mgrid" style="display:flex;flex-wrap:nowrap;gap:8px;transition:transform .4s cubic-bezier(.4,0,.2,1);will-change:transform;">
+            <div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div><div class="smm-mt" style="flex-shrink:0;aspect-ratio:1;background:rgba(100,170,215,.08);border-radius:8px;border:1px solid rgba(100,170,215,.13);"></div>
+          </div></div>
+          <button class="smm-mprev" aria-label="Previous" style="position:absolute;left:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(100,170,215,.28);color:rgba(100,170,215,.9);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;line-height:1;z-index:2;">‹</button>
+          <button class="smm-mnext" aria-label="Next" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:rgba(18,20,42,.93);border:1px solid rgba(100,170,215,.28);color:rgba(100,170,215,.9);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;z-index:2;">›</button>
+        </div>
+        <div class="smm-mdots" style="display:flex;gap:5px;justify-content:center;margin-top:10px;">
+          <div style="height:4px;border-radius:2px;background:rgba(100,170,215,.7);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(100,170,215,.22);transition:all .3s;"></div><div style="height:4px;border-radius:2px;background:rgba(100,170,215,.22);transition:all .3s;"></div>
+        </div></div>
+      </div>
     </div>
   </section>
 
@@ -1012,6 +1657,112 @@
       setTimeout(function() { goTo(0); }, 100);
       window.addEventListener('resize', function() { goTo(cur); });
       window.flbPhotoNav = function(dir) { goTo(Math.max(0, Math.min(pages - 1, cur + dir))); };
+    })();
+
+    // ── SMM Brand Cards ──
+    (function() {
+      function smmCard(slug, r, g, b) {
+        var card = document.getElementById('card-' + slug);
+        if (!card) return;
+        var bphone = card.querySelector('.smm-bphone');
+        var aphone = card.querySelector('.smm-aphone');
+        var rwrap = card.querySelector('.smm-rwrap');
+        var rbtn = card.querySelector('.smm-rbtn');
+        var tabR = card.querySelector('.smm-tab-r');
+        var tabP = card.querySelector('.smm-tab-p');
+        var crDiv = card.querySelector('.smm-cr');
+        var cpDiv = card.querySelector('.smm-cp');
+        var vp = card.querySelector('.smm-mvp');
+        var grid = card.querySelector('.smm-mgrid');
+        var prevBtn = card.querySelector('.smm-mprev');
+        var nextBtn = card.querySelector('.smm-mnext');
+        var dotsEl = card.querySelector('.smm-mdots');
+        var COLS = 4, GAP = 8, mCur = 0, pages = 3;
+        var revealed = false;
+        var ac = function(a) { return 'rgba('+r+','+g+','+b+','+a+')'; };
+
+        rbtn.addEventListener('click', function() {
+          if (revealed) return;
+          revealed = true;
+          bphone.style.opacity = '0.28';
+          bphone.style.transform = 'scale(0.97)';
+          aphone.style.opacity = '1';
+          aphone.style.transform = 'scale(1)';
+          aphone.style.borderColor = ac(.45);
+          var chars = ['✦','✧','★','·','✶'];
+          for (var i = 0; i < 12; i++) {
+            (function(i) {
+              var el = document.createElement('div');
+              el.textContent = chars[i % chars.length];
+              el.style.cssText = 'position:absolute;font-size:'+(10+Math.random()*14)+'px;color:'+ac(.9)+';left:'+(15+Math.random()*70)+'%;top:'+(5+Math.random()*90)+'%;animation:smmSpark '+(.35+Math.random()*.5)+'s '+(i*.04)+'s ease both;pointer-events:none;';
+              rwrap.appendChild(el);
+              setTimeout(function() { el.remove(); }, 1200);
+            })(i);
+          }
+          rbtn.textContent = '✓ Glow up revealed';
+          rbtn.style.opacity = '0.45';
+          rbtn.style.cursor = 'default';
+          rbtn.style.borderColor = ac(.15);
+        });
+
+        function showTab(t) {
+          crDiv.style.display = t==='r' ? 'block' : 'none';
+          cpDiv.style.display = t==='p' ? 'block' : 'none';
+          tabR.style.color = t==='r' ? ac(.9) : 'rgba(255,255,255,.3)';
+          tabR.style.borderBottomColor = t==='r' ? ac(.7) : 'transparent';
+          tabP.style.color = t==='p' ? ac(.9) : 'rgba(255,255,255,.3)';
+          tabP.style.borderBottomColor = t==='p' ? ac(.7) : 'transparent';
+          if (t==='p') setTimeout(function() { mGoTo(0); }, 50);
+        }
+        tabR.addEventListener('click', function() { showTab('r'); });
+        tabP.addEventListener('click', function() { showTab('p'); });
+
+        card.querySelectorAll('.smm-rl').forEach(function(rl) {
+          rl.addEventListener('mouseenter', function() {
+            this.style.background = ac(.11);
+            this.style.borderColor = ac(.38);
+            this.style.transform = 'scale(1.03)';
+            this.style.color = ac(.78);
+          });
+          rl.addEventListener('mouseleave', function() {
+            this.style.background = ac(.06);
+            this.style.borderColor = ac(.1);
+            this.style.transform = '';
+            this.style.color = ac(.4);
+          });
+        });
+
+        function mGoTo(p) {
+          mCur = Math.max(0, Math.min(pages-1, p));
+          if (!vp || !grid) return;
+          var tiles = grid.querySelectorAll('.smm-mt');
+          var vw = vp.getBoundingClientRect().width;
+          if (vw === 0) return;
+          var tw = (vw - GAP*(COLS-1)) / COLS;
+          tiles.forEach(function(t) { t.style.width=tw+'px'; t.style.flexBasis=tw+'px'; });
+          vp.style.height = tw+'px';
+          grid.style.transform = 'translateX(-'+(COLS*(tw+GAP)*mCur)+'px)';
+          prevBtn.style.display = mCur===0 ? 'none' : 'flex';
+          nextBtn.style.display = mCur===pages-1 ? 'none' : 'flex';
+          var dots = dotsEl.children;
+          for (var i=0;i<dots.length;i++) {
+            dots[i].style.width = i===mCur ? '20px' : '6px';
+            dots[i].style.background = i===mCur ? ac(.7) : ac(.22);
+          }
+        }
+        prevBtn.addEventListener('click', function() { mGoTo(mCur-1); });
+        nextBtn.addEventListener('click', function() { mGoTo(mCur+1); });
+        setTimeout(function() { mGoTo(0); }, 200);
+        window.addEventListener('resize', function() { mGoTo(mCur); });
+      }
+
+      smmCard('cs',  230, 180, 100);
+      smmCard('sac', 237, 164, 191);
+      smmCard('vw',  120, 190, 150);
+      smmCard('p24', 210, 180, 100);
+      smmCard('wr',  170, 140, 220);
+      smmCard('ol',  240, 190, 200);
+      smmCard('rha', 100, 170, 215);
     })();
   </script>
 
