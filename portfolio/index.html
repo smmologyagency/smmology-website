@@ -687,33 +687,95 @@
         </div>
 
         <div class="client-media">
-          <div class="media-grid media-grid-featured" style="height:320px;">
-            <div class="slot">
-              <span class="slot-icon">📸</span>
-              <span class="slot-label">Photo</span>
-              <span class="slot-sub">1:1 · Feed</span>
+          <div class="reels-row">
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-sports-bar-edit.mp4')">
+              <video autoplay muted loop playsinline>
+                <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-sports-bar-edit.mp4" type="video/mp4">
+              </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
+              <div class="reel-label">sports bar edit</div>
             </div>
-            <div class="slot">
-              <span class="slot-icon">📸</span>
-              <span class="slot-label">Photo</span>
-              <span class="slot-sub">1:1 · Feed</span>
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-pre-game-checklist.mp4')">
+              <video autoplay muted loop playsinline>
+                <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-pre-game-checklist.mp4" type="video/mp4">
+              </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
+              <div class="reel-label">pre-game checklist</div>
             </div>
-            <div class="slot reel span-col">
-              <span class="slot-icon">🎬</span>
-              <span class="slot-label">Reel</span>
-              <span class="slot-sub">9:16 · Video</span>
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-happy-hour.mp4')">
+              <video autoplay muted loop playsinline>
+                <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-happy-hour.mp4" type="video/mp4">
+              </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
+              <div class="reel-label">happy hour</div>
             </div>
-            <div class="slot">
-              <span class="slot-icon">📸</span>
-              <span class="slot-label">Photo</span>
-              <span class="slot-sub">4:5 · Feed</span>
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-pool-drinks.mp4')">
+              <video autoplay muted loop playsinline>
+                <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-pool-drinks.mp4" type="video/mp4">
+              </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
+              <div class="reel-label">pool drinks</div>
             </div>
-            <div class="slot">
-              <span class="slot-icon">📸</span>
-              <span class="slot-label">Photo</span>
-              <span class="slot-sub">4:5 · Feed</span>
+            <div class="reel-tile" onclick="openLb('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-its-friday.mp4')">
+              <video autoplay muted loop playsinline>
+                <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/flb/flb-its-friday.mp4" type="video/mp4">
+              </video>
+              <div class="play-icon"><svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)"/><polygon points="22,17 44,28 22,39" fill="white"/></svg></div>
+              <div class="reel-label">it's friday</div>
             </div>
           </div>
+
+          <!-- PHOTOGRAPHY -->
+          <p class="photos-section-label">Photography</p>
+          <div class="photo-carousel-wrap">
+            <div class="photo-carousel-viewport">
+              <div class="photo-grid" id="flb-photo-grid">
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bowling-alley.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bowling-alley.jpg" alt="FLB bowling alley with neon pins" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-neon-pins.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-neon-pins.jpg" alt="Glowing neon bowling pins" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bowling-balls.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bowling-balls.jpg" alt="Bowling ball rack" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-disco-ball.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-disco-ball.jpg" alt="Disco ball in the venue" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-chicken-sandwich.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-chicken-sandwich.jpg" alt="Crispy chicken sandwich" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bacon-burger.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bacon-burger.jpg" alt="Bacon cheeseburger with fries" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-wings-onion-rings.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-wings-onion-rings.jpg" alt="Wings and onion rings platter" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-drinks-trio.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-drinks-trio.jpg" alt="Margarita, beer, and cocktail" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bartender-pour.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bartender-pour.jpg" alt="Bartender pouring drinks" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bartender-tap.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-bartender-tap.jpg" alt="Bartender working the tap" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-pool-table.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-pool-table.jpg" alt="Playing pool at FLB" loading="lazy">
+                </div>
+                <div class="photo-tile" onclick="openLbPhoto('https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-crowd-event.jpg')">
+                  <img src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/photos/flb/flb-crowd-event.jpg" alt="Guests celebrating at an event" loading="lazy">
+                </div>
+              </div>
+              <button class="carousel-btn carousel-btn-prev hidden" id="flb-photo-prev" onclick="flbPhotoNav(-1)" aria-label="Previous">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="carousel-btn carousel-btn-next" id="flb-photo-next" onclick="flbPhotoNav(1)" aria-label="Next">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div><!-- /photo-carousel-viewport -->
+            <div class="carousel-dots" id="flb-photo-dots"></div>
+          </div><!-- /photo-carousel-wrap -->
         </div>
 
       </div>
@@ -908,6 +970,49 @@
       setTimeout(function() { goTo(0); }, 100);
       window.addEventListener('resize', function() { goTo(cur); });
       window.photoNav = function(dir) { goTo(Math.max(0, Math.min(pages - 1, cur + dir))); };
+    })();
+
+    // FLB PHOTO CAROUSEL
+    (function() {
+      var grid = document.getElementById('flb-photo-grid');
+      var viewport = grid.parentElement;
+      var dotsEl = document.getElementById('flb-photo-dots');
+      var prevBtn = document.getElementById('flb-photo-prev');
+      var nextBtn = document.getElementById('flb-photo-next');
+      var COLS = 4;
+      var tiles = grid.querySelectorAll('.photo-tile');
+      var pages = Math.ceil(tiles.length / COLS);
+      var cur = 0;
+
+      for (var i = 0; i < pages; i++) {
+        var d = document.createElement('div');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.dataset.page = i;
+        d.addEventListener('click', function() { goTo(+this.dataset.page); });
+        dotsEl.appendChild(d);
+      }
+
+      function setup() {
+        var gapPx = 0.4 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        var tileW = tiles[0].getBoundingClientRect().width;
+        viewport.style.height = tileW + 'px';
+        return COLS * (tileW + gapPx);
+      }
+
+      function goTo(page) {
+        cur = page;
+        var pageStep = setup();
+        grid.style.transform = 'translateX(-' + (pageStep * cur) + 'px)';
+        prevBtn.classList.toggle('hidden', cur === 0);
+        nextBtn.classList.toggle('hidden', cur === pages - 1);
+        dotsEl.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+          d.classList.toggle('active', i === cur);
+        });
+      }
+
+      setTimeout(function() { goTo(0); }, 100);
+      window.addEventListener('resize', function() { goTo(cur); });
+      window.flbPhotoNav = function(dir) { goTo(Math.max(0, Math.min(pages - 1, cur + dir))); };
     })();
   </script>
 
