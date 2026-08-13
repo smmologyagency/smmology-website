@@ -348,7 +348,7 @@
       border-radius: 24px; border: 2px solid; background: #0b0d1e; padding: 10px 8px;
     }
     .smm-bphone { transition: opacity .6s, transform .6s; }
-    .smm-aphone { transition: opacity .6s, transform .6s, border-color .6s; }
+    .smm-aphone { transition: opacity .6s, transform .6s, border-color .6s, filter .6s; filter: blur(6px); }
     .smm-phone-notch { width: 48px; height: 5px; border-radius: 3px; margin: 0 auto 10px; }
     .smm-phone-header { padding: 0 4px 6px; display: flex; align-items: center; gap: 7px; border-bottom: 0.5px solid; }
     .smm-phone-avatar { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; }
@@ -1656,6 +1656,7 @@
           bphone.style.transform = 'scale(0.97)';
           aphone.style.opacity = '1';
           aphone.style.transform = 'scale(1)';
+          aphone.style.filter = 'blur(0px)';
           aphone.style.borderColor = ac(.45);
           var chars = ['✦','✧','★','·','✶'];
           for (var i = 0; i < 12; i++) {
