@@ -497,6 +497,17 @@
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     }
     .lb-overlay.open { display: flex; }
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,.12); border: none;
+      color: white; font-size: 2.4rem; line-height: 1;
+      width: 48px; height: 48px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s; z-index: 10; user-select: none;
+    }
+    .lb-nav:hover { background: rgba(255,255,255,.28); }
+    .lb-nav-prev { left: max(16px, calc(50% - min(180px,42.5vw) - 64px)); }
+    .lb-nav-next { right: max(16px, calc(50% - min(180px,42.5vw) - 64px)); }
     .lb-wrap { position: relative; width: min(360px, 85vw); aspect-ratio: 9/16; }
     .lb-close {
       position: absolute; top: -48px; right: 0;
@@ -1344,33 +1355,72 @@
 
   <!-- LIGHTBOX -->
   <div class="lb-overlay" id="lb">
+    <button class="lb-nav lb-nav-prev" id="lb-prev" onclick="lbNav(-1)">&#8249;</button>
     <div class="lb-wrap" id="lb-wrap">
       <button class="lb-close" onclick="closeLb()">✕</button>
       <video id="lb-video" controls playsinline style="display:none"></video>
       <img id="lb-img" alt="" style="display:none">
     </div>
+    <button class="lb-nav lb-nav-next" id="lb-next" onclick="lbNav(1)">&#8250;</button>
   </div>
 
   <script>
-    function openLb(src) {
+    var _lbList = [], _lbIdx = 0, _lbType = 'video';
+
+    function _buildList(src, selector, attr) {
+      var cards = document.querySelectorAll('.smm-brand-card');
+      for (var c = 0; c < cards.length; c++) {
+        var tiles = cards[c].querySelectorAll(selector);
+        var srcs = [];
+        for (var t = 0; t < tiles.length; t++) {
+          var m = tiles[t].getAttribute('onclick').match(/openLb(?:Photo)?\('([^']+)'\)/);
+          if (m) srcs.push(m[1]);
+        }
+        if (srcs.indexOf(src) !== -1) return { list: srcs, idx: srcs.indexOf(src) };
+      }
+      return { list: [src], idx: 0 };
+    }
+
+    function _showLbItem() {
+      var src = _lbList[_lbIdx];
       var vid = document.getElementById('lb-video');
       var img = document.getElementById('lb-img');
-      document.getElementById('lb-wrap').style.aspectRatio = '9/16';
-      vid.style.display = 'block'; img.style.display = 'none';
-      img.src = '';
-      vid.src = src; vid.play();
+      var prev = document.getElementById('lb-prev');
+      var next = document.getElementById('lb-next');
+      prev.style.display = _lbIdx > 0 ? 'flex' : 'none';
+      next.style.display = _lbIdx < _lbList.length - 1 ? 'flex' : 'none';
+      if (_lbType === 'video') {
+        document.getElementById('lb-wrap').style.aspectRatio = '9/16';
+        vid.style.display = 'block'; img.style.display = 'none';
+        img.src = ''; vid.src = src; vid.play();
+      } else {
+        document.getElementById('lb-wrap').style.aspectRatio = 'auto';
+        vid.pause(); vid.src = ''; vid.style.display = 'none';
+        img.src = src; img.style.display = 'block';
+      }
+    }
+
+    function openLb(src) {
+      var r = _buildList(src, '.smm-rl[onclick]', 'onclick');
+      _lbList = r.list; _lbIdx = r.idx; _lbType = 'video';
       document.getElementById('lb').classList.add('open');
       document.body.style.overflow = 'hidden';
+      _showLbItem();
     }
 
     function openLbPhoto(src) {
-      var vid = document.getElementById('lb-video');
-      var img = document.getElementById('lb-img');
-      document.getElementById('lb-wrap').style.aspectRatio = 'auto';
-      vid.pause(); vid.src = ''; vid.style.display = 'none';
-      img.src = src; img.style.display = 'block';
+      var r = _buildList(src, '.smm-mt[onclick]', 'onclick');
+      _lbList = r.list; _lbIdx = r.idx; _lbType = 'photo';
       document.getElementById('lb').classList.add('open');
       document.body.style.overflow = 'hidden';
+      _showLbItem();
+    }
+
+    function lbNav(dir) {
+      var n = _lbIdx + dir;
+      if (n < 0 || n >= _lbList.length) return;
+      _lbIdx = n;
+      _showLbItem();
     }
 
     function closeLb() {
@@ -1380,6 +1430,7 @@
       img.src = ''; img.style.display = 'none';
       document.getElementById('lb').classList.remove('open');
       document.body.style.overflow = '';
+      _lbList = []; _lbIdx = 0;
     }
 
     document.getElementById('lb').addEventListener('click', function(e) {
@@ -1388,6 +1439,8 @@
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') lbNav(-1);
+      if (e.key === 'ArrowRight') lbNav(1);
     });
 
     // PHOTO CAROUSEL
