@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Diana — Smmology</title>
+  <link rel="icon" type="image/jpeg" href="/assets/logo-navy.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1700968041171903');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1700968041171903&ev=PageView&noscript=1"
+  /></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #161B28;
+      --slate:  #404C70;
+      --mauve:  #907A9A;
+      --pink:   #C98FAA;
+      --blush:  #F4EDEA;
+      --cream:  #FAF7F5;
+      --text:   #2a1f2e;
+      --muted:  #7a6b72;
+      --border: #e8ddd8;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+    h1,h2,h3 { font-family: 'Playfair Display', serif; }
+    em { font-style: italic; color: var(--pink); }
+    a  { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 68px; background: rgba(250,247,245,.97);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); font-weight: 700; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: .875rem; color: var(--mauve); font-weight: 500; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--pink); }
+    .nav-links a.active { color: var(--navy); font-weight: 600; }
+    .btn { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; cursor: pointer; transition: opacity .2s, transform .1s; }
+    .btn:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-pink { background: var(--pink); color: #fff; }
+    .btn-lg { padding: 14px 36px; font-size: 1rem; }
+
+    /* LAYOUT */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .eyebrow {
+      display: inline-block; font-size: .72rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--pink); background: rgba(201,143,170,.1);
+      border: 1px solid rgba(201,143,170,.25);
+      padding: 6px 14px; border-radius: 99px; margin-bottom: 20px;
+    }
+    .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 24px; }
+
+    /* HERO */
+    .hero {
+      padding: 140px 0 80px;
+      background: radial-gradient(ellipse 70% 60% at 90% 10%, rgba(201,143,170,.18) 0%, transparent 60%), var(--cream);
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .hero-photo {
+      border-radius: 28px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(42,31,46,.14);
+      aspect-ratio: 4/5;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+    /* VALUES */
+    .values-section { padding: 80px 0; background: #fff; }
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 56px; }
+    .value-card {
+      background: var(--cream); border-radius: 20px; padding: 36px 32px;
+      border: 1px solid var(--border);
+    }
+    .value-icon { font-size: 2rem; margin-bottom: 16px; }
+    .value-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: 10px; }
+    .value-desc { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+
+    /* STATS BAND */
+    .stats-band { background: var(--navy); padding: 56px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat-card { text-align: center; padding: 0 32px; border-right: 1px solid rgba(255,255,255,.1); }
+    .stat-card:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--pink); margin-bottom: 6px; }
+    .stat-label { font-size: .8rem; color: #8aaabb; letter-spacing: .06em; text-transform: uppercase; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--navy) 0%, #2a1f3d 100%); color: white; text-align: center; padding: 96px 0; }
+    .cta-section .eyebrow { background: rgba(237,164,191,.1); border-color: rgba(237,164,191,.25); }
+    .cta-section h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; color: #FAF7F5; margin-bottom: 1rem; }
+    .cta-section p { font-size: .95rem; color: #b0b8cc; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+    /* FOOTER */
+    footer { background: var(--navy); color: #8899bb; padding: 40px 0; border-top: 1px solid rgba(255,255,255,.08); }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; color: white; font-size: 1.1rem; }
+    .footer-links { display: flex; gap: 24px; font-size: .875rem; }
+    .footer-links a { color: #8899bb; transition: color .2s; }
+    .footer-links a:hover { color: var(--pink); }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding: 24px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <img src="/assets/logo-navy.jpg" alt="Smmology" style="height:36px;width:36px;border-radius:8px;object-fit:cover;">
+        <span class="nav-logo">Smmology</span>
+      </a>
+            <div class="nav-links">
+        <a href="/about" class="active">About</a>
+        <a href="/#services">Services</a>
+        <a href="/method">The Martini Method</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="https://app.smmology.us" target="_blank">Log In →</a>
+        <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink">Book a Free Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Who I am</span>
+          <h1 class="section-title">Hi, I'm <em>Diana.</em></h1>
+          <p style="color:var(--muted);line-height:1.85;margin-bottom:20px;font-size:1.05rem;">I'm a social media strategist based in Sacramento, CA — and I built Smmology because I watched talented service-based entrepreneurs burn out trying to be their own content teams.</p>
+          <p style="color:var(--muted);line-height:1.85;margin-bottom:20px;font-size:1.05rem;">Every strategy I build is grounded in storytelling, neuromarketing principles, and organic content funnels designed for authenticity and impact. No paid ads. No fluff. Just content that converts.</p>
+          <p style="color:var(--muted);line-height:1.85;margin-bottom:40px;font-size:1.05rem;">Serving businesses in Folsom, Placerville, El Dorado Hills, Sacramento, and beyond.</p>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink btn-lg">Work with me →</a>
+            <a href="/portfolio" class="btn" style="border:2px solid var(--border);color:var(--navy);">See the work</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="/assets/diana-web.jpg" alt="Diana De La O" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Years in social media</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">30+</div>
+          <div class="stat-label">Brands managed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Organic growth, no ads</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Cups of coffee</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="container">
+      <div style="text-align:center;max-width:560px;margin:0 auto;">
+        <span class="eyebrow">The approach</span>
+        <h2 class="section-title">Strategy before <em>content.</em></h2>
+        <p style="color:var(--muted);line-height:1.8;">Every post is intentional. Every caption has a purpose. Here's what guides everything I build.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🧠</div>
+          <h3 class="value-title">Neuromarketing-backed</h3>
+          <p class="value-desc">Content designed around how people actually make decisions — emotion first, logic second. Every hook, caption, and CTA is built to move people, not just inform them.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📖</div>
+          <h3 class="value-title">Story-driven</h3>
+          <p class="value-desc">Your audience doesn't want ads — they want to feel seen. I build content funnels rooted in your brand's story so every post attracts the right person at the right moment.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">📈</div>
+          <h3 class="value-title">Organic by design</h3>
+          <p class="value-desc">No paid ads. No gimmicks. Growth that compounds because it's built on genuine connection, consistent positioning, and content that earns attention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="eyebrow">Let's talk</span>
+      <h2>Ready to stop guessing<br/>and start <em>converting?</em></h2>
+      <p>Book a free 45-minute discovery call. I'll look at your current presence, tell you exactly what's missing, and show you what working together looks like.</p>
+      <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink btn-lg">Book Your Free Call →</a>
+      <p style="color:#6b7494;font-size:.875rem;margin-top:20px;">No commitment. No pitch. Just strategy.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" style="display:flex;align-items:center;gap:10px;">
+        <img src="/assets/logo-navy.jpg" alt="Smmology" style="height:28px;width:28px;border-radius:6px;object-fit:cover;opacity:0.85;" />
+        <span class="footer-logo">Smmology</span>
+      </a>
+      <div class="footer-links">
+        <a href="/#services">Services</a>
+        <a href="/method">The Martini Method</a>
+        <a href="/portfolio">Portfolio</a>
+        <a href="/about">About</a>
+        <a href="https://app.smmology.us" target="_blank">Log In to App</a>
+        <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank">Book a Call</a>
+        <a href="https://app.smmology.us/privacy">Privacy Policy</a>
+      </div>
+      <span style="font-size:.875rem;">© 2026 Smmology · diana@smmology.us</span>
+    </div>
+  </footer>
+
+</body>
+</html>
