@@ -357,11 +357,20 @@
     .dialog-deposit strong { color: var(--navy); }
     .dialog-secondary { display: block; width: 100%; margin-top: 10px; background: transparent; border: 1.5px solid var(--border); color: var(--muted); border-radius: 999px; padding: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
     .dialog-secondary:hover { border-color: var(--pink); color: var(--pink); }
-    .summary-book { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
-    .summary-book:empty { display: none; }
-    .summary-book-label { font-size: .72rem; color: #8899bb; letter-spacing: .04em; }
-    .summary-book a { font-size: .82rem; font-weight: 600; color: var(--pink); }
-    .summary-book a:hover { text-decoration: underline; }
+    .dialog-call { display: block; text-align: center; margin-top: 14px; font-size: .8rem; color: var(--muted); }
+    .dialog-call:hover { color: var(--pink); }
+    .summary-due { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(201,143,170,.14); }
+    .summary-due:empty { display: none; }
+    .summary-due span { font-size: .8rem; color: var(--pink); font-weight: 600; }
+    .summary-due strong { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--pink); }
+    .summary-actions { display: flex; flex-direction: column; gap: 10px; }
+    .summary-btn { display: block; text-align: center; font-size: .92rem; padding: 14px 20px; }
+    .summary-btn-alt { display: block; text-align: center; border: 1.5px solid rgba(255,255,255,.22); color: #e3e7f0; border-radius: 999px; padding: 11px 20px; font-size: .85rem; font-weight: 600; transition: border-color .2s; }
+    .summary-btn-alt:hover { border-color: var(--pink); color: white; }
+    .summary-call { display: block; text-align: center; margin-top: 16px; font-size: .8rem; color: #aab3c8; }
+    .summary-call:hover { color: var(--pink); }
+    .summary-copy-link { display: block; margin: 10px auto 0; background: none; border: none; font: inherit; font-size: .75rem; color: #6b7494; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .summary-copy-link:hover { color: #aab3c8; }
     .dialog-value { border-left: 3px solid var(--pink); padding: 4px 0 4px 14px; font-size: .9rem; color: var(--text); line-height: 1.6; margin-bottom: 24px; }
 
     /* Package builder */
@@ -637,11 +646,11 @@
               <div><span>Monthly</span><strong id="total-monthly">$0</strong></div>
               <div><span>One-time</span><strong id="total-once">$0</strong></div>
             </div>
-            <p class="summary-note" id="summary-note">Starting prices. Your final quote is confirmed on your discovery call.</p>
-            <a id="summary-cta" href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink" style="display:block;text-align:center;">Book a Discovery Call →</a>
-            <button type="button" id="summary-copy" class="summary-copy">Copy my package</button>
-            <div class="summary-book" id="summary-book"></div>
-            <p class="summary-hint">Paste it into your booking notes so we can jump right in.</p>
+            <div class="summary-due" id="summary-due"></div>
+            <p class="summary-note" id="summary-note"></p>
+            <div class="summary-actions" id="summary-actions"></div>
+            <a id="summary-call" class="summary-call" href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" rel="noopener">Have questions first? Book a free discovery call →</a>
+            <button type="button" id="summary-copy" class="summary-copy-link">Copy my package</button>
           </aside>
         </div>
       </div>
@@ -661,6 +670,7 @@
       <div class="dialog-deposit" id="d-deposit"></div>
       <a class="btn btn-pink" id="d-primary" target="_blank" rel="noopener" style="display:block;text-align:center;width:100%;"></a>
       <button type="button" class="dialog-secondary" id="d-add">Add to my package</button>
+      <a class="dialog-call" id="d-call" href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" rel="noopener">Have questions first? Book a free discovery call →</a>
     </dialog>
   </section>
 
@@ -1022,24 +1032,37 @@
         : '<li class="empty">Pick a plan or add-ons to start building.</li>';
       document.getElementById('total-monthly').textContent = money(monthly);
       document.getElementById('total-once').textContent = money(once);
+      document.getElementById('total-monthly').parentNode.style.display = monthly ? '' : 'none';
+      document.getElementById('total-once').parentNode.style.display = once || !monthly ? '' : 'none';
 
-      var note = 'Starting prices. Your final quote is confirmed on your discovery call.';
-      if (state.addons.ads) note += ' Paid ads total does not include your ad budget.';
-      document.getElementById('summary-note').textContent = note;
-
-      var cta = document.getElementById('summary-cta');
-      var onlyStrategist = state.plan === 'strategist' && !Object.keys(state.addons).length;
-      if (state.plan === 'ceo') { cta.href = WAITLIST; cta.textContent = 'Join the Waitlist →'; }
-      else if (onlyStrategist) { cta.href = SIGNUP; cta.textContent = 'Claim Your Spot →'; }
-      else if (state.plan === 'none') { cta.href = CALL; cta.textContent = 'Let’s Get Started →'; }
-      else { cta.href = CALL; cta.textContent = 'Book a Discovery Call →'; }
-
-      // Direct booking links for add-ons that can be paid for right away
-      var buyable = Object.keys(state.addons).filter(function (id) { return ADDONS[id].buy; });
-      document.getElementById('summary-book').innerHTML = buyable.length ? '<div class="summary-book-label">Ready now? Book directly:</div>' + buyable.map(function (id) {
+      // Actions: always lead with booking + deposit when possible
+      var ids = Object.keys(state.addons);
+      var buyable = ids.filter(function (id) { return ADDONS[id].buy; });
+      var needsQuote = ids.some(function (id) { return !ADDONS[id].buy; }) || state.plan === 'director' || state.plan === 'ceo';
+      var actions = [];
+      buyable.forEach(function (id) {
         var a = ADDONS[id];
-        return '<a href="' + a.buy + '" target="_blank" rel="noopener">' + a.name + ' · ' + money(a.deposit) + ' deposit →</a>';
-      }).join('') : '';
+        actions.push({ href: a.buy, text: buyable.length === 1 ? 'Book Now · Pay ' + money(a.deposit) + ' Deposit →' : 'Book ' + a.name + ' · ' + money(a.deposit) + ' →' });
+      });
+      if (state.plan === 'ceo') actions.push({ href: WAITLIST, text: 'Join the CEO Waitlist →' });
+      else if (state.plan === 'strategist') actions.push({ href: SIGNUP, text: 'Claim Your Strategist Spot →' });
+      else if (needsQuote) actions.push({ href: CALL, text: 'Book a Discovery Call →', call: true });
+      if (!actions.length) actions.push({ href: CALL, text: 'Book a Discovery Call →', call: true });
+
+      document.getElementById('summary-actions').innerHTML = actions.map(function (x, i) {
+        return '<a href="' + x.href + '" target="_blank" rel="noopener" class="' + (i < Math.max(buyable.length, 1) ? 'btn btn-pink summary-btn' : 'summary-btn-alt') + '">' + x.text + '</a>';
+      }).join('');
+      document.getElementById('summary-call').style.display = actions.some(function (x) { return x.call; }) ? 'none' : '';
+
+      var deposits = buyable.reduce(function (t, id) { return t + ADDONS[id].deposit; }, 0);
+      document.getElementById('summary-due').innerHTML = deposits ? '<span>Due today to book</span><strong>' + money(deposits) + '</strong>' : '';
+
+      var note = [];
+      if (buyable.length) note.push('Pay a 50% deposit to lock in your date. The rest is invoiced before your ' + (buyable.length === 1 && buyable[0] === 'event' ? 'event' : 'shoot') + '.');
+      if (needsQuote || state.plan === 'strategist' && !buyable.length) note.push(buyable.length ? 'Everything else is a starting price, confirmed on your discovery call.' : 'Starting prices. Your final quote is confirmed on your discovery call.');
+      if (!ids.length && state.plan === 'none') note = ['Starting prices. Your final quote is confirmed on your discovery call.'];
+      if (state.addons.ads) note.push('Paid ads total does not include your ad budget.');
+      document.getElementById('summary-note').textContent = note.join(' ');
 
       // Sync checkboxes and card badges
       extraWrap.querySelectorAll('input').forEach(function (i) { i.checked = !!state.addons[i.value]; });
@@ -1076,7 +1099,9 @@
         primary.textContent = 'Book Now · Pay ' + money(a.deposit) + ' Deposit →';
         dep.innerHTML = '<strong>Reserve your date with a 50% deposit.</strong> Right after checkout we’ll lock in your date. The remaining ' + money(a.price - a.deposit) + (a.from ? ' (plus any extra hours)' : '') + ' is invoiced before your ' + (id === 'event' ? 'event' : 'shoot') + '.';
         dep.style.display = '';
+        document.getElementById('d-call').style.display = '';
       } else {
+        document.getElementById('d-call').style.display = 'none';
         primary.href = CALL;
         primary.textContent = 'Let’s Get Started · Book a Discovery Call →';
         dep.style.display = 'none';
