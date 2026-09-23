@@ -52,7 +52,7 @@
   </main>
   <script>
     // Booking page for paid shoots. Leave empty until the shoot calendar exists.
-    var SHOOT_CALENDAR = '';
+    var SHOOT_CALENDAR = 'https://calendar.app.google/1KmDLKriFh51h7YX7';
 
     var SERVICES = {
       photoshoot: { icon: '📸', name: 'Brand Photoshoot', balance: '$275',
@@ -73,6 +73,10 @@
     var cta = document.getElementById('cta');
     if (SHOOT_CALENDAR) {
       cta.href = SHOOT_CALENDAR;
+      if (id === 'event') {
+        document.getElementById('step1').innerHTML = 'Pick your event date and start time below. Don\u2019t see it? Email <a href="mailto:diana@smmology.us" style="color:var(--pink);font-weight:600;">diana@smmology.us</a> and we\u2019ll make it work.';
+        cta.textContent = 'Pick Your Event Date \u2192';
+      }
     } else {
       document.getElementById('step1').textContent = 'Watch your inbox: I’ll email you within 24 hours to lock in your date.';
       cta.href = 'mailto:diana@smmology.us?subject=' + encodeURIComponent('My ' + (svc ? svc.name : 'booking') + ' date');
