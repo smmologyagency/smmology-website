@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>You're Booked — Smmology</title>
+  <link rel="icon" type="image/jpeg" href="/assets/logo-navy.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#161B28; --mauve:#907A9A; --pink:#C98FAA; --blush:#F4EDEA; --cream:#FAF7F5; --text:#2a1f2e; --muted:#7a6b72; --border:#e8ddd8; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(160deg, var(--cream) 40%, var(--blush) 100%); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; line-height: 1.6; }
+    h1, h2 { font-family: 'Playfair Display', serif; }
+    em { font-style: italic; color: var(--pink); }
+    a { text-decoration: none; color: inherit; }
+    header { padding: 20px 16px; max-width: 1100px; margin: 0 auto; width: 100%; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; color: var(--navy); }
+    .logo img { width: 34px; height: 34px; border-radius: 8px; object-fit: cover; }
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px 16px 64px; }
+    .card { background: white; border: 1px solid var(--border); border-radius: 28px; box-shadow: 0 12px 48px rgba(42,31,46,.08); padding: 48px 40px; max-width: 560px; width: 100%; text-align: center; }
+    .badge { width: 64px; height: 64px; border-radius: 50%; background: var(--blush); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 20px; }
+    .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--pink); }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.2; margin: 10px 0 14px; color: var(--navy); }
+    .lead { color: var(--muted); font-size: 1rem; margin-bottom: 28px; }
+    .steps { text-align: left; background: var(--cream); border-radius: 18px; padding: 22px 24px; margin-bottom: 28px; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 12px; }
+    .steps li { counter-increment: s; display: flex; gap: 12px; font-size: .9rem; }
+    .steps li::before { content: counter(s); flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--pink); color: white; font-size: .75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+    .btn { display: inline-block; background: var(--pink); color: white; font-weight: 600; padding: 15px 34px; border-radius: 999px; font-size: 1rem; transition: opacity .2s, transform .1s; }
+    .btn:hover { opacity: .9; transform: translateY(-1px); }
+    .fine { font-size: .8rem; color: var(--muted); margin-top: 18px; }
+    .fine a { color: var(--pink); font-weight: 600; }
+    @media (max-width: 520px) { .card { padding: 36px 22px; } }
+  </style>
+</head>
+<body>
+  <header><a href="/" class="logo"><img src="/assets/logo-navy.jpg" alt="" />Smmology</a></header>
+  <main>
+    <div class="card">
+      <div class="badge" id="icon">🍸</div>
+      <span class="eyebrow">Deposit received</span>
+      <h1>You're <em>booked in!</em></h1>
+      <p class="lead" id="lead">Thank you! Your deposit is confirmed and a receipt is on its way to your inbox.</p>
+      <ol class="steps">
+        <li id="step1">Pick your date below so it's locked on my calendar.</li>
+        <li id="step2">I'll reach out to plan the details with you.</li>
+        <li id="step3">Your remaining balance is invoiced before the shoot.</li>
+      </ol>
+      <a class="btn" id="cta" target="_blank" rel="noopener">Pick Your Date →</a>
+      <p class="fine">Questions? Email <a href="mailto:diana@smmology.us">diana@smmology.us</a></p>
+    </div>
+  </main>
+  <script>
+    // Booking page for paid shoots. Leave empty until the shoot calendar exists.
+    var SHOOT_CALENDAR = '';
+
+    var SERVICES = {
+      photoshoot: { icon: '📸', name: 'Brand Photoshoot', balance: '$275',
+        plan: 'I’ll reach out to plan your mood board, shot list, and styling.' },
+      event: { icon: '🎉', name: 'Event Coverage', balance: '$375 (plus any extra hours)',
+        plan: 'I’ll reach out to go over your event schedule, location, and must-have shots.' },
+      session: { icon: '🎬', name: 'On-Site Content Session', balance: '$225',
+        plan: 'I’ll reach out to plan your shot list so we make the most of every minute.' }
+    };
+    var id = new URLSearchParams(location.search).get('service');
+    var svc = SERVICES[id];
+    if (svc) {
+      document.getElementById('icon').textContent = svc.icon;
+      document.getElementById('lead').textContent = 'Thank you! Your ' + svc.name + ' deposit is confirmed and a receipt is on its way to your inbox.';
+      document.getElementById('step2').textContent = svc.plan;
+      document.getElementById('step3').textContent = 'Your remaining ' + svc.balance + ' is invoiced before your ' + (id === 'event' ? 'event' : 'shoot') + '.';
+    }
+    var cta = document.getElementById('cta');
+    if (SHOOT_CALENDAR) {
+      cta.href = SHOOT_CALENDAR;
+    } else {
+      document.getElementById('step1').textContent = 'Watch your inbox: I’ll email you within 24 hours to lock in your date.';
+      cta.href = 'mailto:diana@smmology.us?subject=' + encodeURIComponent('My ' + (svc ? svc.name : 'booking') + ' date');
+      cta.textContent = 'Email Me Your Preferred Dates →';
+    }
+  </script>
+</body>
+</html>

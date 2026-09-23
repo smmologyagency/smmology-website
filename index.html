@@ -353,6 +353,15 @@
     .addon-dialog .check-list { margin-bottom: 22px; }
     .dialog-box { background: var(--cream); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; font-size: .85rem; line-height: 1.6; margin-bottom: 18px; }
     .dialog-box strong { color: var(--navy); }
+    .dialog-deposit { font-size: .8rem; color: var(--muted); line-height: 1.55; margin-bottom: 14px; }
+    .dialog-deposit strong { color: var(--navy); }
+    .dialog-secondary { display: block; width: 100%; margin-top: 10px; background: transparent; border: 1.5px solid var(--border); color: var(--muted); border-radius: 999px; padding: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
+    .dialog-secondary:hover { border-color: var(--pink); color: var(--pink); }
+    .summary-book { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .summary-book:empty { display: none; }
+    .summary-book-label { font-size: .72rem; color: #8899bb; letter-spacing: .04em; }
+    .summary-book a { font-size: .82rem; font-weight: 600; color: var(--pink); }
+    .summary-book a:hover { text-decoration: underline; }
     .dialog-value { border-left: 3px solid var(--pink); padding: 4px 0 4px 14px; font-size: .9rem; color: var(--text); line-height: 1.6; margin-bottom: 24px; }
 
     /* Package builder */
@@ -631,6 +640,7 @@
             <p class="summary-note" id="summary-note">Starting prices. Your final quote is confirmed on your discovery call.</p>
             <a id="summary-cta" href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink" style="display:block;text-align:center;">Book a Discovery Call →</a>
             <button type="button" id="summary-copy" class="summary-copy">Copy my package</button>
+            <div class="summary-book" id="summary-book"></div>
             <p class="summary-hint">Paste it into your booking notes so we can jump right in.</p>
           </aside>
         </div>
@@ -648,7 +658,9 @@
       <ul class="check-list" id="d-includes"></ul>
       <div id="d-extra"></div>
       <div class="dialog-value" id="d-value"></div>
-      <button type="button" class="btn btn-pink" id="d-add" style="width:100%;">Add to my package</button>
+      <div class="dialog-deposit" id="d-deposit"></div>
+      <a class="btn btn-pink" id="d-primary" target="_blank" rel="noopener" style="display:block;text-align:center;width:100%;"></a>
+      <button type="button" class="dialog-secondary" id="d-add">Add to my package</button>
     </dialog>
   </section>
 
@@ -827,7 +839,7 @@
 
     var ADDONS = {
       event: {
-        icon: '🎉', name: 'Event Coverage', price: 750, from: true, billing: 'once',
+        icon: '🎉', name: 'Event Coverage', price: 750, from: true, billing: 'once', deposit: 375, buy: 'https://buy.stripe.com/9B69AT3gt6fW12CcTEfUQ0b',
         priceLabel: 'From $750 <small>· up to 3 hours of coverage</small>',
         pitch: 'Your event happens once. The content from it can work for you for months. I capture it live so your audience feels like they were there, and the ones who missed it make sure they don’t next time.',
         includes: [
@@ -841,7 +853,7 @@
         value: 'One event becomes a recap Reel, a photo carousel, weeks of Stories, and B-roll you can reuse all year.'
       },
       session: {
-        icon: '🎬', name: 'On-Site Content Session', price: 450, billing: 'once',
+        icon: '🎬', name: 'On-Site Content Session', price: 450, billing: 'once', deposit: 225, buy: 'https://buy.stripe.com/9B64gz9EReMsh1AaLwfUQ0c',
         priceLabel: '$450 <small>· up to 3–4 hours</small>',
         pitch: 'Instead of scrambling to film something every week, we knock it all out in one focused session at your location.',
         includes: [
@@ -869,7 +881,7 @@
         value: 'No more staring at the camera wondering what to say. You show up and hit record.'
       },
       photoshoot: {
-        icon: '📸', name: 'Brand Photoshoot', price: 550, billing: 'once',
+        icon: '📸', name: 'Brand Photoshoot', price: 550, billing: 'once', deposit: 275, buy: 'https://buy.stripe.com/bJe3cvdV78o426G2f0fUQ0a',
         priceLabel: '$550',
         pitch: 'Stock photos and blurry phone pics make a great business look average. A brand shoot gives you a library of photos that look like you and sell what you do.',
         includes: [
@@ -1019,7 +1031,15 @@
       var onlyStrategist = state.plan === 'strategist' && !Object.keys(state.addons).length;
       if (state.plan === 'ceo') { cta.href = WAITLIST; cta.textContent = 'Join the Waitlist →'; }
       else if (onlyStrategist) { cta.href = SIGNUP; cta.textContent = 'Claim Your Spot →'; }
+      else if (state.plan === 'none') { cta.href = CALL; cta.textContent = 'Let’s Get Started →'; }
       else { cta.href = CALL; cta.textContent = 'Book a Discovery Call →'; }
+
+      // Direct booking links for add-ons that can be paid for right away
+      var buyable = Object.keys(state.addons).filter(function (id) { return ADDONS[id].buy; });
+      document.getElementById('summary-book').innerHTML = buyable.length ? '<div class="summary-book-label">Ready now? Book directly:</div>' + buyable.map(function (id) {
+        var a = ADDONS[id];
+        return '<a href="' + a.buy + '" target="_blank" rel="noopener">' + a.name + ' · ' + money(a.deposit) + ' deposit →</a>';
+      }).join('') : '';
 
       // Sync checkboxes and card badges
       extraWrap.querySelectorAll('input').forEach(function (i) { i.checked = !!state.addons[i.value]; });
@@ -1050,6 +1070,17 @@
       document.getElementById('d-includes').innerHTML = a.includes.map(function (i) { return '<li>' + i + '</li>'; }).join('');
       document.getElementById('d-extra').innerHTML = a.extra;
       document.getElementById('d-value').innerHTML = '<strong>Why it’s worth it:</strong> ' + a.value;
+      var primary = document.getElementById('d-primary'), dep = document.getElementById('d-deposit');
+      if (a.buy) {
+        primary.href = a.buy;
+        primary.textContent = 'Book Now · Pay ' + money(a.deposit) + ' Deposit →';
+        dep.innerHTML = '<strong>Reserve your date with a 50% deposit.</strong> Right after checkout we’ll lock in your date. The remaining ' + money(a.price - a.deposit) + (a.from ? ' (plus any extra hours)' : '') + ' is invoiced before your ' + (id === 'event' ? 'event' : 'shoot') + '.';
+        dep.style.display = '';
+      } else {
+        primary.href = CALL;
+        primary.textContent = 'Let’s Get Started · Book a Discovery Call →';
+        dep.style.display = 'none';
+      }
       syncAddBtn();
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
     }
