@@ -326,13 +326,79 @@
     .addon h4 { font-size: 1.1rem; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
     .addon { display: flex; flex-direction: column; }
     .addon p  { font-size: .85rem; color: var(--muted); line-height: 1.6; flex: 1; }
-    .addon-price { margin-top: 16px; font-weight: 600; font-size: .9rem; color: var(--pink); }
+    .addon { font: inherit; text-align: left; cursor: pointer; width: 100%; color: inherit; }
+    .addon:focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
+    .addon-foot { margin-top: 16px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .addon-price { font-weight: 600; font-size: .9rem; color: var(--pink); }
+    .addon-price small { font-weight: 500; color: var(--muted); font-size: .75rem; }
+    .addon-more { font-size: .75rem; font-weight: 600; color: var(--mauve); opacity: .7; transition: opacity .2s; }
+    .addon:hover .addon-more { opacity: 1; }
+    .addon.is-added { border-color: var(--pink); background: #fffafc; }
+    .addon.is-added .addon-more::before { content: '✓ Added · '; color: var(--pink); }
+
+    /* Add-on dialog */
+    .addon-dialog {
+      border: none; border-radius: 24px; padding: 40px 36px 32px; max-width: 520px; width: calc(100% - 32px);
+      max-height: calc(100vh - 48px); overflow-y: auto; color: var(--text); background: white;
+      box-shadow: 0 24px 80px rgba(22,27,40,.3); margin: auto;
+    }
+    .addon-dialog::backdrop { background: rgba(22,27,40,.55); backdrop-filter: blur(3px); }
+    .dialog-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 1.8rem; line-height: 1; color: var(--muted); cursor: pointer; }
+    .dialog-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--blush); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+    .addon-dialog h3 { font-size: 1.6rem; color: var(--navy); line-height: 1.2; }
+    .dialog-price { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--pink); font-weight: 700; margin: 6px 0 14px; }
+    .dialog-price small { font-family: 'Inter', sans-serif; font-size: .8rem; color: var(--muted); font-weight: 500; }
+    .dialog-pitch { color: var(--muted); font-size: .95rem; line-height: 1.65; margin-bottom: 22px; }
+    .dialog-label { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mauve); margin-bottom: 12px; }
+    .addon-dialog .check-list { margin-bottom: 22px; }
+    .dialog-box { background: var(--cream); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; font-size: .85rem; line-height: 1.6; margin-bottom: 18px; }
+    .dialog-box strong { color: var(--navy); }
+    .dialog-value { border-left: 3px solid var(--pink); padding: 4px 0 4px 14px; font-size: .9rem; color: var(--text); line-height: 1.6; margin-bottom: 24px; }
+
+    /* Package builder */
+    .builder { margin-top: 112px; scroll-margin-top: 90px; }
+    .builder-grid { display: grid; grid-template-columns: 1fr 360px; gap: 40px; margin-top: 48px; align-items: start; }
+    .builder-step { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mauve); margin-bottom: 14px; }
+    .plan-options { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .extra-options { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+    .opt {
+      display: flex; gap: 12px; align-items: flex-start; background: white; border: 1.5px solid var(--border);
+      border-radius: 14px; padding: 14px 16px; cursor: pointer; transition: border-color .15s, background .15s;
+    }
+    .opt:hover { border-color: var(--mauve); }
+    .opt input { accent-color: var(--pink); margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; }
+    .opt:has(input:checked) { border-color: var(--pink); background: #fffafc; }
+    .opt:has(input:focus-visible) { outline: 2px solid var(--pink); outline-offset: 2px; }
+    .opt-name { font-weight: 600; font-size: .9rem; color: var(--navy); line-height: 1.3; }
+    .opt-meta { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+    .summary {
+      position: sticky; top: 92px; background: var(--navy); color: white; border-radius: 24px; padding: 32px 28px;
+      box-shadow: 0 12px 40px rgba(22,27,40,.22);
+    }
+    .summary-tag { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--pink); font-weight: 700; margin-bottom: 16px; }
+    .summary-list { list-style: none; display: flex; flex-direction: column; gap: 10px; min-height: 40px; }
+    .summary-list li { display: flex; justify-content: space-between; gap: 12px; font-size: .85rem; color: #c8d0e0; }
+    .summary-list li span:last-child { white-space: nowrap; color: white; }
+    .summary-list .empty { color: #8899bb; font-style: italic; }
+    .summary-totals { border-top: 1px solid rgba(255,255,255,.12); margin-top: 20px; padding-top: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .summary-totals div { display: flex; justify-content: space-between; align-items: baseline; }
+    .summary-totals span { font-size: .8rem; color: #8899bb; }
+    .summary-totals strong { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: white; }
+    .summary-note { font-size: .75rem; color: #8899bb; margin: 14px 0 20px; line-height: 1.5; }
+    .summary-copy { display: block; width: 100%; margin-top: 10px; background: transparent; border: 1.5px solid rgba(255,255,255,.2); color: #c8d0e0; border-radius: 999px; padding: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
+    .summary-copy:hover { border-color: var(--pink); color: white; }
+    .summary-hint { font-size: .72rem; color: #6b7494; text-align: center; margin-top: 8px; }
     @media (max-width: 960px) {
       .tiers-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; gap: 40px; }
       .addons-grid { grid-template-columns: repeat(2,1fr); }
     }
+    @media (max-width: 960px) {
+      .builder-grid { grid-template-columns: 1fr; }
+      .summary { position: static; }
+    }
     @media (max-width: 520px) {
-      .addons-grid { grid-template-columns: 1fr; }
+      .addons-grid, .plan-options, .extra-options { grid-template-columns: 1fr; }
+      .addon-dialog { padding: 36px 22px 24px; }
     }
     @media (max-width: 768px) {
       .hero-inner, .about-grid, .method-layout { grid-template-columns: 1fr; }
@@ -482,68 +548,108 @@
       <div class="text-center" style="margin-top:96px;">
         <span class="eyebrow">Add-Ons</span>
         <h3 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);">Need a little <em>extra?</em></h3>
-        <p class="section-sub">Add these to any plan, or book them on their own.</p>
+        <p class="section-sub">Add these to any plan, or book them on their own. Tap any card to see exactly what's included.</p>
       </div>
       <div class="addons-grid">
-        <div class="addon">
+        <button type="button" class="addon" data-addon="event">
           <div class="addon-icon">🎉</div>
           <h4>Event Coverage</h4>
           <p>On-site photo &amp; video at your event, plus live stories and a same-week recap Reel.</p>
-          <div class="addon-price">From $750</div>
-        </div>
-        <div class="addon">
+          <div class="addon-foot"><span class="addon-price">From $750</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="session">
           <div class="addon-icon">🎬</div>
           <h4>On-Site Content Session</h4>
-          <p>I come to you and film a batch of Reels, B-roll, and talking-head videos in one shoot.</p>
-          <div class="addon-price">From $750</div>
-        </div>
-        <div class="addon">
+          <p>Up to 4 hours at your location, filming a batch of Reels, B-roll, and talking-head videos.</p>
+          <div class="addon-foot"><span class="addon-price">$450</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="scripting">
           <div class="addon-icon">💡</div>
           <h4>Ideation &amp; Scripting</h4>
-          <p>I come up with the video ideas and write the scripts, hooks, and shot lists so you just hit record.</p>
-          <div class="addon-price">From $397/mo</div>
-        </div>
-        <div class="addon">
+          <p>Video ideas, scripts, hooks, and shot lists written for your shoot, so you just hit record.</p>
+          <div class="addon-foot"><span class="addon-price">$297</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="photoshoot">
           <div class="addon-icon">📸</div>
           <h4>Brand Photoshoot</h4>
           <p>Styled photos of you, your team, your space, and your products for your feed, website, and ads.</p>
-          <div class="addon-price">From $750</div>
-        </div>
-        <div class="addon">
+          <div class="addon-foot"><span class="addon-price">$550</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="ads">
           <div class="addon-icon">📈</div>
           <h4>Paid Ads Management</h4>
           <p>Meta ad campaigns built, targeted, and optimized to bring in real customers, not just likes.</p>
-          <div class="addon-price">From $497/mo</div>
-        </div>
-        <div class="addon">
+          <div class="addon-foot"><span class="addon-price">$497/mo <small>+ ad spend</small></span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="audit">
           <div class="addon-icon">🔍</div>
           <h4>Social Media Audit</h4>
           <p>A deep review of your accounts, with a clear action plan for what to fix first.</p>
-          <div class="addon-price">From $297</div>
-        </div>
-        <div class="addon">
+          <div class="addon-foot"><span class="addon-price">$297</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="glowup">
           <div class="addon-icon">✨</div>
           <h4>Profile Glow-Up</h4>
           <p>New bios, highlight covers, a link-in-bio page, and pinned posts that turn visitors into followers.</p>
-          <div class="addon-price">From $347</div>
-        </div>
-        <div class="addon">
+          <div class="addon-foot"><span class="addon-price">$347</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="influencer">
           <div class="addon-icon">🤝</div>
           <h4>Influencer &amp; UGC Outreach</h4>
           <p>Local creators found, pitched, and coordinated to get your business in front of new audiences.</p>
-          <div class="addon-price">From $497/campaign</div>
-        </div>
-        <div class="addon">
+          <div class="addon-foot"><span class="addon-price">$497/campaign</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon" data-addon="gbp">
           <div class="addon-icon">📍</div>
           <h4>Google Business Profile</h4>
           <p>Weekly posts, fresh photos, and review replies to help you show up in local searches.</p>
-          <div class="addon-price">From $197/mo</div>
+          <div class="addon-foot"><span class="addon-price">$197/mo</span><span class="addon-more">What's included →</span></div>
+        </button>
+      </div>
+
+      <!-- Package builder -->
+      <div id="build" class="builder">
+        <div class="text-center">
+          <span class="eyebrow">Build Your Package</span>
+          <h3 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);">Mix it, shake it, <em>see it.</em></h3>
+          <p class="section-sub">Pick a plan, add what you need, and watch your package come together.</p>
+        </div>
+        <div class="builder-grid">
+          <div>
+            <div class="builder-step">1 · Choose your plan</div>
+            <div class="plan-options" id="plan-options"></div>
+            <div class="builder-step" style="margin-top:36px;">2 · Add extras</div>
+            <div class="extra-options" id="extra-options"></div>
+          </div>
+          <aside class="summary" aria-live="polite">
+            <div class="summary-tag">Your package</div>
+            <ul class="summary-list" id="summary-list"></ul>
+            <div class="summary-totals">
+              <div><span>Monthly</span><strong id="total-monthly">$0</strong></div>
+              <div><span>One-time</span><strong id="total-once">$0</strong></div>
+            </div>
+            <p class="summary-note" id="summary-note">Starting prices. Your final quote is confirmed on your discovery call.</p>
+            <a id="summary-cta" href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink" style="display:block;text-align:center;">Book a Discovery Call →</a>
+            <button type="button" id="summary-copy" class="summary-copy">Copy my package</button>
+            <p class="summary-hint">Paste it into your booking notes so we can jump right in.</p>
+          </aside>
         </div>
       </div>
-      <div class="text-center" style="margin-top:40px;">
-        <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink btn-lg">Build Your Package →</a>
-      </div>
     </div>
+
+    <!-- Add-on details -->
+    <dialog id="addon-dialog" class="addon-dialog">
+      <button type="button" class="dialog-close" aria-label="Close">×</button>
+      <div class="dialog-icon" id="d-icon"></div>
+      <h3 id="d-title"></h3>
+      <div class="dialog-price" id="d-price"></div>
+      <p class="dialog-pitch" id="d-pitch"></p>
+      <div class="dialog-label">What's included</div>
+      <ul class="check-list" id="d-includes"></ul>
+      <div id="d-extra"></div>
+      <div class="dialog-value" id="d-value"></div>
+      <button type="button" class="btn btn-pink" id="d-add" style="width:100%;">Add to my package</button>
+    </dialog>
   </section>
 
   <hr class="divider" />
@@ -704,6 +810,266 @@
       <span style="font-size:.875rem;">© 2026 Smmology · diana@smmology.us</span>
     </div>
   </footer>
+
+  <!-- Add-on details + package builder -->
+  <script>
+  (function () {
+    var CALL = 'https://calendar.app.google/JQLJ23KJ7SjfpL8k9';
+    var WAITLIST = 'https://apply.smmology.us';
+    var SIGNUP = 'https://app.smmology.us/signup';
+
+    var PLANS = [
+      { id: 'none', name: 'Just add-ons', meta: 'No monthly plan', price: 0 },
+      { id: 'strategist', name: 'The Strategist', meta: '$97/mo · founding price', price: 97 },
+      { id: 'director', name: 'The Director', meta: 'From $997/mo', price: 997, from: true },
+      { id: 'ceo', name: 'The CEO', meta: 'From $1,997/mo · waitlist', price: 1997, from: true }
+    ];
+
+    var ADDONS = {
+      event: {
+        icon: '🎉', name: 'Event Coverage', price: 750, from: true, billing: 'once',
+        priceLabel: 'From $750 <small>· 2 hours of coverage</small>',
+        pitch: 'Your event happens once. The content from it can work for you for months. I capture it live so your audience feels like they were there, and the ones who missed it make sure they don’t next time.',
+        includes: [
+          'Up to 2 hours of on-site photo & video coverage',
+          'Live Instagram Stories posted during the event',
+          '25+ professionally edited photos, delivered within 72 hours',
+          '1 edited recap Reel, delivered within 5 days',
+          'All raw clips, organized for future posts'
+        ],
+        extra: '<div class="dialog-box"><strong>Longer event?</strong> Additional hours are $250/hr.</div>',
+        value: 'One event becomes a recap Reel, a photo carousel, weeks of Stories, and B-roll you can reuse all year.'
+      },
+      session: {
+        icon: '🎬', name: 'On-Site Content Session', price: 450, billing: 'once',
+        priceLabel: '$450 <small>· up to 3–4 hours</small>',
+        pitch: 'Instead of scrambling to film something every week, we knock it all out in one focused session at your location.',
+        includes: [
+          'Up to 3–4 hours of filming at your business',
+          'A planned shot list so no time is wasted',
+          'Reels, B-roll, talking-head videos, and product/space footage',
+          'On-camera direction so you look and sound natural',
+          'All footage delivered in an organized, shareable folder'
+        ],
+        extra: '<div class="dialog-box"><strong>Best with Ideation & Scripting.</strong> Walk in with every video already planned and scripted.</div>',
+        value: 'One session can fill your content calendar for a month or more.'
+      },
+      scripting: {
+        icon: '💡', name: 'Ideation & Scripting', price: 297, billing: 'once',
+        priceLabel: '$297 <small>· per content session</small>',
+        pitch: 'The hardest part of video isn’t filming, it’s knowing what to say. I plan every video around your goals so each one has a reason to exist.',
+        includes: [
+          'Video ideas built around your content pillars and goals',
+          'Full scripts with scroll-stopping hooks and clear calls to action',
+          'A shot list for every video',
+          'Trend-based ideas adapted to your brand',
+          'Delivered before your shoot so you can practice'
+        ],
+        extra: '<div class="dialog-box"><strong>Pairs with the On-Site Content Session.</strong> Scripts are written for the videos we film that day.</div>',
+        value: 'No more staring at the camera wondering what to say. You show up and hit record.'
+      },
+      photoshoot: {
+        icon: '📸', name: 'Brand Photoshoot', price: 550, billing: 'once',
+        priceLabel: '$550',
+        pitch: 'Stock photos and blurry phone pics make a great business look average. A brand shoot gives you a library of photos that look like you and sell what you do.',
+        includes: [
+          'Pre-shoot planning: mood board, shot list, and styling tips',
+          'Styled photos of you, your team, your space, and your products',
+          '30+ professionally edited, high-resolution photos',
+          'Delivered in an online gallery within 7 days',
+          'Full rights to use them on social, your website, Google, ads, and print'
+        ],
+        extra: '',
+        value: 'One shoot gives you on-brand photos for your feed, website, Google profile, and ads for months.'
+      },
+      ads: {
+        icon: '📈', name: 'Paid Ads Management', price: 497, billing: 'monthly',
+        priceLabel: '$497/mo <small>+ your ad budget</small>',
+        pitch: 'Boosting posts and hoping isn’t a strategy. I build Meta (Facebook & Instagram) campaigns aimed at one thing: real customers walking through your door.',
+        includes: [
+          'Campaign strategy and local audience targeting',
+          'Ad creative and copy, made from your best content',
+          'Meta Pixel and conversion tracking setup',
+          'Weekly monitoring, A/B testing, and optimization',
+          'Monthly results report: leads, cost per result, and what’s next'
+        ],
+        extra: '<div class="dialog-box"><strong>Your ad budget is not included.</strong> Ad spend is paid directly to Meta on your own card, so you stay in full control and see every dollar. We recommend starting at $300+/month in ad spend.</div>',
+        value: 'Every dollar is tracked to a result, so you know exactly what your ads bring in.'
+      },
+      audit: {
+        icon: '🔍', name: 'Social Media Audit', price: 297, billing: 'once',
+        priceLabel: '$297',
+        pitch: 'Not sure why your posts aren’t working? I’ll look at everything and tell you exactly what to fix first.',
+        includes: [
+          'Full review of your profiles, content, engagement, and posting habits',
+          'Comparison against 3 local competitors',
+          'What’s working, what isn’t, and why',
+          'A prioritized 30-day action plan',
+          'A walkthrough call to go over everything together'
+        ],
+        extra: '',
+        value: 'Stop guessing. Get a clear plan you can act on the same week, whether you work with me or not.'
+      },
+      glowup: {
+        icon: '✨', name: 'Profile Glow-Up', price: 347, billing: 'once',
+        priceLabel: '$347',
+        pitch: 'Your profile is your storefront. New visitors decide in seconds whether to follow, so it needs to say who you are and why they should care.',
+        includes: [
+          'SEO-optimized bios for Instagram, Facebook, and TikTok',
+          'Custom highlight covers in your brand colors',
+          'A link-in-bio page that sends people where you want them',
+          '3 pinned posts planned to convert new visitors',
+          'Profile photo and name field optimization'
+        ],
+        extra: '',
+        value: 'A profile that turns curious visitors into followers, and followers into customers.'
+      },
+      influencer: {
+        icon: '🤝', name: 'Influencer & UGC Outreach', price: 497, billing: 'once',
+        priceLabel: '$497 <small>· per campaign</small>',
+        pitch: 'Local creators already have the audience you want. I find the right ones and handle everything so you just welcome them in.',
+        includes: [
+          'Research and shortlist of local creators who fit your brand',
+          'Outreach, pitching, and negotiation',
+          'A clear campaign brief for each creator',
+          'Scheduling and coordination of visits and deliverables',
+          'Content usage rights and a results recap'
+        ],
+        extra: '<div class="dialog-box"><strong>Creator fees and any free product or services are not included</strong> and are agreed with you before anything is booked.</div>',
+        value: 'Get in front of thousands of local people who trust the creator recommending you.'
+      },
+      gbp: {
+        icon: '📍', name: 'Google Business Profile', price: 197, billing: 'monthly',
+        priceLabel: '$197/mo',
+        pitch: 'When locals search “near me,” Google decides who shows up. An active, well-kept profile is one of the cheapest ways to get found and get calls.',
+        includes: [
+          'Full profile optimization in month one',
+          'Weekly Google posts (offers, updates, events)',
+          'Fresh photos uploaded every month',
+          'Review replies within 48 hours',
+          'Hours, holiday, and Q&A updates',
+          'Monthly report: searches, calls, and direction requests'
+        ],
+        extra: '',
+        value: 'Show up higher in local searches and turn more searches into calls and visits.'
+      }
+    };
+
+    var state = { plan: 'none', addons: {} };
+    var money = function (n) { return '$' + n.toLocaleString('en-US'); };
+
+    // Builder options
+    var planWrap = document.getElementById('plan-options');
+    PLANS.forEach(function (p) {
+      var l = document.createElement('label');
+      l.className = 'opt';
+      l.innerHTML = '<input type="radio" name="plan" value="' + p.id + '"' + (p.id === 'none' ? ' checked' : '') + '>' +
+        '<div><div class="opt-name">' + p.name + '</div><div class="opt-meta">' + p.meta + '</div></div>';
+      planWrap.appendChild(l);
+    });
+    planWrap.addEventListener('change', function (e) { state.plan = e.target.value; render(); });
+
+    var extraWrap = document.getElementById('extra-options');
+    Object.keys(ADDONS).forEach(function (id) {
+      var a = ADDONS[id];
+      var l = document.createElement('label');
+      l.className = 'opt';
+      var meta = (a.from ? 'From ' : '') + money(a.price) + (a.billing === 'monthly' ? '/mo' : '') + (id === 'ads' ? ' + ad spend' : '');
+      l.innerHTML = '<input type="checkbox" value="' + id + '">' +
+        '<div><div class="opt-name">' + a.name + '</div><div class="opt-meta">' + meta + '</div></div>';
+      extraWrap.appendChild(l);
+    });
+    extraWrap.addEventListener('change', function (e) { setAddon(e.target.value, e.target.checked); });
+
+    function setAddon(id, on) {
+      if (on) state.addons[id] = true; else delete state.addons[id];
+      render();
+    }
+
+    function lines() {
+      var out = [];
+      var plan = PLANS.filter(function (p) { return p.id === state.plan; })[0];
+      if (plan.id !== 'none') out.push({ name: plan.name, label: (plan.from ? 'from ' : '') + money(plan.price) + '/mo' });
+      Object.keys(state.addons).forEach(function (id) {
+        var a = ADDONS[id];
+        out.push({ name: a.name, label: (a.from ? 'from ' : '') + money(a.price) + (a.billing === 'monthly' ? '/mo' : '') });
+      });
+      return out;
+    }
+
+    function render() {
+      var plan = PLANS.filter(function (p) { return p.id === state.plan; })[0];
+      var monthly = plan.price, once = 0;
+      Object.keys(state.addons).forEach(function (id) {
+        var a = ADDONS[id];
+        if (a.billing === 'monthly') monthly += a.price; else once += a.price;
+      });
+      var list = document.getElementById('summary-list');
+      var ls = lines();
+      list.innerHTML = ls.length ? ls.map(function (l) { return '<li><span>' + l.name + '</span><span>' + l.label + '</span></li>'; }).join('')
+        : '<li class="empty">Pick a plan or add-ons to start building.</li>';
+      document.getElementById('total-monthly').textContent = money(monthly);
+      document.getElementById('total-once').textContent = money(once);
+
+      var note = 'Starting prices. Your final quote is confirmed on your discovery call.';
+      if (state.addons.ads) note += ' Paid ads total does not include your ad budget.';
+      document.getElementById('summary-note').textContent = note;
+
+      var cta = document.getElementById('summary-cta');
+      var onlyStrategist = state.plan === 'strategist' && !Object.keys(state.addons).length;
+      if (state.plan === 'ceo') { cta.href = WAITLIST; cta.textContent = 'Join the Waitlist →'; }
+      else if (onlyStrategist) { cta.href = SIGNUP; cta.textContent = 'Claim Your Spot →'; }
+      else { cta.href = CALL; cta.textContent = 'Book a Discovery Call →'; }
+
+      // Sync checkboxes and card badges
+      extraWrap.querySelectorAll('input').forEach(function (i) { i.checked = !!state.addons[i.value]; });
+      document.querySelectorAll('.addon[data-addon]').forEach(function (c) { c.classList.toggle('is-added', !!state.addons[c.dataset.addon]); });
+    }
+
+    document.getElementById('summary-copy').addEventListener('click', function () {
+      var btn = this;
+      var ls = lines();
+      if (!ls.length) { btn.textContent = 'Add something first'; setTimeout(function () { btn.textContent = 'Copy my package'; }, 1600); return; }
+      var text = 'My Smmology package:\n' + ls.map(function (l) { return '- ' + l.name + ' (' + l.label + ')'; }).join('\n') +
+        '\nMonthly: ' + document.getElementById('total-monthly').textContent +
+        ' | One-time: ' + document.getElementById('total-once').textContent;
+      var done = function () { btn.textContent = 'Copied ✓'; setTimeout(function () { btn.textContent = 'Copy my package'; }, 1800); };
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () { window.prompt('Copy your package:', text); });
+      else window.prompt('Copy your package:', text);
+    });
+
+    // Add-on details dialog
+    var dlg = document.getElementById('addon-dialog');
+    var current = null;
+    function openAddon(id) {
+      var a = ADDONS[id]; current = id;
+      document.getElementById('d-icon').textContent = a.icon;
+      document.getElementById('d-title').textContent = a.name;
+      document.getElementById('d-price').innerHTML = a.priceLabel;
+      document.getElementById('d-pitch').textContent = a.pitch;
+      document.getElementById('d-includes').innerHTML = a.includes.map(function (i) { return '<li>' + i + '</li>'; }).join('');
+      document.getElementById('d-extra').innerHTML = a.extra;
+      document.getElementById('d-value').innerHTML = '<strong>Why it’s worth it:</strong> ' + a.value;
+      syncAddBtn();
+      if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+    }
+    function syncAddBtn() {
+      var b = document.getElementById('d-add');
+      b.textContent = state.addons[current] ? '✓ Added · See my package' : 'Add to my package';
+    }
+    document.querySelectorAll('.addon[data-addon]').forEach(function (c) {
+      c.addEventListener('click', function () { openAddon(c.dataset.addon); });
+    });
+    document.getElementById('d-add').addEventListener('click', function () {
+      if (state.addons[current]) { dlg.close(); document.getElementById('build').scrollIntoView({ behavior: 'smooth' }); return; }
+      setAddon(current, true); syncAddBtn();
+    });
+    dlg.querySelector('.dialog-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+
+    render();
+  })();
+  </script>
 
 </body>
 </html>
