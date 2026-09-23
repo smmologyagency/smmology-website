@@ -601,7 +601,7 @@
     <div class="text-center mb-10">
       <p class="eyebrow-pill mb-5">Founding Member Pricing</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">20 spots. <em>Locked in forever.</em></h2>
-      <p class="text-[#7a6b72]">Price goes to $597/mo after launch. Founding rate is yours for as long as you stay.</p>
+      <p class="text-[#7a6b72]">Price goes to $297/mo after launch. Founding rate is yours for as long as you stay.</p>
     </div>
 
     <!-- Billing toggle -->
@@ -623,7 +623,7 @@
           <p class="text-mauve text-sm uppercase tracking-widest mb-2">The Strategist</p>
           <div class="flex items-baseline gap-3">
             <span id="price-amount" class="font-serif text-6xl font-bold text-navy">$97</span>
-            <span id="price-original" class="text-[#7a6b72] line-through text-2xl">$597</span>
+            <span id="price-original" class="text-[#7a6b72] line-through text-2xl">$297</span>
           </div>
           <p id="price-sub" class="text-[#7a6b72] text-sm mt-1">per month · rate locked in forever</p>
         </div>
@@ -654,7 +654,7 @@
     function setPlan(plan) {
       const isAnnual = plan === 'annual';
       document.getElementById('price-amount').textContent = isAnnual ? '$790' : '$97';
-      document.getElementById('price-original').textContent = isAnnual ? '$7,164' : '$597';
+      document.getElementById('price-original').textContent = isAnnual ? '$3,564' : '$297';
       document.getElementById('price-sub').textContent = isAnnual
         ? 'per year · ~$66/mo · save $374 · rate locked in forever'
         : 'per month · rate locked in forever';
