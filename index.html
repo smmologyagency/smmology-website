@@ -310,7 +310,8 @@
     /* Services tiers & add-ons */
     .tiers-grid { align-items: stretch; }
     .tiers-grid .card { padding-top: 44px; }
-    .card-price-text { font-size: 2.4rem; line-height: 1.25; }
+    .card-from { font-size: .75rem; color: var(--muted); margin-bottom: -4px; }
+    .card-popular .card-from { color: #8899bb; }
     .card-note { font-size: .8rem; color: #8899bb; font-style: italic; line-height: 1.5; margin: -16px 0 24px; }
     .addons-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
     .addon {
@@ -323,7 +324,9 @@
       display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;
     }
     .addon h4 { font-size: 1.1rem; color: var(--navy); margin-bottom: 8px; line-height: 1.3; }
-    .addon p  { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+    .addon { display: flex; flex-direction: column; }
+    .addon p  { font-size: .85rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .addon-price { margin-top: 16px; font-weight: 600; font-size: .9rem; color: var(--pink); }
     @media (max-width: 960px) {
       .tiers-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; gap: 40px; }
       .addons-grid { grid-template-columns: repeat(2,1fr); }
@@ -415,6 +418,7 @@
         <div class="card" style="position:relative;">
           <span class="popular-badge" style="color:#fff;">🍸 Founding Member · 20 spots</span>
           <div class="card-tier">The Strategist</div>
+          <div class="card-from">Founding member price</div>
           <div style="display:flex;align-items:baseline;gap:10px;">
             <div class="card-price">$97</div>
             <span style="font-size:1.1rem;color:var(--muted);text-decoration:line-through;">$597</span>
@@ -437,8 +441,9 @@
 
         <div class="card">
           <div class="card-tier">The Director</div>
-          <div class="card-price card-price-text">Custom</div>
-          <div class="card-cycle">monthly · quoted on a call</div>
+          <div class="card-from">Starting at</div>
+          <div class="card-price">$997</div>
+          <div class="card-cycle">per month · 8 edited videos</div>
           <p class="card-desc">You run the show from the Martini Method app. Send me your footage and I'll edit it to match your plan.</p>
           <hr class="card-divider" />
           <ul class="check-list">
@@ -455,8 +460,9 @@
         <div class="card card-popular">
           <span class="popular-badge">Done For You</span>
           <div class="card-tier">The CEO</div>
-          <div class="card-price card-price-text">Custom</div>
-          <div class="card-cycle">limited spots · waitlist open</div>
+          <div class="card-from">Starting at</div>
+          <div class="card-price">$1,997</div>
+          <div class="card-cycle">per month · limited spots · waitlist open</div>
           <p class="card-desc">Hand me the keys. I log in, run your accounts, and handle your social from start to finish.</p>
           <hr class="card-divider" />
           <ul class="check-list">
@@ -483,46 +489,55 @@
           <div class="addon-icon">🎉</div>
           <h4>Event Coverage</h4>
           <p>On-site photo &amp; video at your event, plus live stories and a same-week recap Reel.</p>
+          <div class="addon-price">From $750</div>
         </div>
         <div class="addon">
           <div class="addon-icon">🎬</div>
           <h4>On-Site Content Session</h4>
           <p>I come to you and film a batch of Reels, B-roll, and talking-head videos in one shoot.</p>
+          <div class="addon-price">From $750</div>
         </div>
         <div class="addon">
           <div class="addon-icon">💡</div>
           <h4>Ideation &amp; Scripting</h4>
           <p>I come up with the video ideas and write the scripts, hooks, and shot lists so you just hit record.</p>
+          <div class="addon-price">From $397/mo</div>
         </div>
         <div class="addon">
           <div class="addon-icon">📸</div>
           <h4>Brand Photoshoot</h4>
           <p>Styled photos of you, your team, your space, and your products for your feed, website, and ads.</p>
+          <div class="addon-price">From $750</div>
         </div>
         <div class="addon">
           <div class="addon-icon">📈</div>
           <h4>Paid Ads Management</h4>
           <p>Meta ad campaigns built, targeted, and optimized to bring in real customers, not just likes.</p>
+          <div class="addon-price">From $497/mo</div>
         </div>
         <div class="addon">
           <div class="addon-icon">🔍</div>
           <h4>Social Media Audit</h4>
           <p>A deep review of your accounts, with a clear action plan for what to fix first.</p>
+          <div class="addon-price">From $297</div>
         </div>
         <div class="addon">
           <div class="addon-icon">✨</div>
           <h4>Profile Glow-Up</h4>
           <p>New bios, highlight covers, a link-in-bio page, and pinned posts that turn visitors into followers.</p>
+          <div class="addon-price">From $347</div>
         </div>
         <div class="addon">
           <div class="addon-icon">🤝</div>
           <h4>Influencer &amp; UGC Outreach</h4>
           <p>Local creators found, pitched, and coordinated to get your business in front of new audiences.</p>
+          <div class="addon-price">From $497/campaign</div>
         </div>
         <div class="addon">
           <div class="addon-icon">📍</div>
           <h4>Google Business Profile</h4>
           <p>Weekly posts, fresh photos, and review replies to help you show up in local searches.</p>
+          <div class="addon-price">From $197/mo</div>
         </div>
       </div>
       <div class="text-center" style="margin-top:40px;">
