@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 
 const SERVICES = {
   session: { name: 'On-Site Content Session', when: 'shoot' },
+  sessionplus: { name: 'Ready-to-Post Content Session', when: 'shoot' },
   photoshoot: { name: 'Brand Photoshoot', when: 'shoot' },
   event: { name: 'Event Coverage', when: 'event' },
 };

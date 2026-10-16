@@ -346,6 +346,9 @@
     .dialog-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 1.8rem; line-height: 1; color: var(--muted); cursor: pointer; }
     .dialog-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--blush); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
     .addon-dialog h3 { font-size: 1.6rem; color: var(--navy); line-height: 1.2; }
+    .dialog-switch { display: flex; gap: 6px; background: var(--blush); padding: 4px; border-radius: 999px; margin: 12px 0 4px; }
+    .dialog-switch button { flex: 1; border: none; background: transparent; font: inherit; font-size: .8rem; font-weight: 600; color: var(--muted); padding: 8px 10px; border-radius: 999px; cursor: pointer; }
+    .dialog-switch button.on { background: white; color: var(--navy); box-shadow: 0 2px 8px rgba(42,31,46,.08); }
     .dialog-price { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--pink); font-weight: 700; margin: 6px 0 14px; }
     .dialog-price small { font-family: 'Inter', sans-serif; font-size: .8rem; color: var(--muted); font-weight: 500; }
     .dialog-pitch { color: var(--muted); font-size: .95rem; line-height: 1.65; margin-bottom: 22px; }
@@ -527,13 +530,13 @@
           <div class="card-tier">The Director</div>
           <div class="card-from">Starting at</div>
           <div class="card-price">$997</div>
-          <div class="card-cycle">per month · 8 edited videos</div>
+          <div class="card-cycle">per month · 8 edited Reels</div>
           <p class="card-desc">You run the show from the Martini Method app. Send me your footage and I'll edit it to match your plan.</p>
           <hr class="card-divider" />
           <ul class="check-list">
             <li>Everything in The Strategist</li>
             <li>Edit requests sent straight from your app plan</li>
-            <li>Professionally edited Reels &amp; TikToks</li>
+            <li>8 edited Reels/TikToks a month (up to 90 sec each)</li>
             <li>Edits matched to your scripts &amp; content pillars</li>
             <li>Captions polished in your brand voice</li>
             <li>You stay in control of posting</li>
@@ -578,8 +581,8 @@
         <button type="button" class="addon" data-addon="session">
           <div class="addon-icon">🎬</div>
           <h4>On-Site Content Session</h4>
-          <p>Up to 4 hours at your location, filming a batch of Reels, B-roll, and talking-head videos.</p>
-          <div class="addon-foot"><span class="addon-price">$450</span><span class="addon-more">What's included →</span></div>
+          <p>My team comes to you and captures a full content library you own, plus edited Reels ready to post.</p>
+          <div class="addon-foot"><span class="addon-price">From $450</span><span class="addon-more">What's included →</span></div>
         </button>
         <button type="button" class="addon" data-addon="scripting">
           <div class="addon-icon">💡</div>
@@ -661,6 +664,7 @@
       <button type="button" class="dialog-close" aria-label="Close">×</button>
       <div class="dialog-icon" id="d-icon"></div>
       <h3 id="d-title"></h3>
+      <div class="dialog-switch" id="d-switch"></div>
       <div class="dialog-price" id="d-price"></div>
       <p class="dialog-pitch" id="d-pitch"></p>
       <div class="dialog-label">What's included</div>
@@ -843,7 +847,7 @@
     var PLANS = [
       { id: 'none', name: 'Just add-ons', meta: 'No monthly plan', price: 0 },
       { id: 'strategist', name: 'The Strategist', meta: '$97/mo · founding price', price: 97 },
-      { id: 'director', name: 'The Director', meta: 'From $997/mo', price: 997, from: true },
+      { id: 'director', name: 'The Director', meta: 'From $997/mo · 8 edited Reels', price: 997, from: true },
       { id: 'ceo', name: 'The CEO', meta: 'From $1,997/mo · waitlist', price: 1997, from: true }
     ];
 
@@ -863,18 +867,34 @@
         value: 'One event becomes a recap Reel, a photo carousel, weeks of Stories, and B-roll you can reuse all year.'
       },
       session: {
-        icon: '🎬', name: 'On-Site Content Session', price: 450, billing: 'once', deposit: 225, buy: 'https://buy.stripe.com/9B64gz9EReMsh1AaLwfUQ0c',
-        priceLabel: '$450 <small>· up to 3–4 hours</small>',
-        pitch: 'Instead of scrambling to film something every week, we knock it all out in one focused session at your location.',
+        icon: '🎬', name: 'On-Site Content Session', short: 'Content Session', group: ['session', 'sessionplus'],
+        price: 450, billing: 'once', deposit: 225, buy: 'https://buy.stripe.com/9B64gz9EReMsh1AaLwfUQ0c',
+        priceLabel: '$450 <small>· up to 3–4 hours · 3 edited Reels</small>',
+        pitch: 'My team and I come to you and capture a full library of content that’s yours to keep: Reels footage, B-roll, talking-head videos, and shots of your space and products. Use it on social, your website, ads, anywhere, for months. And so you can post right away, we edit 3 Reels for you.',
         includes: [
-          'Up to 3–4 hours of filming at your business',
-          'A planned shot list so no time is wasted',
-          'Reels, B-roll, talking-head videos, and product/space footage',
-          'On-camera direction so you look and sound natural',
-          'All footage delivered in an organized, shareable folder'
+          'My team on-site for up to 3–4 hours',
+          'A full library of raw footage you own and can use anywhere',
+          'Reels, B-roll, talking-head, product, and space footage',
+          'A planned shot list and on-camera direction so you look natural',
+          'Bonus: 3 edited Reels (up to 60 seconds each), ready to post',
+          'Everything delivered in an organized, shareable folder'
         ],
-        extra: '<div class="dialog-box"><strong>Best with Ideation & Scripting.</strong> Walk in with every video already planned and scripted.</div>',
-        value: 'One session can fill your content calendar for a month or more.'
+        extra: '<div class="dialog-box"><strong>Want it fully planned?</strong> Switch to <strong>Ready-to-Post</strong> above: scripting included and 6 edited Reels.</div>',
+        value: 'One session gives you a content library you can pull from for months, across every platform.'
+      },
+      sessionplus: {
+        icon: '🎬', name: 'Ready-to-Post Content Session', short: 'Ready-to-Post', group: ['session', 'sessionplus'],
+        price: 750, billing: 'once', deposit: 375, buy: 'https://buy.stripe.com/5kQaEXbMZdIoh1A6vgfUQ0f',
+        priceLabel: '$750 <small>· up to 3–4 hours · scripting + 6 edited Reels</small>',
+        pitch: 'Planned, filmed, and edited. We script your videos before the shoot, my team and I capture your full content library on-site, and you walk away with 6 Reels ready to post.',
+        includes: [
+          'Everything in the Content Session',
+          'Ideation & Scripting included: video ideas, hooks, and scripts planned before the shoot',
+          '6 edited Reels (up to 60 seconds each) instead of 3',
+          'A full library of raw footage you own and can use anywhere'
+        ],
+        extra: '<div class="dialog-box"><strong>Best value.</strong> Ideation & Scripting alone is $297. Here it’s included, along with 3 extra edited Reels.</div>',
+        value: 'You walk in knowing exactly what to say and walk out with 6 Reels on the way and months of footage.'
       },
       scripting: {
         icon: '💡', name: 'Ideation & Scripting', price: 297, billing: 'once',
@@ -887,7 +907,7 @@
           'Trend-based ideas adapted to your brand',
           'Delivered before your shoot so you can practice'
         ],
-        extra: '<div class="dialog-box"><strong>Pairs with the On-Site Content Session.</strong> Scripts are written for the videos we film that day.</div>',
+        extra: '<div class="dialog-box"><strong>Pairs with the On-Site Content Session.</strong> Scripts are written for the videos we film that day. Tip: the Ready-to-Post Session already includes it.</div>',
         value: 'No more staring at the camera wondering what to say. You show up and hit record.'
       },
       photoshoot: {
@@ -1006,6 +1026,7 @@
     extraWrap.addEventListener('change', function (e) { setAddon(e.target.value, e.target.checked); });
 
     function setAddon(id, on) {
+      if (on && ADDONS[id].group) ADDONS[id].group.forEach(function (g) { delete state.addons[g]; });
       if (on) state.addons[id] = true; else delete state.addons[id];
       render();
     }
@@ -1068,7 +1089,7 @@
 
       // Sync checkboxes and card badges
       extraWrap.querySelectorAll('input').forEach(function (i) { i.checked = !!state.addons[i.value]; });
-      document.querySelectorAll('.addon[data-addon]').forEach(function (c) { c.classList.toggle('is-added', !!state.addons[c.dataset.addon]); });
+      document.querySelectorAll('.addon[data-addon]').forEach(function (c) { var g = ADDONS[c.dataset.addon].group || [c.dataset.addon]; c.classList.toggle('is-added', g.some(function (x) { return state.addons[x]; })); });
     }
 
     document.getElementById('summary-copy').addEventListener('click', function () {
@@ -1090,6 +1111,12 @@
       var a = ADDONS[id]; current = id;
       document.getElementById('d-icon').textContent = a.icon;
       document.getElementById('d-title').textContent = a.name;
+      var sw = document.getElementById('d-switch');
+      sw.innerHTML = a.group ? a.group.map(function (gid) {
+        var g = ADDONS[gid];
+        return '<button type="button" data-v="' + gid + '" class="' + (gid === id ? 'on' : '') + '">' + g.short + ' · ' + money(g.price) + '</button>';
+      }).join('') : '';
+      sw.style.display = a.group ? '' : 'none';
       document.getElementById('d-price').innerHTML = a.priceLabel;
       document.getElementById('d-pitch').textContent = a.pitch;
       document.getElementById('d-includes').innerHTML = a.includes.map(function (i) { return '<li>' + i + '</li>'; }).join('');
@@ -1117,6 +1144,10 @@
     }
     document.querySelectorAll('.addon[data-addon]').forEach(function (c) {
       c.addEventListener('click', function () { openAddon(c.dataset.addon); });
+    });
+    document.getElementById('d-switch').addEventListener('click', function (e) {
+      var v = e.target.dataset && e.target.dataset.v;
+      if (v && v !== current) openAddon(v);
     });
     document.getElementById('d-add').addEventListener('click', function () {
       if (state.addons[current]) { dlg.close(); document.getElementById('build').scrollIntoView({ behavior: 'smooth' }); return; }
