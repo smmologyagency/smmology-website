@@ -122,6 +122,33 @@
     }
     .divider span { color: var(--pink); font-size: 1rem; }
 
+    /* ── PORTFOLIO TABS ── */
+    .pf-tabs-bar { position: sticky; top: 68px; z-index: 50; background: rgba(250,247,245,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 12px 16px; }
+    .pf-tabs { display: flex; gap: 6px; max-width: 640px; margin: 0 auto; background: white; border: 1px solid var(--border); border-radius: 999px; padding: 5px; }
+    .pf-tab { flex: 1; border: none; background: transparent; font: inherit; font-size: .85rem; font-weight: 600; color: var(--muted); padding: 10px 14px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; white-space: nowrap; }
+    .pf-tab:hover { color: var(--navy); }
+    .pf-tab[aria-selected="true"] { background: var(--navy); color: white; }
+    .pf-tab:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
+    .pf-panel[hidden] { display: none !important; }
+    .pf-short { display: none; }
+    @media (max-width: 560px) {
+      .pf-tabs { gap: 2px; padding: 4px; }
+      .pf-tab { font-size: .78rem; padding: 9px 6px; }
+      .pf-long { display: none; }
+      .pf-short { display: inline; }
+    }
+
+    /* ── BRAND PHOTOSHOOTS ── */
+    .brand-section { padding: 5rem 1.5rem; max-width: 72rem; margin: 0 auto; }
+    .brand-grid { columns: 3 260px; column-gap: 14px; }
+    .brand-grid:empty { display: none; }
+    .brand-tile { break-inside: avoid; margin-bottom: 14px; border-radius: 16px; overflow: hidden; cursor: zoom-in; background: var(--blush); }
+    .brand-tile img { width: 100%; display: block; transition: transform .4s; }
+    .brand-tile:hover img { transform: scale(1.03); }
+    .brand-empty { text-align: center; padding: 3rem 1rem; border: 1px dashed var(--border); border-radius: 20px; color: var(--muted); }
+    .brand-empty p { margin-bottom: 1.2rem; }
+    .brand-grid:not(:empty) + .brand-empty { display: none; }
+
     /* ── FEATURED CLIENTS ── */
     .featured-section { padding: 5rem 1.5rem; max-width: 72rem; margin: 0 auto; }
 
@@ -642,12 +669,19 @@
     </p>
   </div>
 
-  <div class="divider" aria-hidden="true"><span>✦</span></div>
+  <!-- PORTFOLIO TABS -->
+  <div class="pf-tabs-bar">
+    <div class="pf-tabs" role="tablist" aria-label="Portfolio categories">
+      <button type="button" role="tab" class="pf-tab" data-tab="management" aria-controls="panel-management"><span class="pf-long">Social Media </span>Management</button>
+      <button type="button" role="tab" class="pf-tab" data-tab="content-shoots" aria-controls="panel-content-shoots">Content Shoots</button>
+      <button type="button" role="tab" class="pf-tab" data-tab="brand-photoshoots" aria-controls="panel-brand-photoshoots">Brand <span class="pf-long">Photos</span><span class="pf-short">S</span>hoots</button>
+    </div>
+  </div>
 
   <!-- FEATURED: CONTENT SHOOTS + VIDEO EDITING -->
-  <section class="featured-section">
+  <section class="featured-section pf-panel" id="panel-content-shoots" role="tabpanel" data-panel="content-shoots">
     <h2 class="section-title">Content shoots & <em>video editing</em></h2>
-    <p class="section-desc">Monthly on-location shoots, short-form video editing, and social-ready content for two of Folsom's most recognizable venues.</p>
+    <p class="section-desc">My team and I go on location, capture photo and video, and send back edited, social-ready content. Here's what that looks like for two of the area's most recognizable venues.</p>
 
     <!-- WALLY'S PIZZA BAR -->
     <div class="featured-card">
@@ -888,10 +922,20 @@
     </div>
   </section>
 
-  <div class="divider" aria-hidden="true"><span>✦</span></div>
+  <!-- BRAND PHOTOSHOOTS -->
+  <section class="brand-section pf-panel" id="panel-brand-photoshoots" role="tabpanel" data-panel="brand-photoshoots">
+    <p class="section-label">Brand Photoshoots</p>
+    <h2 class="section-title">Brand <em>photoshoots.</em></h2>
+    <p class="section-desc">Styled, professionally edited photos of the people, spaces, and products behind the brand, made for feeds, websites, and ads.</p>
+    <div class="brand-grid" id="brand-grid"></div>
+    <div class="brand-empty" id="brand-empty">
+      <p>New brand shoots are being added soon.</p>
+      <a href="/#services" class="cta-btn">See the Brand Photoshoot →</a>
+    </div>
+  </section>
 
   <!-- SMM CLIENTS -->
-  <section class="smm-section" style="padding-top:5rem;">
+  <section class="smm-section pf-panel" id="panel-management" role="tabpanel" data-panel="management" style="padding-top:5rem;">
     <p class="section-label">Social Media Management</p>
     <h2 class="section-title">The <em>Martini Touch.</em></h2>
     <p class="section-desc">Full social media management — strategy, content direction, posting, and community — across beauty, wellness, food, real estate, and home services.</p>
@@ -1697,5 +1741,45 @@
     })();
   </script>
 
+  <script>
+  // Portfolio category tabs
+  (function () {
+    // Add brand photoshoot image URLs here; the tab shows a placeholder while empty.
+    var BRAND_PHOTOS = [];
+
+    var grid = document.getElementById('brand-grid');
+    BRAND_PHOTOS.forEach(function (src) {
+      var t = document.createElement('div');
+      t.className = 'brand-tile';
+      t.innerHTML = '<img loading="lazy" alt="Brand photoshoot" src="' + src + '">';
+      t.addEventListener('click', function () { if (window.openLbPhoto) openLbPhoto(src); });
+      grid.appendChild(t);
+    });
+
+    var tabs = document.querySelectorAll('.pf-tab');
+    var panels = document.querySelectorAll('.pf-panel');
+    function show(name, push) {
+      if (!document.querySelector('.pf-panel[data-panel="' + name + '"]')) name = 'management';
+      tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false'); });
+      panels.forEach(function (p) {
+        var on = p.dataset.panel === name;
+        p.hidden = !on;
+        p.querySelectorAll('video[autoplay]').forEach(function (v) { if (on) { var r = v.play(); if (r && r.catch) r.catch(function () {}); } else v.pause(); });
+      });
+      if (push) history.replaceState(null, '', '#' + name);
+      window.dispatchEvent(new Event('resize')); // carousels re-measure
+    }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        show(t.dataset.tab, true);
+        var bar = document.querySelector('.pf-tabs-bar');
+        if (bar.getBoundingClientRect().top > 68) return;
+        window.scrollTo({ top: bar.offsetTop - 68, behavior: 'smooth' });
+      });
+    });
+    window.addEventListener('hashchange', function () { show(location.hash.slice(1), false); });
+    show(location.hash.slice(1), false);
+  })();
+  </script>
 </body>
 </html>
