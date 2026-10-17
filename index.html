@@ -334,6 +334,15 @@
     .addon-more { font-size: .75rem; font-weight: 600; color: var(--mauve); opacity: .7; transition: opacity .2s; }
     .addon:hover .addon-more { opacity: 1; }
     .addon.is-added { border-color: var(--pink); background: #fffafc; }
+    .addon-wide { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; }
+    .addon-wide .addon-icon { margin-bottom: 0; }
+    .addon-wide .addon-foot { margin-top: 0; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .addon-new { display: inline-block; vertical-align: middle; margin-left: 6px; background: var(--pink); color: white; font-family: 'Inter', sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
+    @media (max-width: 720px) {
+      .addon-wide { grid-template-columns: 1fr; gap: 0; }
+      .addon-wide .addon-icon { margin-bottom: 16px; }
+      .addon-wide .addon-foot { margin-top: 16px; flex-direction: row; align-items: baseline; }
+    }
     .addon.is-added .addon-more::before { content: '✓ Added · '; color: var(--pink); }
 
     /* Add-on dialog */
@@ -625,6 +634,14 @@
           <h4>Google Business Profile</h4>
           <p>Weekly posts, fresh photos, and review replies to help you show up in local searches.</p>
           <div class="addon-foot"><span class="addon-price">$197/mo</span><span class="addon-more">What's included →</span></div>
+        </button>
+        <button type="button" class="addon addon-wide" data-addon="website">
+          <div class="addon-icon">💻</div>
+          <div class="addon-wide-body">
+            <h4>Website Build <span class="addon-new">New</span></h4>
+            <p>A custom, mobile-friendly website designed in your brand, built to turn visitors into bookings and calls.</p>
+          </div>
+          <div class="addon-foot"><span class="addon-price">From $1,997</span><span class="addon-more">What's included →</span></div>
         </button>
       </div>
 
@@ -978,6 +995,23 @@
         ],
         extra: '<div class="dialog-box"><strong>Creator fees and any free product or services are not included</strong> and are agreed with you before anything is booked.</div>',
         value: 'Get in front of thousands of local people who trust the creator recommending you.'
+      },
+      website: {
+        icon: '💻', name: 'Website Build', price: 1997, from: true, billing: 'once',
+        priceLabel: 'From $1,997 <small>· up to 5 pages</small>',
+        pitch: 'Your website is often the first place a customer decides whether to trust you. We design and build a site that looks like your brand, works beautifully on phones, and makes it easy for people to call, book, or buy.',
+        includes: [
+          'Custom design in your brand colors and fonts',
+          'Up to 5 pages (for example: Home, About, Services, Gallery, Contact)',
+          'Mobile-friendly and fast on every device',
+          'Contact form, booking link, and click-to-call',
+          'Basic SEO setup so you show up on Google',
+          'Copywriting help for your key pages',
+          '2 rounds of revisions',
+          'Launch support and a walkthrough so you can make simple updates'
+        ],
+        extra: '<div class="dialog-box"><strong>Want us to keep it running?</strong> Add Website Care for $97/mo: updates, small edits, and help whenever you need it. Domain and hosting fees are separate.</div>',
+        value: 'A professional website that works for you 24/7, at a fraction of agency prices.'
       },
       gbp: {
         icon: '📍', name: 'Google Business Profile', price: 197, billing: 'monthly',
