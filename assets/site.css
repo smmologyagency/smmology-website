@@ -240,3 +240,12 @@ html[data-hf="urbanist"] :is(h1, h2) em { font-weight: 500; }
 .price-proof figcaption { font-size: .85rem; color: #555; margin-bottom: 16px; }
 .price-proof-result { font-size: .95rem; color: #161B28; padding-top: 16px; border-top: 1px solid rgba(64, 76, 112, .12); margin: 0; }
 .price-proof-note { font-size: .8rem; color: #555; margin: 6px 0 0; }
+
+/* Case study */
+.cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0 0 56px; }
+.cs-stats > div { background: #fff; border: 1px solid rgba(64, 76, 112, .12); border-radius: 18px; padding: 22px; }
+.cs-stats strong { display: block; font-family: var(--hf, 'Cormorant Garamond'), Georgia, serif; font-size: 1.6rem; line-height: 1.1; color: #404C70; margin-bottom: 8px; }
+.cs-stats span { font-size: .85rem; color: #555; line-height: 1.5; }
+@media (max-width: 700px) { .cs-stats { grid-template-columns: 1fr; } }
+.case-link { font-weight: 600; color: #404C70; text-decoration: none; border-bottom: 1px solid rgba(64, 76, 112, .35); padding-bottom: 2px; }
+.case-link:hover { border-color: #404C70; }
