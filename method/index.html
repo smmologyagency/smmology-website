@@ -143,6 +143,7 @@
     .glow-card-wrap .card { position:relative; z-index:1; margin:0; border:none !important; border-radius:1.1rem; }
       body { font-variant-numeric: lining-nums; }
   </style>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 <body class="font-sans antialiased">
   <div id="progress-bar"></div>
@@ -178,15 +179,18 @@
       <p class="text-[#555555] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
         You tell it your niche, your voice, your goals, and how often you can post. It gives you:
       </p>
-      <ul class="text-navy text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10 text-left space-y-2">
-        <li class="flex gap-2"><span class="check">✓</span>A full content strategy every month, tailored to your goals and brand</li>
-        <li class="flex gap-2"><span class="check">✓</span>A 30-day visual content calendar</li>
-        <li class="flex gap-2"><span class="check">✓</span>Unlimited content ideas</li>
-        <li class="flex gap-2"><span class="check">✓</span>Video ideas and scripts written to format</li>
-        <li class="flex gap-2"><span class="check">✓</span>Hashtag sets</li>
-        <li class="flex gap-2"><span class="check">✓</span>SEO-optimized bios for every platform</li>
-        <li class="flex gap-2"><span class="check">✓</span>A brand story and voice builder</li>
-        <li class="flex gap-2"><span class="check">✓</span>A monthly 1:1 strategy session with Diana</li>
+      <p class="font-serif text-2xl md:text-3xl font-bold text-navy mb-10 min-h-[2.5rem]" aria-hidden="true">
+        <span id="typed-hero"></span>
+      </p>
+      <ul class="sr-only">
+        <li>A full content strategy every month, tailored to your goals and brand</li>
+        <li>A 30-day visual content calendar</li>
+        <li>Unlimited content ideas</li>
+        <li>Video ideas and scripts written to format</li>
+        <li>Hashtag sets</li>
+        <li>SEO-optimized bios for every platform</li>
+        <li>A brand story and voice builder</li>
+        <li>A monthly 1:1 strategy session with Diana</li>
       </ul>
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
         <a href="#pricing"   class="btn-primary px-8 py-3.5 rounded-full text-base inline-block">Get the Method →</a>
@@ -259,6 +263,26 @@
     </div>
   </section>
   </div>
+
+  <script>
+    new Typed('#typed-hero', {
+      strings: [
+        'a full content strategy every month, tailored to your goals and brand.',
+        'a 30-day visual content calendar.',
+        'unlimited content ideas.',
+        'video ideas and scripts written to format.',
+        'hashtag sets.',
+        'sEO-optimized bios for every platform.',
+        'a brand story and voice builder.',
+        'a monthly 1:1 strategy session with Diana.'
+      ],
+      typeSpeed: 48,
+      backSpeed: 28,
+      backDelay: 2200,
+      loop: true,
+      cursorChar: '|',
+    });
+  </script>
 
   <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
@@ -464,7 +488,7 @@
   <section id="pricing" class="py-24 px-6 max-w-2xl mx-auto">
     <div class="text-center mb-10">
       <p class="eyebrow-pill mb-5">Founding Member Pricing</p>
-      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">20 founding spots. <em>Locked in for as long as your subscription stays active.</em></h2>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">20 founding spots, 18 left. <em>Locked in for as long as your subscription stays active.</em></h2>
       <p class="text-[#555555]">Price goes to $297/mo after launch. Founding rate is yours for as long as you stay.</p>
     </div>
 
@@ -473,7 +497,7 @@
     <div class="glow-card-wrap mb-10">
     <div class="card rounded-2xl p-10 relative">
       <div class="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
-        <span class="glow-badge bg-[#EDA4BF] text-white text-xs font-bold px-5 py-1.5 rounded-full">🍸 Founding Member · 20 spots only</span>
+        <span class="glow-badge bg-[#EDA4BF] text-[#161B28] text-xs font-bold px-5 py-1.5 rounded-full">🍸 Founding Member · 18 of 20 spots left</span>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8">
         <div>
