@@ -9,10 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --navy:#404C70; --mauve:#907A9A; --pink:#EDA4BF; --blush:#FFE2EA; --cream:#FAF9F6; --text:#161B28; --muted:#555555; --border:#e8ddd8; }
+    :root { --navy:#404C70; --mauve:#907A9A; --pink:#404C70;
+      --rose:   #EDA4BF; --blush:#EEF0F5; --cream:#FAF9F6; --text:#161B28; --muted:#555555; --border:#E3E5EC; }
     body { font-family: 'Outfit', sans-serif; background: linear-gradient(160deg, var(--cream) 40%, var(--blush) 100%); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; line-height: 1.6; }
     h1, h2 { font-family: 'Cormorant Garamond', serif; }
-    em { font-style: italic; color: var(--pink); }
+    em { font-style: italic; color: var(--rose); }
     a { text-decoration: none; color: inherit; }
     header { padding: 20px 16px; max-width: 1100px; margin: 0 auto; width: 100%; }
     .logo { display: inline-flex; align-items: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.2rem; color: var(--navy); }
@@ -20,7 +21,7 @@
     main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 24px 16px 64px; }
     .card { background: white; border: 1px solid var(--border); border-radius: 28px; box-shadow: 0 12px 48px rgba(42,31,46,.08); padding: 48px 40px; max-width: 560px; width: 100%; text-align: center; }
     .badge { width: 64px; height: 64px; border-radius: 50%; background: var(--blush); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 20px; }
-    .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--pink); }
+    .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mauve); }
     h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); line-height: 1.2; margin: 10px 0 14px; color: var(--navy); }
     .lead { color: var(--muted); font-size: 1rem; margin-bottom: 28px; }
     .steps { text-align: left; background: var(--cream); border-radius: 18px; padding: 22px 24px; margin-bottom: 28px; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 12px; }
@@ -31,7 +32,11 @@
     .fine { font-size: .8rem; color: var(--muted); margin-top: 18px; }
     .fine a { color: var(--pink); font-weight: 600; }
     @media (max-width: 520px) { .card { padding: 36px 22px; } }
-      body { font-variant-numeric: lining-nums; }
+      /* Accents on dark sections stay rose */
+    .stats-band .stat-num, .stats-band .stat-big, .cta-section em { color: var(--rose); }
+    .cta-section .btn-pink, .section-navy .btn-pink, .card-popular .btn-pink { background: var(--rose); color: #161B28; }
+    .section-navy em, .card-popular .card-tier, .card-popular .check-list li::before, .footer-links a:hover, footer a:hover { color: var(--rose); }
+    body { font-variant-numeric: lining-nums; }
   </style>
 </head>
 <body>

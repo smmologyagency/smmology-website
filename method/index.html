@@ -33,7 +33,7 @@
             navy:  '#404C70',
             slate: '#404C70',
             mauve: '#907A9A',
-            pink:  '#EDA4BF',
+            pink:  '#907A9A',
             blush: '#FFE2EA',
             cream: '#FAF9F6',
           },
@@ -62,23 +62,23 @@
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #404C70; font-weight: 700; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a:not(.btn) { font-size: .875rem; color: #907A9A; font-weight: 500; text-decoration: none; transition: color .2s; }
-    .nav-links a:not(.btn):hover { color: #EDA4BF; }
+    .nav-links a:not(.btn):hover { color: #907A9A; }
     .nav-links a.active { color: #404C70; font-weight: 600; }
-    .btn-pink { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; background: #EDA4BF; color: #404C70; text-decoration: none; transition: opacity .2s; }
+    .btn-pink { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; background: #404C70; color: #fff; text-decoration: none; transition: opacity .2s; }
     .btn-pink:hover { opacity: .88; }
     .nav-link  { color: #907A9A; transition: color .2s; }
-    .nav-link:hover { color: #EDA4BF; }
-    .btn-primary { background: #EDA4BF; color: #161B28; font-weight: 600; transition: opacity .2s; }
+    .nav-link:hover { color: #907A9A; }
+    .btn-primary { background: #404C70; color: #fff; font-weight: 600; transition: opacity .2s; }
     .btn-primary:hover { opacity: .88; }
-    .btn-outline { border: 1px solid #EDA4BF; color: #EDA4BF; transition: background .2s; }
-    .btn-outline:hover { background: rgba(237,164,191,.12); }
+    .btn-outline { border: 1px solid #404C70; color: #404C70; transition: background .2s; }
+    .btn-outline:hover { background: rgba(144,122,154,.12); }
     .card         { background: #FFFFFF; border: 1px solid #e8ddd8; box-shadow: 0 4px 24px rgba(42,31,46,.06); transition: transform 0.28s cubic-bezier(.22,.61,.36,1), box-shadow 0.28s ease; }
     .card:hover   { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(42,31,46,.13); }
     .card-popular { background: linear-gradient(145deg,#2b2040,#1e2338); border: 1px solid #EDA4BF; }
     .divider      { border-color: #e8ddd8; }
-    .stage        { background: #FFFFFF; border-left: 3px solid #EDA4BF; box-shadow: 0 2px 12px rgba(42,31,46,.05); transition: border-left-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
-    .stage:hover  { border-left-color: #EDA4BF; box-shadow: 0 8px 32px rgba(42,31,46,.1); transform: translateX(3px); }
-    .check        { color: #EDA4BF; font-weight: 700; }
+    .stage        { background: #FFFFFF; border-left: 3px solid #E3E5EC; box-shadow: 0 2px 12px rgba(42,31,46,.05); transition: border-left-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
+    .stage:hover  { border-left-color: #907A9A; box-shadow: 0 8px 32px rgba(42,31,46,.1); transform: translateX(3px); }
+    .check        { color: #907A9A; font-weight: 700; }
     .stat         { background: #FFFFFF; border: 1px solid #e8ddd8; box-shadow: 0 2px 12px rgba(42,31,46,.05); transition: transform 0.28s ease, box-shadow 0.28s ease; }
     .stat:hover   { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(42,31,46,.1); }
 
@@ -87,7 +87,7 @@
     .fade-up.in { opacity: 1; transform: none; }
 
     /* Hero gradient */
-    .hero-gradient { background: radial-gradient(ellipse 75% 55% at 80% -5%, rgba(237,164,191,.2) 0%, transparent 60%), radial-gradient(ellipse 55% 45% at 5% 95%, rgba(144,122,154,.12) 0%, transparent 55%); }
+    .hero-gradient { background: radial-gradient(ellipse 75% 55% at 80% -5%, rgba(144,122,154,.2) 0%, transparent 60%), radial-gradient(ellipse 55% 45% at 5% 95%, rgba(144,122,154,.12) 0%, transparent 55%); }
 
     /* Marquee */
     .marquee-wrap { overflow: hidden; background: #404C70; padding: 16px 0; }
@@ -112,10 +112,10 @@
     .gradient-text { background: linear-gradient(135deg, #EDA4BF 0%, #EDA4BF 55%, #907A9A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-style: italic; }
 
     /* Scroll progress bar */
-    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, #EDA4BF, #EDA4BF, #907A9A); transition: width .08s linear; pointer-events: none; }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, #404C70, #907A9A, #EDA4BF); transition: width .08s linear; pointer-events: none; }
 
     /* Hero particles */
-    .hero-outer { position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 85% 0%, rgba(237,164,191,.22) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 5% 100%, rgba(144,122,154,.14) 0%, transparent 55%), #FAF9F6; }
+    .hero-outer { position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 85% 0%, rgba(144,122,154,.22) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 5% 100%, rgba(144,122,154,.14) 0%, transparent 55%), #FAF9F6; }
     @keyframes drift  { 0%,100%{transform:translateY(0) rotate(-6deg); opacity:.7;} 50%{transform:translateY(-50px) rotate(6deg); opacity:1;} }
     @keyframes drift2 { 0%,100%{transform:translateY(0) translateX(0) rotate(4deg); opacity:.5;} 33%{transform:translateY(-36px) translateX(16px) rotate(-10deg); opacity:.9;} 66%{transform:translateY(-18px) translateX(-10px) rotate(7deg); opacity:.7;} }
     .particle { position: absolute; pointer-events: none; z-index: 0; line-height:1; user-select:none; }
@@ -131,15 +131,15 @@
     .martini-divider::before,.martini-divider::after { content:''; flex:1; height:1px; background:#e8ddd8; }
 
     /* Eyebrow pill labels */
-    .eyebrow-pill { display:inline-block; border-radius:9999px; padding:4px 16px; font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:linear-gradient(135deg,rgba(237,164,191,.18),rgba(144,122,154,.12)); border:1px solid rgba(237,164,191,.35); color:#EDA4BF; }
+    .eyebrow-pill { display:inline-block; border-radius:9999px; padding:4px 16px; font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:linear-gradient(135deg,rgba(144,122,154,.18),rgba(144,122,154,.12)); border:1px solid rgba(144,122,154,.35); color:#907A9A; }
 
     /* Big stats */
-    .big-stat-num { font-family:'Cormorant Garamond',serif; font-size:clamp(4.5rem,10vw,8rem); font-weight:700; color:#EDA4BF; line-height:1; display:block; }
+    .big-stat-num { font-family:'Cormorant Garamond',serif; font-size:clamp(4.5rem,10vw,8rem); font-weight:700; color:#404C70; line-height:1; display:block; }
 
     /* Animated glowing card border */
     .glow-card-wrap { position:relative; border-radius:1.25rem; padding:2px; }
     @keyframes border-rotate { 0%{background-position:0% 50%;} 100%{background-position:200% 50%;} }
-    .glow-card-wrap::before { content:''; position:absolute; inset:0; border-radius:1.25rem; background:linear-gradient(90deg,#EDA4BF,#EDA4BF,#907A9A,#EDA4BF); background-size:200%; animation:border-rotate 3.5s linear infinite; z-index:0; }
+    .glow-card-wrap::before { content:''; position:absolute; inset:0; border-radius:1.25rem; background:linear-gradient(90deg,#404C70,#907A9A,#EDA4BF,#404C70); background-size:200%; animation:border-rotate 3.5s linear infinite; z-index:0; }
     .glow-card-wrap .card { position:relative; z-index:1; margin:0; border:none !important; border-radius:1.1rem; }
       body { font-variant-numeric: lining-nums; }
   </style>
@@ -257,7 +257,7 @@
         <p class="text-[#555555] text-sm leading-relaxed">Strategy, scripts, ideas, hashtags, and a full calendar, all generated specifically for you. Every month. Every piece of content sounds like you because it starts with you.</p>
       </div>
     </div>
-    <div class="callout-box mt-10 rounded-2xl px-10 py-8 text-center border border-[#EDA4BF]" style="background:rgba(237,164,191,0.07);">
+    <div class="callout-box mt-10 rounded-2xl px-10 py-8 text-center border border-[#E3E5EC]" style="background:rgba(64,76,112,0.05);">
       <p class="callout-head font-serif text-xl md:text-2xl font-bold mb-2">The output is only as personalized as the input.</p>
       <p class="callout-body leading-relaxed max-w-2xl mx-auto">That's why the app starts by learning your story, your voice, and your goals before it ever generates a single post. What comes out the other side isn't generic AI content. It's yours.</p>
     </div>
@@ -284,7 +284,7 @@
     });
   </script>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
   <!-- PROBLEM -->
   <section class="py-24 px-6 max-w-5xl mx-auto">
@@ -297,7 +297,7 @@
     </div>
   </section>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
   <!-- FRAMEWORK -->
   <section id="framework" class="py-24 px-6 max-w-5xl mx-auto">
@@ -332,7 +332,7 @@
     </div>
   </section>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
   <!-- STORY FIRST -->
   <section class="py-24 px-6 max-w-5xl mx-auto">
@@ -389,7 +389,7 @@
     </div>
   </section>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
   <!-- WHAT'S INSIDE -->
   <section class="py-24 px-6 max-w-5xl mx-auto">
@@ -480,7 +480,7 @@
     </div>
   </section>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
 
 
@@ -497,7 +497,7 @@
     <div class="glow-card-wrap mb-10">
     <div class="card rounded-2xl p-10 relative">
       <div class="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
-        <span class="glow-badge bg-[#EDA4BF] text-[#161B28] text-xs font-bold px-5 py-1.5 rounded-full">🍸 Founding Member · 18 of 20 spots left</span>
+        <span class="glow-badge bg-[#404C70] text-white text-xs font-bold px-5 py-1.5 rounded-full">🍸 Founding Member · 18 of 20 spots left</span>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8">
         <div>
@@ -570,7 +570,7 @@
     </section>
   </div>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
   <!-- MARTINI PROMISE -->
   <section class="py-20 px-6 max-w-3xl mx-auto text-center">
@@ -580,7 +580,7 @@
     <p class="text-[#555555] text-sm leading-relaxed mt-4"><em>Ask within 30 days of joining. The 1:1 rework comes first. Covers your first monthly payment, once per person. Full terms: <a href="https://app.smmology.us/terms" target="_blank" class="text-pink hover:underline">Terms of Service</a></em></p>
   </section>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
   <!-- MEET YOUR STRATEGIST -->
   <div style="background:#404C70;">
@@ -621,7 +621,7 @@
   </section>
   </div>
 
-  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
+  <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#907A9A] text-lg select-none">🍸</span></div>
 
   <!-- GOT QUESTIONS -->
   <section class="py-24 px-6 max-w-3xl mx-auto">
@@ -633,48 +633,48 @@
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">Do I need to be tech-savvy to use the app?</span>
-          <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#907A9A] transition-colors">Do I need to be tech-savvy to use the app?</span>
+          <span class="faq-icon text-[#907A9A] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
         <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">Not at all. The app runs in your browser, no installs, no accounts beyond signing up. You open it, fill in your brand info once, and everything builds from there. Every tool is labeled and walkthrough-ready.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">Is this for product-based or service-based businesses?</span>
-          <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#907A9A] transition-colors">Is this for product-based or service-based businesses?</span>
+          <span class="faq-icon text-[#907A9A] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
         <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">Both, but it's particularly powerful for service-based businesses (coaches, consultants, creatives, agencies) where trust and relationship-building drive buying decisions. The funnel stages map directly onto how service clients make decisions.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">What platforms does the method work on?</span>
-          <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#907A9A] transition-colors">What platforms does the method work on?</span>
+          <span class="faq-icon text-[#907A9A] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
         <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">The framework works on any social platform. The app supports Instagram, TikTok, Pinterest, Facebook, YouTube, and X. The strategy guides you to the platforms that actually match your audience's demographics.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">What's included in the monthly 1:1 strategy call?</span>
-          <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#907A9A] transition-colors">What's included in the monthly 1:1 strategy call?</span>
+          <span class="faq-icon text-[#907A9A] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
         <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">It's a focused session where we review your content strategy together: what's working, what to adjust, and what to focus on next month. You leave with a clear direction built specifically for your business, not a generic template.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">How is this different from just following social media tips online?</span>
-          <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#907A9A] transition-colors">How is this different from just following social media tips online?</span>
+          <span class="faq-icon text-[#907A9A] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
         <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">Random tips treat symptoms. The Martini Method treats the cause: a missing strategy. Instead of "post 3x a week" with no direction, you'll know exactly what to post, why, who it's for, and what you want them to do next. It's a system, not a suggestion.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">What if it doesn't work for me?</span>
-          <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#907A9A] transition-colors">What if it doesn't work for me?</span>
+          <span class="faq-icon text-[#907A9A] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
         <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">I completely understand, you want to know your time is going somewhere, right? That's why there's The Martini Promise. Give your first 30 days a real try, and if you don't feel more confident about what to post, I'll sit down with you 1:1 and rework your plan. If it still isn't for you after that, I'll refund your first month. Just ask within 30 days of joining. It covers your first monthly payment, once per person. What I can't promise is a number of followers or views, because that depends on a lot of things outside my control. What I can promise is that I'll be working on your plan with you.</div>
       </div>
