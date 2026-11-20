@@ -215,3 +215,28 @@ html[data-hf="bricolage"] h1 { font-size: clamp(2.6rem, 5.4vw, 5rem) !important;
   .font-picker p { display: none; }
   .font-picker button { padding: 6px 8px; font-size: 11px; }
 }
+
+/* More heading options (all SIL Open Font License via Google Fonts) */
+html[data-hf="gloock"] { --hf: 'Gloock', Georgia, serif; }
+html[data-hf="gloock"] :is(h1, h2, h3, .card-price, .nav-logo) { font-weight: 400 !important; letter-spacing: -.025em; }
+html[data-hf="gloock"] :is(h1, h2) em { font-style: normal; }
+html[data-hf="young"] { --hf: 'Young Serif', Georgia, serif; }
+html[data-hf="young"] :is(h1, h2, h3, .card-price, .nav-logo) { font-weight: 400 !important; letter-spacing: -.03em; }
+html[data-hf="young"] :is(h1, h2) em { font-style: normal; }
+html[data-hf="young"] h1 { font-size: clamp(2.5rem, 4.6vw, 4.4rem) !important; }
+html[data-hf="newsreader"] { --hf: 'Newsreader', Georgia, serif; }
+html[data-hf="newsreader"] :is(h1, h2) { font-weight: 500 !important; letter-spacing: -.03em; font-variation-settings: "opsz" 72; }
+html[data-hf="jakarta"] { --hf: 'Plus Jakarta Sans', system-ui, sans-serif; }
+html[data-hf="jakarta"] :is(h1, h2) { font-weight: 700 !important; letter-spacing: -.045em; line-height: 1 !important; }
+html[data-hf="jakarta"] h1 { font-size: clamp(2.5rem, 4.8vw, 4.5rem) !important; }
+html[data-hf="jakarta"] :is(h1, h2) em { font-weight: 500; }
+html[data-hf="urbanist"] { --hf: 'Urbanist', system-ui, sans-serif; }
+html[data-hf="urbanist"] :is(h1, h2) { font-weight: 700 !important; letter-spacing: -.035em; line-height: 1 !important; }
+html[data-hf="urbanist"] :is(h1, h2) em { font-weight: 500; }
+
+/* Proof beside the Strategist price */
+.price-proof { margin: 0 auto; padding: 28px 32px; border-radius: 20px; background: #fff; border: 1px solid rgba(64, 76, 112, .12); text-align: left; }
+.price-proof blockquote { font-family: var(--hf, 'Cormorant Garamond'), Georgia, serif; font-size: 1.25rem; line-height: 1.45; color: #161B28; margin: 0 0 10px; }
+.price-proof figcaption { font-size: .85rem; color: #555; margin-bottom: 16px; }
+.price-proof-result { font-size: .95rem; color: #161B28; padding-top: 16px; border-top: 1px solid rgba(64, 76, 112, .12); margin: 0; }
+.price-proof-note { font-size: .8rem; color: #555; margin: 6px 0 0; }

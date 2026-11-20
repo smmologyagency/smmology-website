@@ -138,14 +138,14 @@
     var isPreview = /vercel\.app$|localhost|127\.0\.0\.1/.test(location.hostname) || /[?&]fonts/.test(location.search);
     if (isPreview) {
       var l = document.createElement('link'); l.rel = 'stylesheet';
-      l.href = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap';
+      l.href = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=Young+Serif&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Urbanist:ital,wght@0,400..800;1,400..800&display=swap';
       document.head.appendChild(l);
-      var opts = [['fraunces', 'A · Fraunces'], ['instrument', 'B · Instrument Serif'], ['bricolage', 'C · Bricolage Grotesque'], ['', 'Current · Cormorant']];
-      var saved = 'fraunces';
-      try { saved = localStorage.getItem('smm-hf') || 'fraunces'; } catch (e) {}
+      var opts = [['gloock', 'D · Gloock'], ['young', 'E · Young Serif'], ['newsreader', 'F · Newsreader'], ['jakarta', 'G · Plus Jakarta Sans'], ['urbanist', 'H · Urbanist'], ['fraunces', 'A · Fraunces'], ['instrument', 'B · Instrument Serif'], ['bricolage', 'C · Bricolage Grotesque'], ['', 'Current · Cormorant']];
+      var saved = 'gloock';
+      try { saved = localStorage.getItem('smm-hf2') || 'gloock'; } catch (e) {}
       var pick = function (v) {
         if (v) root.setAttribute('data-hf', v); else root.removeAttribute('data-hf');
-        try { localStorage.setItem('smm-hf', v); } catch (e) {}
+        try { localStorage.setItem('smm-hf2', v); } catch (e) {}
         box.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false'); });
       };
       var box = document.createElement('div'); box.className = 'font-picker';
