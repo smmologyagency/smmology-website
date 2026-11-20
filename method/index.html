@@ -32,8 +32,8 @@
           colors: {
             navy:  '#404C70',
             slate: '#404C70',
-            mauve: '#907A9A',
-            pink:  '#907A9A',
+            mauve: '#6E5A78',
+            pink:  '#6E5A78',
             blush: '#FFE2EA',
             cream: '#FAF9F6',
           },
@@ -47,7 +47,7 @@
   </script>
   <style>
     body { background-color: #FAF9F6; color: #404C70; }
-    em   { font-style: italic; color: #EDA4BF; font-family: 'Cormorant Garamond', serif; }
+    em   { font-style: italic; color: #C76A8F; font-family: 'Cormorant Garamond', serif; }
     /* NAV: matches smmology.us */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -61,7 +61,7 @@
     }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #404C70; font-weight: 700; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a:not(.btn) { font-size: .875rem; color: #907A9A; font-weight: 500; text-decoration: none; transition: color .2s; }
+    .nav-links a:not(.btn) { font-size: .875rem; color: #6E5A78; font-weight: 500; text-decoration: none; transition: color .2s; }
     .nav-links a:not(.btn):hover { color: #907A9A; }
     .nav-links a.active { color: #404C70; font-weight: 600; }
     .btn-pink { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; background: #404C70; color: #fff; text-decoration: none; transition: opacity .2s; }
@@ -94,8 +94,8 @@
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 32s linear infinite; }
     .marquee-track:hover { animation-play-state: paused; }
-    .marquee-item { padding: 0 2.5rem; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: #5a7088; }
-    .marquee-dot  { color: #EDA4BF; margin: 0 1.2rem; font-size: .9rem; }
+    .marquee-item { padding: 0 2.5rem; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: #C5CBDD; }
+    .marquee-dot  { color: #F4BFD2; margin: 0 1.2rem; font-size: .9rem; }
 
     /* Pricing badge glow */
     @keyframes badge-glow { 0%,100%{box-shadow:0 0 10px rgba(201,143,170,.35);} 50%{box-shadow:0 0 24px rgba(201,143,170,.75);} }
@@ -131,7 +131,7 @@
     .martini-divider::before,.martini-divider::after { content:''; flex:1; height:1px; background:#e8ddd8; }
 
     /* Eyebrow pill labels */
-    .eyebrow-pill { display:inline-block; border-radius:9999px; padding:4px 16px; font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:linear-gradient(135deg,rgba(144,122,154,.18),rgba(144,122,154,.12)); border:1px solid rgba(144,122,154,.35); color:#907A9A; }
+    .eyebrow-pill { display:inline-block; border-radius:9999px; padding:4px 16px; font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:linear-gradient(135deg,rgba(144,122,154,.18),rgba(144,122,154,.12)); border:1px solid rgba(144,122,154,.35); color:#6E5A78; }
 
     /* Big stats */
     .big-stat-num { font-family:'Cormorant Garamond',serif; font-size:clamp(4.5rem,10vw,8rem); font-weight:700; color:#404C70; line-height:1; display:block; }
@@ -142,6 +142,12 @@
     .glow-card-wrap::before { content:''; position:absolute; inset:0; border-radius:1.25rem; background:linear-gradient(90deg,#404C70,#907A9A,#EDA4BF,#404C70); background-size:200%; animation:border-rotate 3.5s linear infinite; z-index:0; }
     .glow-card-wrap .card { position:relative; z-index:1; margin:0; border:none !important; border-radius:1.1rem; }
       body { font-variant-numeric: lining-nums; }
+      /* Contrast fixes on dark sections */
+    .dark-section em, [style*="background:#404C70"] em { color: #EDA4BF; }
+    .dark-section .eyebrow-pill, [style*="background:#404C70"] .eyebrow-pill { color: #F4BFD2 !important; border-color: rgba(244,191,210,.35) !important; background: rgba(244,191,210,.08) !important; }
+    p em, li em { color: #A84E74; }
+    .dark-section p em, [style*="background:#404C70"] p em { color: #EDA4BF; }
+    .dark-section .stage em, [style*="background:#404C70"] .stage em { color: #C76A8F; }
   </style>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
@@ -550,17 +556,17 @@
 
         <div class="flex flex-col gap-4">
           <div class="stage rounded-2xl p-6">
-            <p class="text-xs tracking-widest uppercase mb-2" style="color:#EDA4BF;">On the call</p>
+            <p class="text-xs tracking-widest uppercase mb-2" style="color:#6E5A78;">On the call</p>
             <h3 class="font-serif text-lg font-bold text-navy mb-1">See the app live</h3>
             <p class="text-[#555555] text-sm leading-relaxed">I'll share my screen and walk you through every tool with your actual niche and brand in mind, so you can see exactly what you'd be working with.</p>
           </div>
           <div class="stage rounded-2xl p-6">
-            <p class="text-xs tracking-widest uppercase mb-2" style="color:#EDA4BF;">On the call</p>
+            <p class="text-xs tracking-widest uppercase mb-2" style="color:#6E5A78;">On the call</p>
             <h3 class="font-serif text-lg font-bold text-navy mb-1">Get your questions answered</h3>
             <p class="text-[#555555] text-sm leading-relaxed">Bring every concern, hesitation, and "but what about..." you have. Nothing is too small. I'd rather you ask now than second-guess yourself later.</p>
           </div>
           <div class="stage rounded-2xl p-6">
-            <p class="text-xs tracking-widest uppercase mb-2" style="color:#EDA4BF;">On the call</p>
+            <p class="text-xs tracking-widest uppercase mb-2" style="color:#6E5A78;">On the call</p>
             <h3 class="font-serif text-lg font-bold text-navy mb-1">Leave with a clear next step</h3>
             <p class="text-[#555555] text-sm leading-relaxed">Whether you join, bookmark it for later, or decide it's not for you, you'll leave knowing exactly where you stand. No obligation, ever.</p>
           </div>
@@ -593,7 +599,7 @@
           <img src="../assets/diana-web.jpg" alt="Diana De La O"
             class="w-72 h-80 object-cover rounded-3xl shadow-2xl border-4 border-[rgba(237,164,191,0.25)]"
             style="object-position:center top;" />
-          <div class="absolute -bottom-4 -right-4 bg-[#EDA4BF] text-navy text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full shadow-lg">
+          <div class="absolute -bottom-4 -right-4 bg-[#EDA4BF] text-[#161B28] text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full shadow-lg">
             Smmology · Diana
           </div>
         </div>
@@ -614,7 +620,7 @@
         <p class="leading-relaxed mb-8" style="color:#D5D9E6;">
           I believe your content should feel like a conversation with your ideal client, not a performance for an algorithm. When the strategy is right, the right people show up.
         </p>
-        <p class="font-serif text-xl italic" style="color:#EDA4BF;">Diana</p>
+        <p class="font-serif text-xl italic" style="color:#F4BFD2;">Diana</p>
       </div>
 
     </div>

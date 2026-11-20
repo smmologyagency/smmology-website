@@ -47,7 +47,8 @@
     :root {
       --navy:   #404C70;
       --slate:  #404C70;
-      --mauve:  #907A9A;
+      --mauve:  #6E5A78;
+      --rose-ink: #C76A8F;
       --pink:   #404C70;
       --rose:   #EDA4BF;
       --blush:  #EEF0F5;
@@ -61,7 +62,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
     h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; }
-    em { font-style: italic; color: var(--rose); }
+    em { font-style: italic; color: var(--rose-ink); }
     a  { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
@@ -161,7 +162,7 @@
       color: var(--pink); margin-bottom: 20px;
     }
     .hero-visual h3 { font-size: 1.5rem; margin-bottom: 8px; }
-    .hero-visual p  { font-size: .9rem; color: #b0b8cc; margin-bottom: 28px; }
+    .hero-visual p  { font-size: .9rem; color: #E1E5EE; margin-bottom: 28px; }
     .stat-row { display: flex; gap: 24px; margin-top: 28px; }
     .stat-item { flex: 1; }
     .stat-num  { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--pink); }
@@ -211,7 +212,7 @@
     .card-cycle { font-size: .85rem; color: var(--muted); margin-top: 2px; }
     .card-popular .card-cycle { color: #C5CBDD; }
     .card-desc { font-size: .9rem; color: var(--muted); margin: 14px 0 24px; line-height: 1.6; }
-    .card-popular .card-desc { color: #b0b8cc; }
+    .card-popular .card-desc { color: #E1E5EE; }
     .card-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 24px; }
     .card-popular .card-divider { border-color: rgba(255,255,255,.1); }
     .check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; flex: 1; margin-bottom: 32px; }
@@ -303,12 +304,12 @@
     .about-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; }
     .about-role { color: var(--mauve); font-size: .875rem; margin-bottom: 28px; }
     .about-facts { display: flex; flex-direction: column; gap: 12px; text-align: left; }
-    .fact { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: #b0b8cc; }
+    .fact { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: #E1E5EE; }
     .fact span { color: var(--pink); font-weight: 700; }
 
     /* ── CTA ─────────────────────────────── */
     .cta-section { background: linear-gradient(135deg, var(--navy) 0%, #2a1f3d 100%); color: white; text-align: center; }
-    .cta-section .section-sub { color: #b0b8cc; margin: 0 auto 40px; }
+    .cta-section .section-sub { color: #E1E5EE; margin: 0 auto 40px; }
 
     /* ── FOOTER ──────────────────────────── */
     footer {
@@ -400,7 +401,7 @@
     .summary-btn-alt:hover { border-color: var(--pink); color: white; }
     .summary-call { display: block; text-align: center; margin-top: 16px; font-size: .8rem; color: #aab3c8; }
     .summary-call:hover { color: var(--pink); }
-    .summary-copy-link { display: block; margin: 10px auto 0; background: none; border: none; font: inherit; font-size: .75rem; color: #6b7494; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .summary-copy-link { display: block; margin: 10px auto 0; background: none; border: none; font: inherit; font-size: .75rem; color: #C5CBDD; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
     .summary-copy-link:hover { color: #aab3c8; }
     .dialog-value { border-left: 3px solid var(--pink); padding: 4px 0 4px 14px; font-size: .9rem; color: var(--text); line-height: 1.6; margin-bottom: 24px; }
 
@@ -436,7 +437,7 @@
     .summary-note { font-size: .75rem; color: #C5CBDD; margin: 14px 0 20px; line-height: 1.5; }
     .summary-copy { display: block; width: 100%; margin-top: 10px; background: transparent; border: 1.5px solid rgba(255,255,255,.2); color: #c8d0e0; border-radius: 999px; padding: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
     .summary-copy:hover { border-color: var(--pink); color: white; }
-    .summary-hint { font-size: .72rem; color: #6b7494; text-align: center; margin-top: 8px; }
+    .summary-hint { font-size: .72rem; color: #C5CBDD; text-align: center; margin-top: 8px; }
     @media (max-width: 960px) {
       .tiers-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; gap: 40px; }
       .addons-grid { grid-template-columns: repeat(2,1fr); }
@@ -459,7 +460,28 @@
       .method-image-wrap img { max-width: 260px; }
       .nav-links { display: none; }
     }
-      /* Accents on dark sections stay rose */
+      /* Contrast fixes */
+    .page-header .eyebrow, .kit-eyebrow { color: #F4BFD2 !important; }
+    .page-header em { color: var(--rose) !important; }
+    .section-title em { color: var(--rose-ink) !important; }
+    .cta-section .section-title em, .section-navy .section-title em, #contact .section-title em { color: var(--rose) !important; }
+    p em, li em { color: #A84E74; }
+    .smm-tab { color: #F4BFD2 !important; }
+    .blog-hero .eyebrow, .blog-hero .dot, .blog-hero .post-meta, .cta-section .eyebrow, .section-navy .eyebrow, .stats-band .eyebrow, #contact .eyebrow { color: #F4BFD2 !important; }
+    .blog-hero h1 em, .blog-hero em { color: var(--rose) !important; }
+    .kit-total .kit-price { color: var(--rose) !important; }
+    .kit-note { color: #C5CBDD !important; }
+    .smm-brand-badge { color: #404C70 !important; }
+    .smm-phone-label { color: rgba(244,191,210,.8) !important; }
+    .smm-rbtn { color: #F4BFD2 !important; border-color: rgba(244,191,210,.5) !important; }
+    .cta-btn { background: var(--rose) !important; color: #161B28 !important; }
+    .hero h1 em { color: var(--rose-ink) !important; }
+    .popular-badge { color: #fff !important; }
+    .card-popular .card-tier, .summary-tag { color: #F4BFD2 !important; }
+    .card-popular .card-desc { color: #E1E5EE; }
+    .summary-copy-link { color: #C5CBDD !important; }
+    .cta-section .eyebrow, .section-navy .eyebrow, .stats-band .eyebrow { color: var(--rose); }
+    /* Accents on dark sections stay rose */
     .stats-band .stat-num, .stats-band .stat-big, .cta-section em { color: var(--rose); }
     .cta-section .btn-pink, .section-navy .btn-pink, .card-popular .btn-pink { background: var(--rose); color: #161B28; }
     .section-navy em, .card-popular .card-tier, .card-popular .check-list li::before, .footer-links a:hover, footer a:hover { color: var(--rose); }
@@ -781,10 +803,10 @@
           </video>
         </div>
         <div style="padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
-          <div style="color:var(--pink);font-size:1.1rem;margin-bottom:16px;">★★★★★</div>
+          <div style="color:#F4BFD2;font-size:1.1rem;margin-bottom:16px;">★★★★★</div>
           <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:white;line-height:1.6;margin-bottom:24px;font-style:italic;">"Working with Diana completely changed how I show up on social media. Our business has never been more visible."</blockquote>
           <div style="display:flex;align-items:center;gap:14px;">
-            <div style="width:46px;height:46px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:.9rem;">KS</div>
+            <div style="width:46px;height:46px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-weight:700;color:#161B28;font-size:.9rem;">KS</div>
             <div>
               <div style="color:white;font-weight:600;font-size:.95rem;">Ken Santoro</div>
               <div style="color:#C5CBDD;font-size:.8rem;">Caffe Santoro</div>
@@ -824,7 +846,7 @@
       <h2 class="section-title" style="color:white;">Ready to stop guessing<br/>and start <em>converting?</em></h2>
       <p class="section-sub">Book a free 45-minute discovery call. I'll look at your current presence, tell you exactly what's missing, and show you what working together looks like.</p>
       <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn btn-pink btn-lg">Book Your Free Call →</a>
-      <p style="color:#6b7494;font-size:.875rem;margin-top:20px;">No commitment. No pitch. Just strategy.</p>
+      <p style="color:#C5CBDD;font-size:.875rem;margin-top:20px;">No commitment. No pitch. Just strategy.</p>
     </div>
   </section>
 
