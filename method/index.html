@@ -30,7 +30,7 @@
       theme: {
         extend: {
           colors: {
-            navy:  '#161B28',
+            navy:  '#404C70',
             slate: '#404C70',
             mauve: '#907A9A',
             pink:  '#EDA4BF',
@@ -46,7 +46,7 @@
     }
   </script>
   <style>
-    body { background-color: #FAF9F6; color: #161B28; }
+    body { background-color: #FAF9F6; color: #404C70; }
     em   { font-style: italic; color: #EDA4BF; font-family: 'Cormorant Garamond', serif; }
     /* NAV — matches smmology.us */
     nav {
@@ -59,12 +59,12 @@
       max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 32px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #161B28; font-weight: 700; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #404C70; font-weight: 700; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a:not(.btn) { font-size: .875rem; color: #907A9A; font-weight: 500; text-decoration: none; transition: color .2s; }
     .nav-links a:not(.btn):hover { color: #EDA4BF; }
-    .nav-links a.active { color: #161B28; font-weight: 600; }
-    .btn-pink { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; background: #EDA4BF; color: var(--navy, #161B28); text-decoration: none; transition: opacity .2s; }
+    .nav-links a.active { color: #404C70; font-weight: 600; }
+    .btn-pink { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; background: #EDA4BF; color: #404C70; text-decoration: none; transition: opacity .2s; }
     .btn-pink:hover { opacity: .88; }
     .nav-link  { color: #907A9A; transition: color .2s; }
     .nav-link:hover { color: #EDA4BF; }
@@ -90,7 +90,7 @@
     .hero-gradient { background: radial-gradient(ellipse 75% 55% at 80% -5%, rgba(237,164,191,.2) 0%, transparent 60%), radial-gradient(ellipse 55% 45% at 5% 95%, rgba(144,122,154,.12) 0%, transparent 55%); }
 
     /* Marquee */
-    .marquee-wrap { overflow: hidden; background: #161B28; padding: 16px 0; }
+    .marquee-wrap { overflow: hidden; background: #404C70; padding: 16px 0; }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 32s linear infinite; }
     .marquee-track:hover { animation-play-state: paused; }
@@ -103,10 +103,10 @@
 
     /* Dark section */
     .dark-section h2 { color: #FAF9F6; }
-    .dark-section .section-intro { color: #8aaabb; }
+    .dark-section .section-intro { color: #D5D9E6; }
     .dark-section .callout-box { background: rgba(237,164,191,.08) !important; border-color: rgba(237,164,191,.25) !important; }
     .dark-section .callout-head { color: #FAF9F6; }
-    .dark-section .callout-body { color: #8aaabb; }
+    .dark-section .callout-body { color: #D5D9E6; }
 
     /* Gradient text */
     .gradient-text { background: linear-gradient(135deg, #EDA4BF 0%, #EDA4BF 55%, #907A9A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-style: italic; }
@@ -195,7 +195,7 @@
       <p class="text-mauve text-sm">Built for service-based entrepreneurs who are done guessing</p>
 
       <!-- VIDEO EMBED -->
-      <div class="mt-14 rounded-3xl overflow-hidden border border-[#e8ddd8] shadow-lg max-w-3xl mx-auto" style="background:#161B28;">
+      <div class="mt-14 rounded-3xl overflow-hidden border border-[#e8ddd8] shadow-lg max-w-3xl mx-auto" style="background:#404C70;">
         <video controls preload="metadata" style="width:100%;display:block;">
           <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/martini-method-preview.mov" type="video/mp4">
           <source src="https://ikxekuzryhtupatomhqr.supabase.co/storage/v1/object/public/assets/videos/martini-method-preview.mov" type="video/quicktime">
@@ -229,7 +229,7 @@
   </div>
 
   <!-- PERSONALIZATION -->
-  <div class="dark-section" style="background:#161B28;">
+  <div class="dark-section" style="background:#404C70;">
   <section class="py-24 px-6 max-w-5xl mx-auto">
     <div class="text-center mb-16">
       <p class="eyebrow-pill mb-5">How it works</p>
@@ -376,9 +376,9 @@
     </div>
 
     <!-- Pain intro banner -->
-    <div class="rounded-2xl px-10 py-8 mb-10 text-center" style="background:#161B28;">
+    <div class="rounded-2xl px-10 py-8 mb-10 text-center" style="background:#404C70;">
       <p class="font-serif text-xl md:text-2xl italic mb-2" style="color:#FFE2EA;">"I know I need to post. I just don't know what to say."</p>
-      <p class="text-sm" style="color:#8899bb;">If that sentence lives rent-free in your head, keep reading.</p>
+      <p class="text-sm" style="color:#C5CBDD;">If that sentence lives rent-free in your head, keep reading.</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
@@ -512,15 +512,15 @@
 
 
   <!-- BOOK A CALL -->
-  <div style="background:#161B28;">
+  <div style="background:#404C70;">
     <section class="py-24 px-6 max-w-5xl mx-auto">
       <div class="grid md:grid-cols-2 gap-16 items-center">
 
         <div>
           <p class="eyebrow-pill mb-6" style="background:rgba(237,164,191,.1);border-color:rgba(237,164,191,.3);color:#EDA4BF;">Not ready to commit just yet?</p>
           <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight" style="color:#FAF9F6;">Let me walk you through it <em>personally.</em></h2>
-          <p class="text-lg leading-relaxed mb-6" style="color:#8aaabb;">Book a free 45-minute discovery call with me. I'll show you exactly how the app works for your specific niche, answer every question you have, and help you figure out if it's the right fit for where you are right now.</p>
-          <p class="leading-relaxed mb-8" style="color:#8aaabb;">No pitch. No pressure. Just a real, honest look at what's possible for your brand.</p>
+          <p class="text-lg leading-relaxed mb-6" style="color:#D5D9E6;">Book a free 45-minute discovery call with me. I'll show you exactly how the app works for your specific niche, answer every question you have, and help you figure out if it's the right fit for where you are right now.</p>
+          <p class="leading-relaxed mb-8" style="color:#D5D9E6;">No pitch. No pressure. Just a real, honest look at what's possible for your brand.</p>
           <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn-primary px-8 py-4 rounded-full text-base inline-block">Book a Free Discovery Call →</a>
         </div>
 
@@ -559,7 +559,7 @@
   <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
 
   <!-- MEET YOUR STRATEGIST -->
-  <div style="background:#161B28;">
+  <div style="background:#404C70;">
   <section class="py-24 px-6 max-w-5xl mx-auto">
     <div class="grid md:grid-cols-2 gap-16 items-center">
 
@@ -581,13 +581,13 @@
         <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight" style="color:#FAF9F6;">
           You didn't start a business to create content.<br/><em>But I did.</em>
         </h2>
-        <p class="text-lg leading-relaxed mb-4" style="color:#8aaabb;">
+        <p class="text-lg leading-relaxed mb-4" style="color:#D5D9E6;">
           I'm Diana — a social media manager and Meta Ads strategist based in Northern California. I built Smmology because I kept watching brilliant business owners burn out trying to figure out social media on top of actually running their businesses.
         </p>
-        <p class="leading-relaxed mb-4" style="color:#8aaabb;">
+        <p class="leading-relaxed mb-4" style="color:#D5D9E6;">
           The Martini Method is the exact framework I use with every client — distilled into a system you can implement yourself, or hand off to me. Either way, it works.
         </p>
-        <p class="leading-relaxed mb-8" style="color:#8aaabb;">
+        <p class="leading-relaxed mb-8" style="color:#D5D9E6;">
           I believe your content should feel like a conversation with your ideal client, not a performance for an algorithm. When the strategy is right, the right people show up.
         </p>
         <p class="font-serif text-xl italic" style="color:#EDA4BF;">— Diana</p>

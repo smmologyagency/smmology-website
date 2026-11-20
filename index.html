@@ -45,7 +45,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #161B28;
+      --navy:   #404C70;
       --slate:  #404C70;
       --mauve:  #907A9A;
       --pink:   #EDA4BF;
@@ -81,7 +81,7 @@
     .nav-links a:not(.btn):hover { color: var(--pink); }
     .btn { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; cursor: pointer; transition: opacity .2s, transform .1s; }
     .btn:hover { opacity: .88; transform: translateY(-1px); }
-    .btn-pink  { background: var(--pink); color: var(--navy, #161B28); }
+    .btn-pink  { background: var(--pink); color: #161B28; }
     .btn-outline { border: 2px solid var(--pink); color: var(--pink); background: transparent; }
     .btn-lg { padding: 14px 36px; font-size: 1rem; }
 
@@ -164,7 +164,7 @@
     .stat-row { display: flex; gap: 24px; margin-top: 28px; }
     .stat-item { flex: 1; }
     .stat-num  { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--pink); }
-    .stat-lbl  { font-size: .75rem; color: #8899bb; margin-top: 2px; }
+    .stat-lbl  { font-size: .75rem; color: #C5CBDD; margin-top: 2px; }
     .pill-row  { display: flex; gap: 8px; flex-wrap: wrap; }
     .pill {
       background: rgba(237,164,191,.15); color: var(--pink);
@@ -180,7 +180,7 @@
     }
     .stat-card:last-child { border-right: none; }
     .stat-big  { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); }
-    .stat-desc { font-size: .9rem; color: #8899bb; margin-top: 8px; line-height: 1.5; }
+    .stat-desc { font-size: .9rem; color: #C5CBDD; margin-top: 8px; line-height: 1.5; }
 
     /* ── SERVICES ────────────────────────── */
     .cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
@@ -208,7 +208,7 @@
     .card-price { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--navy); }
     .card-popular .card-price { color: white; }
     .card-cycle { font-size: .85rem; color: var(--muted); margin-top: 2px; }
-    .card-popular .card-cycle { color: #8899bb; }
+    .card-popular .card-cycle { color: #C5CBDD; }
     .card-desc { font-size: .9rem; color: var(--muted); margin: 14px 0 24px; line-height: 1.6; }
     .card-popular .card-desc { color: #b0b8cc; }
     .card-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 24px; }
@@ -311,7 +311,7 @@
 
     /* ── FOOTER ──────────────────────────── */
     footer {
-      background: var(--navy); color: #8899bb;
+      background: var(--navy); color: #C5CBDD;
       padding: 40px 0; border-top: 1px solid rgba(255,255,255,.08);
     }
     .footer-inner {
@@ -321,7 +321,7 @@
     }
     .footer-logo { font-family: 'Cormorant Garamond', serif; color: white; font-size: 1.1rem; }
     .footer-links { display: flex; gap: 24px; font-size: .875rem; }
-    .footer-links a { color: #8899bb; transition: color .2s; }
+    .footer-links a { color: #C5CBDD; transition: color .2s; }
     .footer-links a:hover { color: var(--pink); }
 
     /* ── RESPONSIVE ──────────────────────── */
@@ -329,8 +329,8 @@
     .tiers-grid { align-items: stretch; }
     .tiers-grid .card { padding-top: 44px; }
     .card-from { font-size: .75rem; color: var(--muted); margin-bottom: -4px; }
-    .card-popular .card-from { color: #8899bb; }
-    .card-note { font-size: .8rem; color: #8899bb; font-style: italic; line-height: 1.5; margin: -16px 0 24px; }
+    .card-popular .card-from { color: #C5CBDD; }
+    .card-note { font-size: .8rem; color: #C5CBDD; font-style: italic; line-height: 1.5; margin: -16px 0 24px; }
     .addons-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 48px; }
     .addon {
       background: white; border: 1px solid var(--border); border-radius: 20px;
@@ -427,12 +427,12 @@
     .summary-list { list-style: none; display: flex; flex-direction: column; gap: 10px; min-height: 40px; }
     .summary-list li { display: flex; justify-content: space-between; gap: 12px; font-size: .85rem; color: #c8d0e0; }
     .summary-list li span:last-child { white-space: nowrap; color: white; }
-    .summary-list .empty { color: #8899bb; font-style: italic; }
+    .summary-list .empty { color: #C5CBDD; font-style: italic; }
     .summary-totals { border-top: 1px solid rgba(255,255,255,.12); margin-top: 20px; padding-top: 18px; display: flex; flex-direction: column; gap: 6px; }
     .summary-totals div { display: flex; justify-content: space-between; align-items: baseline; }
-    .summary-totals span { font-size: .8rem; color: #8899bb; }
+    .summary-totals span { font-size: .8rem; color: #C5CBDD; }
     .summary-totals strong { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: white; }
-    .summary-note { font-size: .75rem; color: #8899bb; margin: 14px 0 20px; line-height: 1.5; }
+    .summary-note { font-size: .75rem; color: #C5CBDD; margin: 14px 0 20px; line-height: 1.5; }
     .summary-copy { display: block; width: 100%; margin-top: 10px; background: transparent; border: 1.5px solid rgba(255,255,255,.2); color: #c8d0e0; border-radius: 999px; padding: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
     .summary-copy:hover { border-color: var(--pink); color: white; }
     .summary-hint { font-size: .72rem; color: #6b7494; text-align: center; margin-top: 8px; }
@@ -782,7 +782,7 @@
             <div style="width:46px;height:46px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:.9rem;">KS</div>
             <div>
               <div style="color:white;font-weight:600;font-size:.95rem;">Ken Santoro</div>
-              <div style="color:#8899bb;font-size:.8rem;">Caffe Santoro</div>
+              <div style="color:#C5CBDD;font-size:.8rem;">Caffe Santoro</div>
             </div>
           </div>
         </div>
