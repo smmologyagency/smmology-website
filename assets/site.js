@@ -103,6 +103,58 @@
     }, { passive: true });
     onScroll();
 
+    /* Mobile menu */
+    var inner = nav && nav.querySelector('.nav-inner');
+    var links = nav && nav.querySelector('.nav-links');
+    if (inner && links) {
+      if (!links.id) links.id = 'site-menu';
+      var burger = document.createElement('button');
+      burger.type = 'button'; burger.className = 'nav-burger';
+      burger.setAttribute('aria-label', 'Open menu'); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-controls', links.id);
+      burger.innerHTML = '<span></span><span></span>';
+      inner.appendChild(burger);
+      var setOpen = function (open) {
+        document.body.classList.toggle('menu-open', open);
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      burger.addEventListener('click', function () { setOpen(!document.body.classList.contains('menu-open')); });
+      links.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    }
+
+    /* Sticky call-to-action on phones */
+    if (!/\/booked/.test(location.pathname)) {
+      var bar = document.createElement('div');
+      bar.className = 'mobile-cta';
+      bar.innerHTML = '<a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" rel="noopener" class="mc-primary">Book a Free Call</a>' +
+        '<a href="https://app.smmology.us/signup?plan=monthly" class="mc-secondary">Join The Strategist</a>';
+      document.body.appendChild(bar);
+      var showBar = function () { bar.classList.toggle('is-shown', window.scrollY > window.innerHeight * 0.7); };
+      window.addEventListener('scroll', showBar, { passive: true }); showBar();
+    }
+
+    /* Heading font picker: preview only */
+    var isPreview = /vercel\.app$|localhost|127\.0\.0\.1/.test(location.hostname) || /[?&]fonts/.test(location.search);
+    if (isPreview) {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap';
+      document.head.appendChild(l);
+      var opts = [['fraunces', 'A · Fraunces'], ['instrument', 'B · Instrument Serif'], ['bricolage', 'C · Bricolage Grotesque'], ['', 'Current · Cormorant']];
+      var saved = 'fraunces';
+      try { saved = localStorage.getItem('smm-hf') || 'fraunces'; } catch (e) {}
+      var pick = function (v) {
+        if (v) root.setAttribute('data-hf', v); else root.removeAttribute('data-hf');
+        try { localStorage.setItem('smm-hf', v); } catch (e) {}
+        box.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.v === v ? 'true' : 'false'); });
+      };
+      var box = document.createElement('div'); box.className = 'font-picker';
+      box.innerHTML = '<p>Heading font (preview only)</p>' + opts.map(function (o) { return '<button type="button" data-v="' + o[0] + '">' + o[1] + '</button>'; }).join('');
+      document.body.appendChild(box);
+      box.addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) pick(b.dataset.v); });
+      pick(saved);
+    }
+
     if (reduce || !window.matchMedia('(hover: hover)').matches) return;
 
     /* Pointer spotlight on cards */

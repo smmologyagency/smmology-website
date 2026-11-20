@@ -145,3 +145,73 @@ nav.is-scrolled { height: 60px !important; background: rgba(250, 249, 246, .78) 
 /* Small screens: footer links wrap instead of widening the page */
 .footer-links { flex-wrap: wrap !important; }
 @media (max-width: 600px) { .footer-links { gap: 14px 20px !important; } .footer-inner { flex-direction: column; align-items: flex-start !important; } }
+
+/* ---------- Icons: one line set (Lucide, ISC), same size and stroke everywhere ---------- */
+.addon-icon.ico-tile, .value-icon.ico-tile { display: inline-flex !important; }
+.ico-tile {
+  width: 46px; height: 46px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center;
+  color: #404C70; background: linear-gradient(180deg, #fff, #F3F2F6); border: 1px solid rgba(64, 76, 112, .14);
+  box-shadow: 0 1px 0 #fff inset, 0 6px 16px -10px rgba(22, 27, 40, .35);
+  font-size: 0; margin-bottom: 18px;
+  transition: transform .6s var(--ease-out), color .3s, background .3s;
+}
+.ico-tile .ico { width: 22px; height: 22px; }
+.ico-tile.ico-lg { width: 60px; height: 60px; border-radius: 18px; }
+.ico-tile.ico-lg .ico { width: 28px; height: 28px; }
+.card:hover .ico-tile, .addon:hover .ico-tile, .value-card:hover .ico-tile, .js-spot:hover .ico-tile { transform: translateY(-2px) rotate(-4deg); color: #6E5A78; }
+.dark-section .ico-tile, [style*="background:#404C70"] .ico-tile { color: #F4BFD2; background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); box-shadow: none; }
+
+/* ---------- Heading font options (preview picker) ---------- */
+html[data-hf] :is(h1, h2, h3, h4, .font-serif, .nav-logo, .footer-logo, .card-price, .stat-num, .stat-big, .result-num, .about-name, .dialog-price, .stage-label, blockquote, .big-stat-num, .kit-price, .section-title, .value-title, .addon-name, .summary-due strong, .summary-totals strong) { font-family: var(--hf) !important; }
+html[data-hf="fraunces"] { --hf: 'Fraunces', Georgia, serif; }
+html[data-hf="fraunces"] :is(h1, h2) { font-variation-settings: "opsz" 144; font-weight: 500 !important; letter-spacing: -.03em; }
+html[data-hf="fraunces"] :is(h1, h2) em { font-weight: 400; }
+html[data-hf="instrument"] { --hf: 'Instrument Serif', Georgia, serif; }
+html[data-hf="instrument"] :is(h1, h2, h3, .card-price, .nav-logo) { font-weight: 400 !important; letter-spacing: -.02em; }
+html[data-hf="instrument"] :is(h1, h2) em { font-weight: 400; }
+html[data-hf="bricolage"] { --hf: 'Bricolage Grotesque', system-ui, sans-serif; }
+html[data-hf="bricolage"] :is(h1, h2) { font-weight: 650 !important; letter-spacing: -.045em; line-height: .98 !important; }
+html[data-hf="bricolage"] :is(h1, h2) em { font-style: normal; font-weight: 650; }
+html[data-hf="bricolage"] h1 { font-size: clamp(2.6rem, 5.4vw, 5rem) !important; }
+
+.font-picker { position: fixed; right: 16px; bottom: 16px; z-index: 9999; background: rgba(22, 27, 40, .92); color: #fff; padding: 10px; border-radius: 14px; display: flex; flex-direction: column; gap: 4px; font: 500 12px/1.3 'Outfit', sans-serif; backdrop-filter: blur(10px); box-shadow: 0 12px 32px -12px rgba(0,0,0,.5); }
+.font-picker p { margin: 0 4px 4px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #C5CBDD; }
+.font-picker button { all: unset; cursor: pointer; padding: 7px 10px; border-radius: 8px; color: #E1E5EE; }
+.font-picker button:hover { background: rgba(255,255,255,.08); }
+.font-picker button[aria-pressed="true"] { background: #EDA4BF; color: #161B28; }
+@media (max-width: 700px) { .font-picker { bottom: 84px; } }
+
+/* ---------- Mobile menu ---------- */
+.nav-burger { display: none; }
+@media (max-width: 900px) {
+  .nav-burger { display: inline-flex; flex-direction: column; justify-content: center; gap: 6px; width: 44px; height: 44px; margin-left: auto; background: none; border: 0; cursor: pointer; position: relative; z-index: 102; }
+  .nav-burger span { display: block; width: 22px; height: 1.5px; background: #404C70; margin: 0 auto; transition: transform .45s var(--ease-out); }
+  .menu-open .nav-burger span:first-child { transform: translateY(3.75px) rotate(45deg); }
+  .menu-open .nav-burger span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+  nav .nav-links { display: flex !important; position: fixed; inset: 0; z-index: 101; flex-direction: column; align-items: flex-start !important; justify-content: center; gap: 22px !important; padding: 96px 32px 48px; background: #FAF9F6; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .45s var(--ease-out), transform .6s var(--ease-out), visibility .45s; }
+  .menu-open nav .nav-links { opacity: 1; visibility: visible; transform: none; }
+  nav .nav-links a:not(.btn):not(.btn-pink) { font-family: var(--hf, 'Cormorant Garamond'), Georgia, serif; font-size: 2rem !important; color: #161B28 !important; font-weight: 500; }
+  nav .nav-links .btn, nav .nav-links .btn-pink { margin-top: 12px; font-size: 1rem !important; padding: 14px 26px !important; }
+  .menu-open { overflow: hidden; }
+}
+
+/* ---------- Sticky CTA on phones ---------- */
+.mobile-cta { display: none; }
+@media (max-width: 700px) {
+  .mobile-cta { display: flex; gap: 8px; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 90; padding: 8px; border-radius: 999px; background: rgba(250, 249, 246, .9); backdrop-filter: saturate(180%) blur(16px); border: 1px solid rgba(64, 76, 112, .14); box-shadow: 0 18px 40px -18px rgba(22, 27, 40, .45); transform: translateY(140%); transition: transform .6s var(--ease-out); }
+  .mobile-cta.is-shown { transform: none; }
+  .mobile-cta a { flex: 1; text-align: center; padding: 13px 10px; border-radius: 999px; font: 600 14px/1 'Outfit', sans-serif; text-decoration: none; }
+  .mobile-cta .mc-primary { background: #404C70; color: #fff; }
+  .mobile-cta .mc-secondary { color: #404C70; border: 1px solid rgba(64, 76, 112, .3); }
+  .menu-open .mobile-cta { transform: translateY(140%); }
+  footer { padding-bottom: 96px !important; }
+}
+
+/* ---------- Proof next to the first call to action ---------- */
+.hero p.hero-proof, .hero-proof { margin-top: 28px; padding-left: 16px; border-left: 2px solid #EDA4BF; font-family: var(--hf, 'Cormorant Garamond'), Georgia, serif; font-style: italic; font-size: 1.15rem !important; color: #161B28; max-width: 30rem; line-height: 1.45 !important; }
+.hero-proof span { display: block; margin-top: 6px; font: 500 .8rem/1.4 'Outfit', sans-serif; font-style: normal; color: #555; letter-spacing: .02em; }
+@media (max-width: 700px) {
+  .font-picker { left: 12px; right: 12px; flex-direction: row; flex-wrap: wrap; justify-content: center; padding: 6px; }
+  .font-picker p { display: none; }
+  .font-picker button { padding: 6px 8px; font-size: 11px; }
+}
