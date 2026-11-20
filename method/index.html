@@ -24,7 +24,7 @@
   /></noscript>
   <!-- End Meta Pixel -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
@@ -35,19 +35,19 @@
             mauve: '#907A9A',
             pink:  '#EDA4BF',
             blush: '#FFE2EA',
-            cream: '#FAF7F5',
+            cream: '#FAF9F6',
           },
           fontFamily: {
-            serif: ['Playfair Display', 'Georgia', 'serif'],
-            sans:  ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:  ['Outfit', 'system-ui', 'sans-serif'],
           }
         }
       }
     }
   </script>
   <style>
-    body { background-color: #FAF7F5; color: #2a1f2e; }
-    em   { font-style: italic; color: #C98FAA; font-family: 'Playfair Display', serif; }
+    body { background-color: #FAF9F6; color: #161B28; }
+    em   { font-style: italic; color: #EDA4BF; font-family: 'Cormorant Garamond', serif; }
     /* NAV — matches smmology.us */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -59,15 +59,15 @@
       max-width: 1100px; width: 100%; margin: 0 auto; padding: 0 32px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #161B28; font-weight: 700; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #161B28; font-weight: 700; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a:not(.btn) { font-size: .875rem; color: #907A9A; font-weight: 500; text-decoration: none; transition: color .2s; }
     .nav-links a:not(.btn):hover { color: #EDA4BF; }
     .nav-links a.active { color: #161B28; font-weight: 600; }
-    .btn-pink { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; background: #EDA4BF; color: #fff; text-decoration: none; transition: opacity .2s; }
+    .btn-pink { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; background: #EDA4BF; color: var(--navy, #161B28); text-decoration: none; transition: opacity .2s; }
     .btn-pink:hover { opacity: .88; }
     .nav-link  { color: #907A9A; transition: color .2s; }
-    .nav-link:hover { color: #C98FAA; }
+    .nav-link:hover { color: #EDA4BF; }
     .btn-primary { background: #EDA4BF; color: #161B28; font-weight: 600; transition: opacity .2s; }
     .btn-primary:hover { opacity: .88; }
     .btn-outline { border: 1px solid #EDA4BF; color: #EDA4BF; transition: background .2s; }
@@ -77,7 +77,7 @@
     .card-popular { background: linear-gradient(145deg,#2b2040,#1e2338); border: 1px solid #EDA4BF; }
     .divider      { border-color: #e8ddd8; }
     .stage        { background: #FFFFFF; border-left: 3px solid #EDA4BF; box-shadow: 0 2px 12px rgba(42,31,46,.05); transition: border-left-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
-    .stage:hover  { border-left-color: #C98FAA; box-shadow: 0 8px 32px rgba(42,31,46,.1); transform: translateX(3px); }
+    .stage:hover  { border-left-color: #EDA4BF; box-shadow: 0 8px 32px rgba(42,31,46,.1); transform: translateX(3px); }
     .check        { color: #EDA4BF; font-weight: 700; }
     .stat         { background: #FFFFFF; border: 1px solid #e8ddd8; box-shadow: 0 2px 12px rgba(42,31,46,.05); transition: transform 0.28s ease, box-shadow 0.28s ease; }
     .stat:hover   { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(42,31,46,.1); }
@@ -102,20 +102,20 @@
     .glow-badge { animation: badge-glow 2.6s ease-in-out infinite; }
 
     /* Dark section */
-    .dark-section h2 { color: #FAF7F5; }
+    .dark-section h2 { color: #FAF9F6; }
     .dark-section .section-intro { color: #8aaabb; }
     .dark-section .callout-box { background: rgba(237,164,191,.08) !important; border-color: rgba(237,164,191,.25) !important; }
-    .dark-section .callout-head { color: #FAF7F5; }
+    .dark-section .callout-head { color: #FAF9F6; }
     .dark-section .callout-body { color: #8aaabb; }
 
     /* Gradient text */
-    .gradient-text { background: linear-gradient(135deg, #C98FAA 0%, #EDA4BF 55%, #907A9A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-style: italic; }
+    .gradient-text { background: linear-gradient(135deg, #EDA4BF 0%, #EDA4BF 55%, #907A9A 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-style: italic; }
 
     /* Scroll progress bar */
-    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, #C98FAA, #EDA4BF, #907A9A); transition: width .08s linear; pointer-events: none; }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; z-index: 9999; background: linear-gradient(90deg, #EDA4BF, #EDA4BF, #907A9A); transition: width .08s linear; pointer-events: none; }
 
     /* Hero particles */
-    .hero-outer { position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 85% 0%, rgba(237,164,191,.22) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 5% 100%, rgba(144,122,154,.14) 0%, transparent 55%), #FAF7F5; }
+    .hero-outer { position: relative; overflow: hidden; background: radial-gradient(ellipse 80% 60% at 85% 0%, rgba(237,164,191,.22) 0%, transparent 55%), radial-gradient(ellipse 60% 50% at 5% 100%, rgba(144,122,154,.14) 0%, transparent 55%), #FAF9F6; }
     @keyframes drift  { 0%,100%{transform:translateY(0) rotate(-6deg); opacity:.7;} 50%{transform:translateY(-50px) rotate(6deg); opacity:1;} }
     @keyframes drift2 { 0%,100%{transform:translateY(0) translateX(0) rotate(4deg); opacity:.5;} 33%{transform:translateY(-36px) translateX(16px) rotate(-10deg); opacity:.9;} 66%{transform:translateY(-18px) translateX(-10px) rotate(7deg); opacity:.7;} }
     .particle { position: absolute; pointer-events: none; z-index: 0; line-height:1; user-select:none; }
@@ -131,16 +131,17 @@
     .martini-divider::before,.martini-divider::after { content:''; flex:1; height:1px; background:#e8ddd8; }
 
     /* Eyebrow pill labels */
-    .eyebrow-pill { display:inline-block; border-radius:9999px; padding:4px 16px; font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:linear-gradient(135deg,rgba(237,164,191,.18),rgba(144,122,154,.12)); border:1px solid rgba(237,164,191,.35); color:#C98FAA; }
+    .eyebrow-pill { display:inline-block; border-radius:9999px; padding:4px 16px; font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; background:linear-gradient(135deg,rgba(237,164,191,.18),rgba(144,122,154,.12)); border:1px solid rgba(237,164,191,.35); color:#EDA4BF; }
 
     /* Big stats */
-    .big-stat-num { font-family:'Playfair Display',serif; font-size:clamp(4.5rem,10vw,8rem); font-weight:700; color:#EDA4BF; line-height:1; display:block; }
+    .big-stat-num { font-family:'Cormorant Garamond',serif; font-size:clamp(4.5rem,10vw,8rem); font-weight:700; color:#EDA4BF; line-height:1; display:block; }
 
     /* Animated glowing card border */
     .glow-card-wrap { position:relative; border-radius:1.25rem; padding:2px; }
     @keyframes border-rotate { 0%{background-position:0% 50%;} 100%{background-position:200% 50%;} }
-    .glow-card-wrap::before { content:''; position:absolute; inset:0; border-radius:1.25rem; background:linear-gradient(90deg,#C98FAA,#EDA4BF,#907A9A,#C98FAA); background-size:200%; animation:border-rotate 3.5s linear infinite; z-index:0; }
+    .glow-card-wrap::before { content:''; position:absolute; inset:0; border-radius:1.25rem; background:linear-gradient(90deg,#EDA4BF,#EDA4BF,#907A9A,#EDA4BF); background-size:200%; animation:border-rotate 3.5s linear infinite; z-index:0; }
     .glow-card-wrap .card { position:relative; z-index:1; margin:0; border:none !important; border-radius:1.1rem; }
+      body { font-variant-numeric: lining-nums; }
   </style>
 </head>
 <body class="font-sans antialiased">
@@ -174,7 +175,7 @@
       <h1 class="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6">
         Content strategy, <em class="gradient-text">built around you.</em>
       </h1>
-      <p class="text-[#7a6b72] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
+      <p class="text-[#555555] text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-4">
         You tell it your niche, your voice, your goals, and how often you can post. It gives you:
       </p>
       <ul class="text-navy text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10 text-left space-y-2">
@@ -239,17 +240,17 @@
       <div class="stage rounded-2xl p-8">
         <div class="font-serif text-4xl font-bold text-pink mb-4">01</div>
         <h3 class="font-serif text-xl font-bold text-navy mb-3">You tell it who you are</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Your niche. Your audience. The transformation you deliver. Your brand voice: polished, conversational, bold, or warm. The app locks this in once and never forgets it.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Your niche. Your audience. The transformation you deliver. Your brand voice: polished, conversational, bold, or warm. The app locks this in once and never forgets it.</p>
       </div>
       <div class="stage rounded-2xl p-8">
         <div class="font-serif text-4xl font-bold text-pink mb-4">02</div>
         <h3 class="font-serif text-xl font-bold text-navy mb-3">You set your goals and availability</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">How often can you post? Are you growing an audience, launching an offer, or booking clients? Your strategy is built around your actual life, not some ideal content schedule you'll never keep.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">How often can you post? Are you growing an audience, launching an offer, or booking clients? Your strategy is built around your actual life, not some ideal content schedule you'll never keep.</p>
       </div>
       <div class="stage rounded-2xl p-8">
         <div class="font-serif text-4xl font-bold text-pink mb-4">03</div>
         <h3 class="font-serif text-xl font-bold text-navy mb-3">It builds your system</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Strategy, scripts, ideas, hashtags, and a full calendar, all generated specifically for you. Every month. Every piece of content sounds like you because it starts with you.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Strategy, scripts, ideas, hashtags, and a full calendar, all generated specifically for you. Every month. Every piece of content sounds like you because it starts with you.</p>
       </div>
     </div>
     <div class="callout-box mt-10 rounded-2xl px-10 py-8 text-center border border-[#EDA4BF]" style="background:rgba(237,164,191,0.07);">
@@ -266,7 +267,7 @@
     <div class="text-center mb-16">
       <p class="eyebrow-pill mb-5">Sound familiar?</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">You're posting. But nothing is <em>converting.</em></h2>
-      <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto leading-relaxed">
+      <p class="text-[#555555] text-lg max-w-2xl mx-auto leading-relaxed">
         You didn't build your expertise to become a content creator. Yet here you are, spending hours staring at a blank caption box, posting inconsistently, and wondering why your followers aren't turning into clients. The problem isn't your content. It's that you don't have a <em>strategy.</em>
       </p>
     </div>
@@ -279,7 +280,7 @@
     <div class="text-center mb-16">
       <p class="eyebrow-pill mb-5">The framework</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">A content funnel as smooth as a <em>perfect martini.</em></h2>
-      <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto leading-relaxed">
+      <p class="text-[#555555] text-lg max-w-2xl mx-auto leading-relaxed">
         Just like crafting the perfect martini, your content strategy needs the right ingredients measured precisely. The Martini Method walks your audience through every stage of the buyer journey so you're always talking to the right person with the right message.
       </p>
     </div>
@@ -287,22 +288,22 @@
       <div class="stage rounded-2xl p-8">
         <div class="flex items-center gap-3 mb-4"><span class="text-2xl">🧊</span><div><p class="text-xs text-pink tracking-widest uppercase">Cold Audience</p><h3 class="font-serif text-xl font-bold text-navy">Attract</h3></div></div>
         <p class="font-medium text-navy mb-2">Call out the pain</p>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Hook strangers with content that speaks directly to the problem they're already feeling.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Hook strangers with content that speaks directly to the problem they're already feeling.</p>
       </div>
       <div class="stage rounded-2xl p-8">
         <div class="flex items-center gap-3 mb-4"><span class="text-2xl">☀️</span><div><p class="text-xs text-pink tracking-widest uppercase">Warm Audience</p><h3 class="font-serif text-xl font-bold text-navy">Engage</h3></div></div>
         <p class="font-medium text-navy mb-2">Become their go-to</p>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Educate, inspire, and build trust. Show them you understand their world.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Educate, inspire, and build trust. Show them you understand their world.</p>
       </div>
       <div class="stage rounded-2xl p-8">
         <div class="flex items-center gap-3 mb-4"><span class="text-2xl">🔥</span><div><p class="text-xs text-pink tracking-widest uppercase">Hot Audience</p><h3 class="font-serif text-xl font-bold text-navy">Convert</h3></div></div>
         <p class="font-medium text-navy mb-2">Make the offer</p>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Give them the nudge: a lead magnet, free call, or limited offer that converts followers into clients.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Give them the nudge: a lead magnet, free call, or limited offer that converts followers into clients.</p>
       </div>
       <div class="stage rounded-2xl p-8">
         <div class="flex items-center gap-3 mb-4"><span class="text-2xl">⭐</span><div><p class="text-xs text-pink tracking-widest uppercase">Customers</p><h3 class="font-serif text-xl font-bold text-navy">Buy</h3></div></div>
         <p class="font-medium text-navy mb-2">Keep them coming back</p>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Support your buyers, answer FAQs, and create the next natural step for them to take.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Support your buyers, answer FAQs, and create the next natural step for them to take.</p>
       </div>
     </div>
   </section>
@@ -317,13 +318,13 @@
       <div>
         <p class="eyebrow-pill mb-5">The philosophy behind it all</p>
         <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">Every brand has a story.<br/>Most just don't know <em>how to tell it.</em></h2>
-        <p class="text-[#7a6b72] text-lg leading-relaxed mb-6">
+        <p class="text-[#555555] text-lg leading-relaxed mb-6">
           Before any caption is written, before any content idea is generated, the Martini Method app starts with one thing: <strong class="text-navy">your story.</strong>
         </p>
-        <p class="text-[#7a6b72] leading-relaxed mb-6">
+        <p class="text-[#555555] leading-relaxed mb-6">
           Rooted in the science of strategic storytelling, the app walks you through building the four stories every brand needs: your origin story, the story of how your method works, the story of your client's journey, and the story of what you believe. Then it uses those stories as the foundation for every piece of content it helps you create.
         </p>
-        <p class="text-[#7a6b72] leading-relaxed">
+        <p class="text-[#555555] leading-relaxed">
           Because content that doesn't come from a real story is just noise. And the world doesn't need more noise. It needs more of <em>you.</em>
         </p>
       </div>
@@ -333,22 +334,22 @@
         <div class="stage rounded-2xl p-6">
           <p class="text-xs text-pink tracking-widest uppercase mb-1">Your Origin</p>
           <h3 class="font-serif text-lg font-bold text-navy mb-1">The Origin Story</h3>
-          <p class="text-[#7a6b72] text-sm leading-relaxed">Why you started. What brought you here. The story that makes people trust you before they've ever met you.</p>
+          <p class="text-[#555555] text-sm leading-relaxed">Why you started. What brought you here. The story that makes people trust you before they've ever met you.</p>
         </div>
         <div class="stage rounded-2xl p-6">
           <p class="text-xs text-pink tracking-widest uppercase mb-1">Your Proof</p>
           <h3 class="font-serif text-lg font-bold text-navy mb-1">The Method Story</h3>
-          <p class="text-[#7a6b72] text-sm leading-relaxed">How what you do actually works, told through real moments instead of marketing claims. The story that turns skeptics into believers.</p>
+          <p class="text-[#555555] text-sm leading-relaxed">How what you do actually works, told through real moments instead of marketing claims. The story that turns skeptics into believers.</p>
         </div>
         <div class="stage rounded-2xl p-6">
           <p class="text-xs text-pink tracking-widest uppercase mb-1">Their Journey</p>
           <h3 class="font-serif text-lg font-bold text-navy mb-1">The Client Journey</h3>
-          <p class="text-[#7a6b72] text-sm leading-relaxed">Where your client was before working with you. Where they are now. The story that shows exactly what's possible for the next person reading your post.</p>
+          <p class="text-[#555555] text-sm leading-relaxed">Where your client was before working with you. Where they are now. The story that shows exactly what's possible for the next person reading your post.</p>
         </div>
         <div class="stage rounded-2xl p-6">
           <p class="text-xs text-pink tracking-widest uppercase mb-1">Your Why</p>
           <h3 class="font-serif text-lg font-bold text-navy mb-1">The Belief Story</h3>
-          <p class="text-[#7a6b72] text-sm leading-relaxed">What you stand for. What you refuse to accept. The story that draws in the right people and naturally filters out the wrong ones.</p>
+          <p class="text-[#555555] text-sm leading-relaxed">What you stand for. What you refuse to accept. The story that draws in the right people and naturally filters out the wrong ones.</p>
         </div>
       </div>
 
@@ -360,7 +361,7 @@
       <div class="font-serif text-2xl md:text-3xl font-bold text-navy mb-4">
         The Before <span class="text-pink mx-3">→</span> The Turning Point <span class="text-pink mx-3">→</span> The After
       </div>
-      <p class="text-[#7a6b72] max-w-2xl mx-auto leading-relaxed">Every story the app helps you build follows this arc: where you or your client started, the moment something shifted, and the life that exists on the other side. That structure is what makes people stop scrolling and start feeling something.</p>
+      <p class="text-[#555555] max-w-2xl mx-auto leading-relaxed">Every story the app helps you build follows this arc: where you or your client started, the moment something shifted, and the life that exists on the other side. That structure is what makes people stop scrolling and start feeling something.</p>
     </div>
   </section>
 
@@ -371,7 +372,7 @@
     <div class="text-center mb-6">
       <p class="eyebrow-pill mb-5">What's inside</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">A tool for every moment <em>you've been stuck.</em></h2>
-      <p class="text-[#7a6b72] text-lg max-w-2xl mx-auto leading-relaxed">You don't have a content problem. You have a system problem. Here's what changes when you finally have one.</p>
+      <p class="text-[#555555] text-lg max-w-2xl mx-auto leading-relaxed">You don't have a content problem. You have a system problem. Here's what changes when you finally have one.</p>
     </div>
 
     <!-- Pain intro banner -->
@@ -386,70 +387,70 @@
         <div class="text-2xl mb-3">🎯</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When you're starting from scratch every time</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Brand Setup Hub</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">You built a whole business but every time you sit down to post, you feel like you're starting over. The Setup Hub locks in your niche, voice, pillars, and pace once. Every tool in the app builds from it. No more blank page. No more guessing.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">You built a whole business but every time you sit down to post, you feel like you're starting over. The Setup Hub locks in your niche, voice, pillars, and pace once. Every tool in the app builds from it. No more blank page. No more guessing.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">📖</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When your content sounds like everyone else's</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Brand Story Builder</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Generic content gets scrolled past. Your story is the one thing no competitor can copy. The Story Builder pulls out your origin story, your voice, your transformation arc, and feeds it into every script and idea the app creates for you.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Generic content gets scrolled past. Your story is the one thing no competitor can copy. The Story Builder pulls out your origin story, your voice, your transformation arc, and feeds it into every script and idea the app creates for you.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">🔍</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When the right people can't find you</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">SEO Profile Optimizer</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Right now, people are searching for exactly what you do and landing on someone else's page. AI rewrites your bio and profile name for every platform with the keywords your ideal client is actually typing. Show up before they even know they need you.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Right now, people are searching for exactly what you do and landing on someone else's page. AI rewrites your bio and profile name for every platform with the keywords your ideal client is actually typing. Show up before they even know they need you.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">🧠</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When your content sounds AI-written, not you</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Knowledge Bank</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Your best lines come to you in the car, in the shower, mid-client-call. Then you forget them. The Knowledge Bank stores your offers, client wins, FAQs, and talking points so the AI always has your real voice to pull from, not a generic version of it.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Your best lines come to you in the car, in the shower, mid-client-call. Then you forget them. The Knowledge Bank stores your offers, client wins, FAQs, and talking points so the AI always has your real voice to pull from, not a generic version of it.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">🗓️</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When Sunday night hits and you have nothing planned</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Monthly Strategy</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">That Sunday dread is a strategy problem, not a motivation problem. In minutes, the app builds your full month: themes, content mix, selling vs. value ratio, and weekly focus, all calibrated to your brand. You open Monday knowing exactly what to post.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">That Sunday dread is a strategy problem, not a motivation problem. In minutes, the app builds your full month: themes, content mix, selling vs. value ratio, and weekly focus, all calibrated to your brand. You open Monday knowing exactly what to post.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">📺</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When you start things but never stay consistent</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Content Series Planner</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">You had that series idea. You posted twice and disappeared. Consistency isn't a willpower issue. It's a planning issue. The Series Planner maps out your recurring content, tracks every episode, and keeps it visible in your calendar so it actually happens.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">You had that series idea. You posted twice and disappeared. Consistency isn't a willpower issue. It's a planning issue. The Series Planner maps out your recurring content, tracks every episode, and keeps it visible in your calendar so it actually happens.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">💡</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When you scroll for inspiration and post nothing</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Content Ideas Generator</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Scrolling other people's content to find your voice never works. It just makes you feel behind. The Ideas Generator creates scroll-stopping content ideas built around your pillars, your audience, and your format preferences. On demand, anytime you need them.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Scrolling other people's content to find your voice never works. It just makes you feel behind. The Ideas Generator creates scroll-stopping content ideas built around your pillars, your audience, and your format preferences. On demand, anytime you need them.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">📅</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When you're posting randomly and hoping it works</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Content Calendar</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">Hope is not a strategy. The visual calendar shows your full month at a glance: what's planned, what's posted, what's missing. Drag posts to new dates, track status, and see whether you're actually balanced between selling and serving. No more winging it.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">Hope is not a strategy. The visual calendar shows your full month at a glance: what's planned, what's posted, what's missing. Drag posts to new dates, track status, and see whether you're actually balanced between selling and serving. No more winging it.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">🎬</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When you know what you want to say but can't find the words</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Video Script Studio</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">The idea is there. The camera is on. And then nothing comes out right. The Script Studio writes your full video script: hook, story, value, CTA, on-screen text cues, for Reels, TikToks, Shorts, Carousels, and more. You just show up and deliver it.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">The idea is there. The camera is on. And then nothing comes out right. The Script Studio writes your full video script: hook, story, value, CTA, on-screen text cues, for Reels, TikToks, Shorts, Carousels, and more. You just show up and deliver it.</p>
       </div>
 
       <div class="card rounded-2xl p-7">
         <div class="text-2xl mb-3">#️⃣</div>
         <p class="text-pink text-xs font-bold tracking-widest uppercase mb-3">When you post great content that nobody sees</p>
         <h3 class="font-serif text-lg font-bold text-navy mb-2">Hashtag Vault</h3>
-        <p class="text-[#7a6b72] text-sm leading-relaxed">You spent an hour on that post and got 12 likes, most of them from people who already follow you. The Vault generates hashtag sets built for your niche and platform: a mix of broad reach and niche-specific tags that actually put your content in front of new eyes.</p>
+        <p class="text-[#555555] text-sm leading-relaxed">You spent an hour on that post and got 12 likes, most of them from people who already follow you. The Vault generates hashtag sets built for your niche and platform: a mix of broad reach and niche-specific tags that actually put your content in front of new eyes.</p>
       </div>
 
     </div>
@@ -464,7 +465,7 @@
     <div class="text-center mb-10">
       <p class="eyebrow-pill mb-5">Founding Member Pricing</p>
       <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">20 founding spots. <em>Locked in for as long as your subscription stays active.</em></h2>
-      <p class="text-[#7a6b72]">Price goes to $297/mo after launch. Founding rate is yours for as long as you stay.</p>
+      <p class="text-[#555555]">Price goes to $297/mo after launch. Founding rate is yours for as long as you stay.</p>
     </div>
 
 
@@ -472,23 +473,23 @@
     <div class="glow-card-wrap mb-10">
     <div class="card rounded-2xl p-10 relative">
       <div class="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap">
-        <span class="glow-badge bg-[#C98FAA] text-white text-xs font-bold px-5 py-1.5 rounded-full">🍸 Founding Member · 20 spots only</span>
+        <span class="glow-badge bg-[#EDA4BF] text-white text-xs font-bold px-5 py-1.5 rounded-full">🍸 Founding Member · 20 spots only</span>
       </div>
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8">
         <div>
           <p class="text-mauve text-sm uppercase tracking-widest mb-2">The Strategist</p>
           <div class="flex items-baseline gap-3">
             <span id="price-amount" class="font-serif text-6xl font-bold text-navy">$97</span>
-            <span id="price-original" class="text-[#7a6b72] line-through text-2xl">$297</span>
+            <span id="price-original" class="text-[#555555] line-through text-2xl">$297</span>
           </div>
-          <p id="price-sub" class="text-[#7a6b72] text-sm mt-1">per month · locked in for as long as the subscription stays active</p>
+          <p id="price-sub" class="text-[#555555] text-sm mt-1">per month · locked in for as long as the subscription stays active</p>
         </div>
         <div class="text-center">
           <a id="price-cta" href="https://app.smmology.us/signup?plan=monthly" class="btn-primary rounded-full px-8 py-3.5 text-sm whitespace-nowrap inline-block">Claim Your Spot →</a>
-          <p class="text-[#7a6b72] text-xs mt-2">Covered by The Martini Promise. Ask within 30 days of joining.</p>
+          <p class="text-[#555555] text-xs mt-2">Covered by The Martini Promise. Ask within 30 days of joining.</p>
         </div>
       </div>
-      <ul class="grid sm:grid-cols-2 gap-3 text-sm text-[#7a6b72]">
+      <ul class="grid sm:grid-cols-2 gap-3 text-sm text-[#555555]">
         <li class="flex gap-2"><span class="check">✓</span>Full content strategy every month</li>
         <li class="flex gap-2"><span class="check">✓</span>30-day visual content calendar</li>
         <li class="flex gap-2"><span class="check">✓</span>Video scripts written to format</li>
@@ -504,7 +505,7 @@
 
     <!-- Quiet upsell -->
     <div class="border border-[#e8ddd8] rounded-xl px-8 py-6 text-center">
-      <p class="text-[#7a6b72] text-sm mb-1">Ready for more? We offer full-service tiers for clients who want their videos edited or their entire social presence managed.</p>
+      <p class="text-[#555555] text-sm mb-1">Ready for more? We offer full-service tiers for clients who want their videos edited or their entire social presence managed.</p>
       <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="text-pink text-sm font-semibold hover:underline">Book a call to learn more →</a>
     </div>
   </section>
@@ -517,7 +518,7 @@
 
         <div>
           <p class="eyebrow-pill mb-6" style="background:rgba(237,164,191,.1);border-color:rgba(237,164,191,.3);color:#EDA4BF;">Not ready to commit just yet?</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight" style="color:#FAF7F5;">Let me walk you through it <em>personally.</em></h2>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight" style="color:#FAF9F6;">Let me walk you through it <em>personally.</em></h2>
           <p class="text-lg leading-relaxed mb-6" style="color:#8aaabb;">Book a free 45-minute discovery call with me. I'll show you exactly how the app works for your specific niche, answer every question you have, and help you figure out if it's the right fit for where you are right now.</p>
           <p class="leading-relaxed mb-8" style="color:#8aaabb;">No pitch. No pressure. Just a real, honest look at what's possible for your brand.</p>
           <a href="https://calendar.app.google/JQLJ23KJ7SjfpL8k9" target="_blank" class="btn-primary px-8 py-4 rounded-full text-base inline-block">Book a Free Discovery Call →</a>
@@ -527,17 +528,17 @@
           <div class="stage rounded-2xl p-6">
             <p class="text-xs tracking-widest uppercase mb-2" style="color:#EDA4BF;">On the call</p>
             <h3 class="font-serif text-lg font-bold text-navy mb-1">See the app live</h3>
-            <p class="text-[#7a6b72] text-sm leading-relaxed">I'll share my screen and walk you through every tool with your actual niche and brand in mind, so you can see exactly what you'd be working with.</p>
+            <p class="text-[#555555] text-sm leading-relaxed">I'll share my screen and walk you through every tool with your actual niche and brand in mind, so you can see exactly what you'd be working with.</p>
           </div>
           <div class="stage rounded-2xl p-6">
             <p class="text-xs tracking-widest uppercase mb-2" style="color:#EDA4BF;">On the call</p>
             <h3 class="font-serif text-lg font-bold text-navy mb-1">Get your questions answered</h3>
-            <p class="text-[#7a6b72] text-sm leading-relaxed">Bring every concern, hesitation, and "but what about..." you have. Nothing is too small. I'd rather you ask now than second-guess yourself later.</p>
+            <p class="text-[#555555] text-sm leading-relaxed">Bring every concern, hesitation, and "but what about..." you have. Nothing is too small. I'd rather you ask now than second-guess yourself later.</p>
           </div>
           <div class="stage rounded-2xl p-6">
             <p class="text-xs tracking-widest uppercase mb-2" style="color:#EDA4BF;">On the call</p>
             <h3 class="font-serif text-lg font-bold text-navy mb-1">Leave with a clear next step</h3>
-            <p class="text-[#7a6b72] text-sm leading-relaxed">Whether you join, bookmark it for later, or decide it's not for you, you'll leave knowing exactly where you stand. No obligation, ever.</p>
+            <p class="text-[#555555] text-sm leading-relaxed">Whether you join, bookmark it for later, or decide it's not for you, you'll leave knowing exactly where you stand. No obligation, ever.</p>
           </div>
         </div>
 
@@ -551,8 +552,8 @@
   <section class="py-20 px-6 max-w-3xl mx-auto text-center">
     <div class="text-4xl mb-6">🍸</div>
     <h2 class="font-serif text-3xl font-bold mb-4">The Martini Promise 🍸</h2>
-    <p class="text-[#7a6b72] text-lg leading-relaxed">Give your first 30 days a real try. If you don't feel more confident about what to post, I'll sit down with you 1:1 and rework your plan. If it still isn't for you after that, I'll refund your first month.</p>
-    <p class="text-[#7a6b72] text-sm leading-relaxed mt-4"><em>Ask within 30 days of joining. The 1:1 rework comes first. Covers your first monthly payment, once per person. Full terms: <a href="https://app.smmology.us/terms" target="_blank" class="text-pink hover:underline">Terms of Service</a></em></p>
+    <p class="text-[#555555] text-lg leading-relaxed">Give your first 30 days a real try. If you don't feel more confident about what to post, I'll sit down with you 1:1 and rework your plan. If it still isn't for you after that, I'll refund your first month.</p>
+    <p class="text-[#555555] text-sm leading-relaxed mt-4"><em>Ask within 30 days of joining. The 1:1 rework comes first. Covers your first monthly payment, once per person. Full terms: <a href="https://app.smmology.us/terms" target="_blank" class="text-pink hover:underline">Terms of Service</a></em></p>
   </section>
 
   <div class="martini-divider py-3" aria-hidden="true"><span class="text-[#EDA4BF] text-lg select-none">🍸</span></div>
@@ -577,7 +578,7 @@
       <!-- Right: Bio -->
       <div>
         <p class="eyebrow-pill mb-6" style="background:rgba(237,164,191,.1);border-color:rgba(237,164,191,.3);color:#EDA4BF;">Meet Your Strategist</p>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight" style="color:#FAF7F5;">
+        <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight" style="color:#FAF9F6;">
           You didn't start a business to create content.<br/><em>But I did.</em>
         </h2>
         <p class="text-lg leading-relaxed mb-4" style="color:#8aaabb;">
@@ -608,50 +609,50 @@
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#C98FAA] transition-colors">Do I need to be tech-savvy to use the app?</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">Do I need to be tech-savvy to use the app?</span>
           <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
-        <div class="faq-answer hidden mt-4 text-[#7a6b72] leading-relaxed">Not at all. The app runs in your browser — no installs, no accounts beyond signing up. You open it, fill in your brand info once, and everything builds from there. Every tool is labeled and walkthrough-ready.</div>
+        <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">Not at all. The app runs in your browser — no installs, no accounts beyond signing up. You open it, fill in your brand info once, and everything builds from there. Every tool is labeled and walkthrough-ready.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#C98FAA] transition-colors">Is this for product-based or service-based businesses?</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">Is this for product-based or service-based businesses?</span>
           <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
-        <div class="faq-answer hidden mt-4 text-[#7a6b72] leading-relaxed">Both — but it's particularly powerful for service-based businesses (coaches, consultants, creatives, agencies) where trust and relationship-building drive buying decisions. The funnel stages map directly onto how service clients make decisions.</div>
+        <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">Both — but it's particularly powerful for service-based businesses (coaches, consultants, creatives, agencies) where trust and relationship-building drive buying decisions. The funnel stages map directly onto how service clients make decisions.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#C98FAA] transition-colors">What platforms does the method work on?</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">What platforms does the method work on?</span>
           <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
-        <div class="faq-answer hidden mt-4 text-[#7a6b72] leading-relaxed">The framework works on any social platform. The app supports Instagram, TikTok, Pinterest, Facebook, YouTube, and X. The strategy guides you to the platforms that actually match your audience's demographics.</div>
+        <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">The framework works on any social platform. The app supports Instagram, TikTok, Pinterest, Facebook, YouTube, and X. The strategy guides you to the platforms that actually match your audience's demographics.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#C98FAA] transition-colors">What's included in the monthly 1:1 strategy call?</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">What's included in the monthly 1:1 strategy call?</span>
           <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
-        <div class="faq-answer hidden mt-4 text-[#7a6b72] leading-relaxed">It's a focused session where we review your content strategy together — what's working, what to adjust, and what to focus on next month. You leave with a clear direction built specifically for your business, not a generic template.</div>
+        <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">It's a focused session where we review your content strategy together — what's working, what to adjust, and what to focus on next month. You leave with a clear direction built specifically for your business, not a generic template.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#C98FAA] transition-colors">How is this different from just following social media tips online?</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">How is this different from just following social media tips online?</span>
           <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
-        <div class="faq-answer hidden mt-4 text-[#7a6b72] leading-relaxed">Random tips treat symptoms. The Martini Method treats the cause — a missing strategy. Instead of "post 3x a week" with no direction, you'll know exactly what to post, why, who it's for, and what you want them to do next. It's a system, not a suggestion.</div>
+        <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">Random tips treat symptoms. The Martini Method treats the cause — a missing strategy. Instead of "post 3x a week" with no direction, you'll know exactly what to post, why, who it's for, and what you want them to do next. It's a system, not a suggestion.</div>
       </div>
 
       <div class="py-5">
         <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between text-left gap-4 group">
-          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#C98FAA] transition-colors">What if it doesn't work for me?</span>
+          <span class="font-serif text-lg font-semibold text-navy group-hover:text-[#EDA4BF] transition-colors">What if it doesn't work for me?</span>
           <span class="faq-icon text-[#EDA4BF] text-2xl font-light shrink-0 transition-transform duration-200">+</span>
         </button>
-        <div class="faq-answer hidden mt-4 text-[#7a6b72] leading-relaxed">I completely understand, you want to know your time is going somewhere, right? That's why there's The Martini Promise. Give your first 30 days a real try, and if you don't feel more confident about what to post, I'll sit down with you 1:1 and rework your plan. If it still isn't for you after that, I'll refund your first month. Just ask within 30 days of joining. It covers your first monthly payment, once per person. What I can't promise is a number of followers or views, because that depends on a lot of things outside my control. What I can promise is that I'll be working on your plan with you.</div>
+        <div class="faq-answer hidden mt-4 text-[#555555] leading-relaxed">I completely understand, you want to know your time is going somewhere, right? That's why there's The Martini Promise. Give your first 30 days a real try, and if you don't feel more confident about what to post, I'll sit down with you 1:1 and rework your plan. If it still isn't for you after that, I'll refund your first month. Just ask within 30 days of joining. It covers your first monthly payment, once per person. What I can't promise is a number of followers or views, because that depends on a lot of things outside my control. What I can promise is that I'll be working on your plan with you.</div>
       </div>
 
     </div>

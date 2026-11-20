@@ -23,7 +23,7 @@
   }
   </script>
   <link rel="icon" type="image/jpeg" href="assets/logo-navy.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -48,18 +48,18 @@
       --navy:   #161B28;
       --slate:  #404C70;
       --mauve:  #907A9A;
-      --pink:   #C98FAA;
-      --blush:  #F4EDEA;
-      --cream:  #FAF7F5;
+      --pink:   #EDA4BF;
+      --blush:  #FFE2EA;
+      --cream:  #FAF9F6;
       --white:  #FFFFFF;
-      --text:   #2a1f2e;
-      --muted:  #7a6b72;
+      --text:   #161B28;
+      --muted:  #555555;
       --border: #e8ddd8;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
-    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+    h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; }
     em { font-style: italic; color: var(--pink); }
     a  { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
@@ -75,13 +75,13 @@
       max-width: 1100px; margin: 0 auto; padding: 0 32px;
       width: 100%; display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); font-weight: 700; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--navy); font-weight: 700; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a:not(.btn) { font-size: .875rem; color: var(--muted); font-weight: 500; transition: color .2s; }
     .nav-links a:not(.btn):hover { color: var(--pink); }
     .btn { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; cursor: pointer; transition: opacity .2s, transform .1s; }
     .btn:hover { opacity: .88; transform: translateY(-1px); }
-    .btn-pink  { background: var(--pink); color: #fff; }
+    .btn-pink  { background: var(--pink); color: var(--navy, #161B28); }
     .btn-outline { border: 2px solid var(--pink); color: var(--pink); background: transparent; }
     .btn-lg { padding: 14px 36px; font-size: 1rem; }
 
@@ -163,7 +163,7 @@
     .hero-visual p  { font-size: .9rem; color: #b0b8cc; margin-bottom: 28px; }
     .stat-row { display: flex; gap: 24px; margin-top: 28px; }
     .stat-item { flex: 1; }
-    .stat-num  { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--pink); }
+    .stat-num  { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; color: var(--pink); }
     .stat-lbl  { font-size: .75rem; color: #8899bb; margin-top: 2px; }
     .pill-row  { display: flex; gap: 8px; flex-wrap: wrap; }
     .pill {
@@ -179,7 +179,7 @@
       border-right: 1px solid rgba(255,255,255,.1);
     }
     .stat-card:last-child { border-right: none; }
-    .stat-big  { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); }
+    .stat-big  { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); }
     .stat-desc { font-size: .9rem; color: #8899bb; margin-top: 8px; line-height: 1.5; }
 
     /* ── SERVICES ────────────────────────── */
@@ -205,7 +205,7 @@
     }
     .card-tier { font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mauve); margin-bottom: 12px; }
     .card-popular .card-tier { color: var(--pink); }
-    .card-price { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--navy); }
+    .card-price { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--navy); }
     .card-popular .card-price { color: white; }
     .card-cycle { font-size: .85rem; color: var(--muted); margin-top: 2px; }
     .card-popular .card-cycle { color: #8899bb; }
@@ -244,9 +244,9 @@
     }
     .stage-dot-attract  { background: #5B4B8A; }
     .stage-dot-engage   { background: #8B6F8E; }
-    .stage-dot-convert  { background: #C98FAA; }
+    .stage-dot-convert  { background: #EDA4BF; }
     .stage-dot-buy      { background: #E8BECD; }
-    .stage-label { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--navy); }
+    .stage-label { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: var(--navy); }
     .stage-desc  { font-size: .82rem; color: var(--muted); margin-top: 2px; }
 
     /* ── RESULTS ─────────────────────────── */
@@ -256,7 +256,7 @@
       border: 1px solid var(--border);
       box-shadow: 0 4px 28px rgba(42,31,46,.07);
     }
-    .result-num { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); margin-bottom: 8px; }
+    .result-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 700; color: var(--pink); margin-bottom: 8px; }
     .result-title { font-weight: 600; font-size: 1rem; margin-bottom: 10px; color: var(--navy); }
     .result-desc { font-size: .875rem; color: var(--muted); line-height: 1.65; }
 
@@ -299,7 +299,7 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 2.5rem;
     }
-    .about-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 6px; }
+    .about-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; }
     .about-role { color: var(--pink); font-size: .875rem; margin-bottom: 28px; }
     .about-facts { display: flex; flex-direction: column; gap: 12px; text-align: left; }
     .fact { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: #b0b8cc; }
@@ -319,7 +319,7 @@
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 16px;
     }
-    .footer-logo { font-family: 'Playfair Display', serif; color: white; font-size: 1.1rem; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; color: white; font-size: 1.1rem; }
     .footer-links { display: flex; gap: 24px; font-size: .875rem; }
     .footer-links a { color: #8899bb; transition: color .2s; }
     .footer-links a:hover { color: var(--pink); }
@@ -355,7 +355,7 @@
     .addon-wide { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; }
     .addon-wide .addon-icon { margin-bottom: 0; }
     .addon-wide .addon-foot { margin-top: 0; flex-direction: column; align-items: flex-end; gap: 4px; }
-    .addon-new { display: inline-block; vertical-align: middle; margin-left: 6px; background: var(--pink); color: white; font-family: 'Inter', sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
+    .addon-new { display: inline-block; vertical-align: middle; margin-left: 6px; background: var(--pink); color: white; font-family: 'Outfit', sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
     @media (max-width: 720px) {
       .addon-wide { grid-template-columns: 1fr; gap: 0; }
       .addon-wide .addon-icon { margin-bottom: 16px; }
@@ -376,8 +376,8 @@
     .dialog-switch { display: flex; gap: 6px; background: var(--blush); padding: 4px; border-radius: 999px; margin: 12px 0 4px; }
     .dialog-switch button { flex: 1; border: none; background: transparent; font: inherit; font-size: .8rem; font-weight: 600; color: var(--muted); padding: 8px 10px; border-radius: 999px; cursor: pointer; }
     .dialog-switch button.on { background: white; color: var(--navy); box-shadow: 0 2px 8px rgba(42,31,46,.08); }
-    .dialog-price { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--pink); font-weight: 700; margin: 6px 0 14px; }
-    .dialog-price small { font-family: 'Inter', sans-serif; font-size: .8rem; color: var(--muted); font-weight: 500; }
+    .dialog-price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--pink); font-weight: 700; margin: 6px 0 14px; }
+    .dialog-price small { font-family: 'Outfit', sans-serif; font-size: .8rem; color: var(--muted); font-weight: 500; }
     .dialog-pitch { color: var(--muted); font-size: .95rem; line-height: 1.65; margin-bottom: 22px; }
     .dialog-label { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mauve); margin-bottom: 12px; }
     .addon-dialog .check-list { margin-bottom: 22px; }
@@ -392,7 +392,7 @@
     .summary-due { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(201,143,170,.14); }
     .summary-due:empty { display: none; }
     .summary-due span { font-size: .8rem; color: var(--pink); font-weight: 600; }
-    .summary-due strong { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--pink); }
+    .summary-due strong { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--pink); }
     .summary-actions { display: flex; flex-direction: column; gap: 10px; }
     .summary-btn { display: block; text-align: center; font-size: .92rem; padding: 14px 20px; }
     .summary-btn-alt { display: block; text-align: center; border: 1.5px solid rgba(255,255,255,.22); color: #e3e7f0; border-radius: 999px; padding: 11px 20px; font-size: .85rem; font-weight: 600; transition: border-color .2s; }
@@ -431,7 +431,7 @@
     .summary-totals { border-top: 1px solid rgba(255,255,255,.12); margin-top: 20px; padding-top: 18px; display: flex; flex-direction: column; gap: 6px; }
     .summary-totals div { display: flex; justify-content: space-between; align-items: baseline; }
     .summary-totals span { font-size: .8rem; color: #8899bb; }
-    .summary-totals strong { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: white; }
+    .summary-totals strong { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: white; }
     .summary-note { font-size: .75rem; color: #8899bb; margin: 14px 0 20px; line-height: 1.5; }
     .summary-copy { display: block; width: 100%; margin-top: 10px; background: transparent; border: 1.5px solid rgba(255,255,255,.2); color: #c8d0e0; border-radius: 999px; padding: 10px; font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
     .summary-copy:hover { border-color: var(--pink); color: white; }
@@ -458,6 +458,7 @@
       .method-image-wrap img { max-width: 260px; }
       .nav-links { display: none; }
     }
+      body { font-variant-numeric: lining-nums; }
   </style>
 </head>
 <body>
@@ -776,7 +777,7 @@
         </div>
         <div style="padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
           <div style="color:var(--pink);font-size:1.1rem;margin-bottom:16px;">★★★★★</div>
-          <blockquote style="font-family:'Playfair Display',serif;font-size:1.25rem;color:white;line-height:1.6;margin-bottom:24px;font-style:italic;">"Working with Diana completely changed how I show up on social media. Our business has never been more visible."</blockquote>
+          <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:white;line-height:1.6;margin-bottom:24px;font-style:italic;">"Working with Diana completely changed how I show up on social media. Our business has never been more visible."</blockquote>
           <div style="display:flex;align-items:center;gap:14px;">
             <div style="width:46px;height:46px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:.9rem;">KS</div>
             <div>

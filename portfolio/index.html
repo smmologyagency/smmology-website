@@ -7,7 +7,7 @@
   <meta name="description" content="Content shoots, video editing and social media management by Smmology for local businesses around Sacramento." />
   <link rel="canonical" href="https://www.smmology.us/portfolio" />
   <link rel="icon" type="image/jpeg" href="../assets/logo-navy.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -33,14 +33,14 @@
       --mauve: #907A9A;
       --pink:  #EDA4BF;
       --blush: #FFE2EA;
-      --cream: #FAF7F5;
-      --text:  #2a1f2e;
-      --muted: #7a6b72;
+      --cream: #FAF9F6;
+      --text:  #161B28;
+      --muted: #555555;
       --border:#e8ddd8;
     }
 
-    body { background: var(--cream); color: var(--text); font-family: 'Inter', system-ui, sans-serif; }
-    em   { font-style: italic; color: #C98FAA; font-family: 'Playfair Display', serif; }
+    body { background: var(--cream); color: var(--text); font-family: 'Outfit', system-ui, sans-serif; }
+    em   { font-style: italic; color: #EDA4BF; font-family: 'Cormorant Garamond', serif; }
 
     /* NAV */
     nav {
@@ -56,14 +56,14 @@
       padding: 0 32px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); font-weight: 700; }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--navy); font-weight: 700; }
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-links a:not(.btn) { font-size: .875rem; color: var(--mauve); font-weight: 500; text-decoration: none; transition: color .2s; }
     .nav-links a:not(.btn):hover { color: var(--pink); }
     .nav-links a.active { color: var(--navy); font-weight: 600; }
     .btn { display: inline-block; padding: 10px 24px; border-radius: 999px; font-weight: 600; font-size: .875rem; cursor: pointer; transition: opacity .2s, transform .1s; text-decoration: none; }
     .btn:hover { opacity: .88; transform: translateY(-1px); }
-    .btn-pink { background: var(--pink); color: #fff; }
+    .btn-pink { background: var(--pink); color: var(--navy, #161B28); }
 
     /* HERO */
     .hero {
@@ -80,7 +80,7 @@
       margin-bottom: 1.5rem;
     }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 700;
       color: var(--navy);
@@ -103,7 +103,7 @@
       margin-bottom: .75rem;
     }
     .section-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 700; color: var(--navy);
       margin-bottom: .5rem;
@@ -186,7 +186,7 @@
     }
     .badge-active { background: #2d9f5b; }
     .client-name {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.6rem; font-weight: 700;
       color: var(--navy); line-height: 1.2;
       margin-bottom: .3rem;
@@ -314,7 +314,7 @@
       background: #2d9f5b;
     }
     .smm-name {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1rem; font-weight: 700; color: var(--navy);
       margin-bottom: .2rem;
     }
@@ -435,9 +435,9 @@
     }
     .cta-section .eyebrow { background: rgba(237,164,191,.1); border-color: rgba(237,164,191,.25); }
     .cta-section h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 700; color: #FAF7F5;
+      font-weight: 700; color: #FAF9F6;
       margin-bottom: 1rem; text-wrap: balance;
     }
     .cta-section p { font-size: .95rem; color: #8aaabb; max-width: 440px; margin: 0 auto 2rem; line-height: 1.65; }
@@ -639,6 +639,7 @@
       .media-grid-featured { grid-template-columns: 1fr 1fr; }
       .slot.span-col { grid-row: span 1; }
     }
+      body { font-variant-numeric: lining-nums; }
   </style>
 </head>
 <body>
@@ -1393,7 +1394,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <a href="https://smmology.us" style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);">Smmology</a>
+      <a href="https://smmology.us" style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--navy);">Smmology</a>
       <span>© 2026 Smmology · Diana De La O</span>
       <div style="display:flex;gap:1.5rem;">
         <a href="https://app.smmology.us/privacy">Privacy Policy</a>
